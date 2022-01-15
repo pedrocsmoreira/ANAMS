@@ -2,7 +2,7 @@ package ui;
 
 public class UC11_UI{
 	private GESTFEST gestfest;
-	private registarPlanoBilhetica controller;
+	private comprarBilhetesController controller;
 
 	public UC11_UI(GESTFEST gestfest){
 		this.gestfest = gestfest;

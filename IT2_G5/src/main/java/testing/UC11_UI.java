@@ -2,7 +2,7 @@ package ui;
 
 public class UC11_UI{
 	private GESTFEST gestfest;
-	private registarPlanoBilhetica controller;
+	private registarPlanoBilheticaController controller;
 
 	public UC11_UI(GESTFEST gestfest){
 		this.gestfest = gestfest;
@@ -11,12 +11,16 @@ public class UC11_UI{
 	public void run(){
 		System.out.println("Planeamento da Bilhética de um festival");
 
-		controller.procuraFestival(introduzFestival());
+		try{
+			controller.consultarFestival(introduzFestival());
+		}catch(ExcecaoNaoExiste e){
+			e.printStackTrace();
+		}
 
 		controller.setDatas();
 
-		ArrayList<LocalDate> datas = controller.getDatas();
-		ArrayList<TipoBilhete> tipoBilhete = controller.getTipoBilhete();
+		List<LocalDate> datas = controller.getDatas();
+		List<TipoBilhete> tipoBilhete = controller.getTipoBilhete();
 		HashMap<LocalDate, HashMap<TipoBilhete, Integer>> plano = new HashMap<>();
 		for(LocalDate d : datas){
 			HashMap<TipoBilhete, Integer> planoDiario = new HashMap<>();
@@ -44,5 +48,4 @@ public class UC11_UI{
 		}while(a < 0 || a > lotacao)
 		return new Integer(a);
 	}
-
 }

@@ -8,11 +8,11 @@ import model.GESTFEST;
  * @author grupo5
  */
 
-public class registarPlaneamentoBilhetica {
+public class comprarBilhetesController {
     private GESTFEST gestfest;
     private Festival festival;
 
-    public registarPlaneamentoBilhetica(GESTFEST gestfest){
+    public comprarBilhetesController(GESTFEST gestfest){
         this.gestfest = gestfest;
     }
 

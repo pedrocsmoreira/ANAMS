@@ -25,6 +25,4 @@ public class PlanoBilheteira{
 		this.plano = plano.plano;
 	}
 
-
-
 }
