@@ -24,5 +24,4 @@ public class PlanoBilheteira{
 		this.festival = plano.festival;
 		this.plano = plano.plano;
 	}
-
 }

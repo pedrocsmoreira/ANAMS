@@ -11,12 +11,15 @@ public class UC11_UI{
 	public void run(){
 		System.out.println("Compra de Bilhetes");
 
+		controller.novaCompra();
+
 		controller.procuraFestival(introduzFestival());
 
 		ArrayList<TipoBilhete> tipoBilhete = controller.getTipoBilhete();
 		for (TipoBilhete tp : tipoBilhete) {
 			System.out.println(tp);
 		}
+
 		controller.setTipoBilhete(introduzTipoBilhete(tipoBilhete.length()));
 
 		controller.setNumBilhetes(introduzNumBilhetes(controller.getBilhetesDisponiveis()));
