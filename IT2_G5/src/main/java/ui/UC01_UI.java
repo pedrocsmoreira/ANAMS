@@ -10,12 +10,12 @@ import utils.Utils;
  * @author grupo5
  */
 
-public class UC1_UI {
+public class UC01_UI {
 
     private GESTFEST gestfest;
     private registarEntidadeController controller;
 
-    public UC1_UI(GESTFEST gestfest){
+    public UC01_UI(GESTFEST gestfest){
         this.gestfest = gestfest;
         this.controller = new registarEntidadeController(gestfest);
     }

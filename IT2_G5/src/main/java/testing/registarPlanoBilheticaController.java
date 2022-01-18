@@ -15,7 +15,9 @@ import model.GESTFEST;
 public class registarPlanoBilheticaController {
     private GESTFEST gestfest;
     private Festival festival;
-    private List<LocalDate> datas;
+    private PlanoBilheteira plano;
+    private HashMap<LocalDate, HashMap<TipoBilhete, Integer>> plano;
+    private HashMap<TipoBilhete, Integer> planoDiario;
 
     public registarPlanoBilheticaController(GESTFEST gestfest){
         this.gestfest = gestfest;
@@ -39,4 +41,25 @@ public class registarPlanoBilheticaController {
     public List<TipoBilhete> setTipoBilhete(){
         return festival.getTipoBilhete();
     }
+
+    public void newPlano(){
+        plano = new HashMap<>();
+    }
+
+    public void newPlanoDiario(){
+        planoDiario = new HashMap<>();
+    }
+
+    public int getLotacao(LocalDate data){
+        return int;
+    }
+
+    public void setPlanoDiario(TipoBilhete tp, int numBilhetes){
+        planoDiario.put(tp, numBilhetes);
+    }
+
+    public void setPlano(LocalDate d){
+        plano.put(d, this.planoDiario);
+    }
+
 }

@@ -1,10 +1,10 @@
 package ui;
 
-public class UC11_UI{
+public class UC12_UI{
 	private GESTFEST gestfest;
 	private comprarBilhetesController controller;
 
-	public UC11_UI(GESTFEST gestfest){
+	public UC12_UI(GESTFEST gestfest){
 		this.gestfest = gestfest;
 	}
 
@@ -23,6 +23,8 @@ public class UC11_UI{
 		controller.setTipoBilhete(introduzTipoBilhete(tipoBilhete.length()));
 
 		controller.setNumBilhetes(introduzNumBilhetes(controller.getBilhetesDisponiveis()));
+
+		controller.verificaDesconto();
 
 		apresentaDados();
 
