@@ -8,6 +8,7 @@ import java.util.Date;
  */
 
 public class Convite {
+    enum Estado {sem_resposta, aceite, rejeitado, anulado};
     private int referencia;
     private Festival festival;
     private Artista artista;
@@ -27,17 +28,17 @@ public class Convite {
         this.email = STR_DEFAULT;
         this.dataConvite = new Date();
         this.dataLimite = new Date();
-        this.estado = new Estado();
+        this.estado = Estado.sem_resposta;
     }
 
-    public Convite(Festival festival, Artista artista, String email, Date dataConvite, Date dataLimite, Estado estado){
+    public Convite(Festival festival, Artista artista, String email, Date dataConvite, Date dataLimite, String estado){
         this.referencia = ++contador;
         this.festival = festival;
         this.artista = artista;
         this.email = email;
         this.dataConvite = dataConvite;
         this.dataLimite = dataLimite;
-        this.estado = estado;
+        this.estado = Estado.valueOf(estado);
     }
 
     public Convite(Convite c){
@@ -86,8 +87,8 @@ public class Convite {
         return estado;
     }
 
-    public void setEstado(Estado estado) {
-        this.estado = estado;
+    public void setEstado(String estado) {
+        this.estado = Estado.valueOf(estado);
     }
 
     public Festival getFestival() {
