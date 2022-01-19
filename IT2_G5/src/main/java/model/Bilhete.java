@@ -5,39 +5,32 @@ package model;
  * @author grupo5
  */
 
-public class BilhetesFestival {
+public class Bilhete {
     private int referencia;
     private String designacao;
     private TipoBilhete tipo;
     private int preco;
-    private LocalDate data;
-    private int quantidade;
-    private float desconto;
 
     private static int contador = 0;
     private static final String STR_DEFAULT = "";
     private static final int INT_DEFAULT = 0;
     private static final float FLOAT_DEFAULT = 0;
 
-    public BilhetesFestival(){
+    public Bilhete(){
         this.referencia = ++contador;
         this.designacao = STR_DEFAULT;
         this.tipo = new TipoBilhete();
         this.preco = INT_DEFAULT;
-        this.quantidade  =  INT_DEFAULT;
-        this.desconto = FLOAT_DEFAULT;
     }
 
-    public BilhetesFestival(String designacao, TipoBilhete tipo, int preco, int quantidade, float desconto){
+    public Bilhete(String designacao, TipoBilhete tipo, int preco){
         this.referencia = ++contador;
         this.designacao = designacao;
         this.tipo = tipo;
-        this.preco = preço;
-        this.quantidade  =  quantidade;
-        this.desconto = desconto;
+        this.preco = preco;
     }
 
-    public BilhetesFestival(BilhetesFestival bilheteFestival){
+    public Bilhete(Bilhete bilhete){
         this.referencia = bilheteFestival.referencia;
         this.designacao = bilheteFestival.designacao;
         this.tipo = bilheteFestival.tipo;
