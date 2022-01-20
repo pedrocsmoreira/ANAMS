@@ -10,7 +10,7 @@ import model.GESTFEST;
 
 public class comprarBilhetesController {
     private GESTFEST gestfest;
-    private BilhetesFestival compra;
+    private Compra compra;
 
     public comprarBilhetesController(GESTFEST gestfest){
         this.gestfest = gestfest;
@@ -47,5 +47,13 @@ public class comprarBilhetesController {
         }else {
             this.compra.setDesconto(0);
         }
+    }
+
+    public float verificaDescontoFamilia(int numBilhetes){
+        return DescontoFamilia.obterDesconto(numBilhetes);
+    }
+
+    public float verificaDescontoGrupo(int numBilhetes){
+        return DescontoGrupo.obterDesconto(numBilhetes);
     }
 }
