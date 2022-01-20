@@ -15,11 +15,11 @@ import utils.Utils;
  * @author grupo5
  */
 
-public class UC7_UI {
+public class UC07_UI {
     private GESTFEST gestfest;
     private convidarArtistaController controller;
 
-    public UC7_UI(GESTFEST gestfest){
+    public UC07_UI(GESTFEST gestfest){
         this.gestfest = gestfest;
     }
 

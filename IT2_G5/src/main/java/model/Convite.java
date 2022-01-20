@@ -98,11 +98,6 @@ public class Convite {
     public void setFestival(Festival festival) {
         this.festival = festival;
     }
-    
-    
-
-    
-    
 
     public String toString(){
         StringBuffer sb = new StringBuffer();

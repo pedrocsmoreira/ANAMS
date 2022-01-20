@@ -13,11 +13,11 @@ import utils.Utils;
  * @author grupo5
  */
 
-public class UC5_UI {
+public class UC05_UI {
     private GESTFEST gestfest;
     private associarEntidadeController controller;
 
-    public UC5_UI(GESTFEST gestfest){
+    public UC05_UI(GESTFEST gestfest){
         this.gestfest = gestfest;
         controller = new associarEntidadeController(gestfest);
     }

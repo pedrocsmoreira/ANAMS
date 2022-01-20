@@ -31,12 +31,11 @@ public class Bilhete {
     }
 
     public Bilhete(Bilhete bilhete){
-        this.referencia = bilheteFestival.referencia;
-        this.designacao = bilheteFestival.designacao;
-        this.tipo = bilheteFestival.tipo;
-        this.preco = bilheteFestival.preço;
-        this.quantidade  =  bilheteFestival.quantidade;
-        this.desconto = bilheteFestival.desconto;
+        this.referencia = bilhete.referencia;
+        this.bilhete = bilhete.bilhete;
+        this.precoTotal = bilhete.precoTotal;
+        this.quantidade  =  bilhete.quantidade;
+        this.desconto = bilhete.desconto;
     }
 
     public int getReferencia() {

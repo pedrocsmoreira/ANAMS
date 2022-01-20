@@ -9,11 +9,11 @@ import utils.Utils;
  * @author grupo5
  */
 
-public class UC2_UI {
+public class UC02_UI {
     private GESTFEST gestfest;
     private especificarEntidadesController controller;
 
-    public UC2_UI(GESTFEST gestfest){
+    public UC02_UI(GESTFEST gestfest){
         this.gestfest = gestfest;
         controller = new especificarEntidadesController(gestfest);
     }
