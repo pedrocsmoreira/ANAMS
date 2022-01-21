@@ -37,9 +37,9 @@ public class UC09_UI {
         for(LocalDate ld : datas){
             controller.programaDiario(ld, inserirProgramaDiario(ld));
         }
-        
+
         apresentarDados();
-        
+
         if(Utils.confirma("Pretende inserir esta programação do festival? (S/N)")){
             if(controller.inserirPrograma()){
                 System.out.println("Programa de Festival inserido");
@@ -92,11 +92,11 @@ public class UC09_UI {
         atuacao.setDataHoraFim(inserirHoraFim(ld));
         return atuacao;
     }
-    
+
     public String inserirArtista(){
         return Utils.readLineFromConsole("Insira o nome do artista");
     }
-    
+
     public LocalDateTime inserirHoraInicio(LocalDate ld){
         int hora = 0;
         int minutos = 0;
@@ -110,7 +110,7 @@ public class UC09_UI {
         LocalDateTime inicio = LocalDateTime.of(ld,lt);
         return inicio;
     }
-    
+
     public LocalDateTime inserirHoraFim(LocalDate ld){
         int hora = 0;
         int minutos = 0;
@@ -124,7 +124,7 @@ public class UC09_UI {
         LocalDateTime fim = LocalDateTime.of(ld,lt);
         return fim;
     }
-    
+
     public void apresentarDados(){
         System.out.println(controller.dadosPrograma());
     }

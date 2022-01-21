@@ -8,7 +8,7 @@ package model;
 public class Compra {
     private int referencia;
     private Bilhete bilhete;
-    private int precoTotal;
+    private float precoTotal;
     private LocalDate data;
     private int quantidade;
     private float desconto;
@@ -20,29 +20,28 @@ public class Compra {
 
     public Compra(){
         this.referencia = ++contador;
-        this.designacao = STR_DEFAULT;
-        this.tipo = new TipoBilhete();
-        this.preco = INT_DEFAULT;
+        this.bilhete = new Bilhete();
+        this.precoTotal = INT_DEFAULT;
         this.quantidade  =  INT_DEFAULT;
         this.desconto = FLOAT_DEFAULT;
     }
 
-    public Compra(Bilhete bilhete, int precoTotal, int quantidade, float desconto){
+    public Compra(Bilhete bilhete, float precoTotal, LocalDate data, int quantidade, float desconto){
         this.referencia = ++contador;
         this.bilhete = bilhete;
-        this.precoTotal = preco;
+        this.precoTotal = precoTotal;
         this.data = LocalDate.now();
         this.quantidade  =  quantidade;
         this.desconto = desconto;
     }
 
-    public Compra(BilhetesFestival bilheteFestival){
-        this.referencia = bilheteFestival.referencia;
-        this.designacao = bilheteFestival.designacao;
-        this.tipo = bilheteFestival.tipo;
-        this.preco = bilheteFestival.preço;
-        this.quantidade  =  bilheteFestival.quantidade;
-        this.desconto = bilheteFestival.desconto;
+    public Compra(Compra compra){
+        this.referencia = bilhete.referencia;
+        this.bilhete = bilhete.bilhete;
+        this.precoTotal = bilhete.precoTotal;
+        this.data = bilhete.data;
+        this.quantidade  =  bilhete.quantidade;
+        this.desconto = bilhete.desconto;
     }
 
     public int getReferencia() {
