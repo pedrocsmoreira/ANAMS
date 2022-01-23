@@ -1,10 +1,10 @@
 package ui;
 
-public class UC11_UI{
+public class UC12_UI{
 	private GESTFEST gestfest;
 	private comprarBilhetesController controller;
 
-	public UC11_UI(GESTFEST gestfest){
+	public UC12_UI(GESTFEST gestfest){
 		this.gestfest = gestfest;
 	}
 
@@ -24,13 +24,15 @@ public class UC11_UI{
 
 		controller.setNumBilhetes(introduzNumBilhetes(controller.getBilhetesDisponiveis()));
 
+		controller.verificaDesconto();
+
 		apresentaDados();
 
 		if(Utils.confirma("Prentende inserir este plano? (S/N)")){
 			
 		}
 	}
-
+  
 	private String introduzFestival(){
 		return Utils.readLineFromConsole("Insira o festival a trabalhar");
 	}

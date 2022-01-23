@@ -17,23 +17,24 @@ public class UC11_UI{
 			e.printStackTrace();
 		}
 
-		controller.setDatas();
-
 		List<LocalDate> datas = controller.getDatas();
 		List<TipoBilhete> tipoBilhete = controller.getTipoBilhete();
-		HashMap<LocalDate, HashMap<TipoBilhete, Integer>> plano = new HashMap<>();
 		for(LocalDate d : datas){
-			HashMap<TipoBilhete, Integer> planoDiario = new HashMap<>();
+			controller.newPlanoDiario();
 			for(TipoBilhete tp : tipoBilhete){
-				planoDiario.put(tp, introduzNumBilhetes(controller.getLotacao(d),tp));
+				controller.setPlanoDiario(tp, introduzNumBilhetes(controller.getLotacao(d),tp));
 			}
-			plano.put(d, planoDiario);
+			controller.setPlano(d);
 		}
 
 		apresentaDados();
 
 		if(Utils.confirma("Prentende inserir este plano? (S/N)")){
-			
+			if(controller.registarPlano()){
+				System.out.println("Plano de Bilhética inserido");
+			}else {
+				System.out.println("Plano não inserido");
+			}
 		}
 	}
 

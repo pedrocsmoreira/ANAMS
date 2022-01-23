@@ -8,11 +8,11 @@ import model.GESTFEST;
  * @author grupo5
  */
 
-public class UC8_UI {
+public class UC08_UI {
     private GESTFEST gestfest;
     private alterarEstadoController controller;
     
-    public UC8_UI(GESTFEST gestfest){
+    public UC08_UI(GESTFEST gestfest){
         this.gestfest = gestfest;
         this.controller = new alterarEstadoController(gestfest);
     }
@@ -23,7 +23,4 @@ public class UC8_UI {
         controller.setEstado(inserirEstado());
         
     }
-    
-    
-    
 }

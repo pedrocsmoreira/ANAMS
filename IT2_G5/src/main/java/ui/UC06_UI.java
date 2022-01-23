@@ -10,11 +10,11 @@ import utils.Utils;
  * @author grupo5
  */
 
-public class UC6_UI {
+public class UC06_UI {
     private GESTFEST gestfest;
     private consultarInformacaoController controller;
 
-    public UC6_UI(GESTFEST gestfest){
+    public UC06_UI(GESTFEST gestfest){
         this.gestfest = gestfest;
         this.controller = new consultarInformacaoController(gestfest);
     }

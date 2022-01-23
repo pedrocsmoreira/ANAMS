@@ -6,7 +6,7 @@ import model.GESTFEST;
 import model.TipoBilhete;
 
 /**
- *
+ * 
  * @author grupo5
  */
 
@@ -15,7 +15,7 @@ public class especificarBilhetesController {
     private Festival festival;
     private TipoBilhete tipoBilhete;
     private HashSet<TipoBilhete> listaTipoBilhete;
-    
+
     public especificarBilhetesController(GESTFEST gestfest){
         gestfest = gestfest;
     }

@@ -30,7 +30,7 @@ public class menuAPG {
             opcao = Utils.readLineFromConsole("Introduza opção: ");
 
             if(opcao.equals("1")){
-                UC1_UI ui = new UC1_UI(gestfest);
+                UC01_UI ui = new UC01_UI(gestfest);
                 ui.run();
             }else if(opcao.equals("2")){
                 UC2_UI ui = new UC2_UI(gestfest);

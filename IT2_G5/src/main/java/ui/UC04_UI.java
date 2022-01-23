@@ -13,11 +13,11 @@ import utils.Utils;
  * @author grupo5
  */ 
 
-public class UC4_UI {
+public class UC04_UI {
     private GESTFEST gestfest;
     private registarFestivalController controller;
 
-    public UC4_UI(GESTFEST gestfest) {
+    public UC04_UI(GESTFEST gestfest) {
         this.gestfest = gestfest;
         this.controller = new registarFestivalController(gestfest);
     }
