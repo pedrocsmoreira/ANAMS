@@ -49,7 +49,7 @@ public class UC7_UI {
         }
     
     }
-    
+
     private Artista inserirArtista() throws ExcecaoBreak{
         String art = Utils.readLineFromConsole("Insira o nome do artista a convidar");
         try{

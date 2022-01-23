@@ -34,7 +34,7 @@ public class comprarBilhetesController {
         LocalDate dataInicio = festival.getDataInicio();
         LocalDate dataFim = festival.getDataFim();
         ArrayList<LocalDate> datas = new ArrayList<>();
-        
+        datas = 
         return datas;
     }
 }
