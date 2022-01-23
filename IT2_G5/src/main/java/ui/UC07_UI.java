@@ -6,7 +6,6 @@ import exceptions.ExcecaoNaoExiste;
 import java.io.IOException;
 import java.util.Date;
 import model.Artista;
-import model.Estado;
 import model.GESTFEST;
 import utils.Utils;
 
@@ -32,14 +31,14 @@ public class UC07_UI {
         try{
             controller.setArtista(inserirArtista());
         }catch(ExcecaoBreak e){
-            //
+            e.printStackTrace();
         }        
         controller.setDataConvite(new Date());
         controller.setDataLimite(inserirDataLimite());
         controller.setEstado();
-        
+
         apresentarDados();
-        
+
         if(Utils.confirma("Pretene realizar este convite? (S/N)")){
             if(controller.registarConvite()){
                 System.out.println("Convite registado");
@@ -47,7 +46,6 @@ public class UC07_UI {
                 System.out.println("Convite não registado");
             }
         }
-    
     }
 
     private Artista inserirArtista() throws ExcecaoBreak{
@@ -59,11 +57,11 @@ public class UC07_UI {
             throw new ExcecaoBreak(e.getMessage());
         }
     }
-    
+
     private Date inserirDataLimite(){
         return Utils.readDateFromConsole("Insira a data limite do convite");
     }
-    
+
     private void apresentarDados(){
         System.out.println(controller.apresentarDados());
     }

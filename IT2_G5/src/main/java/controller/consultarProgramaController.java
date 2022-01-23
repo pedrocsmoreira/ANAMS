@@ -13,21 +13,16 @@ import model.ProgramaFestival;
 
 public class consultarProgramaController {
     private GESTFEST gestfest;
-    private Festival festival;
     private ProgramaFestival programa;
-    
+
     public consultarProgramaController(GESTFEST gestfest){
         this.gestfest = gestfest;
     }
-    
-    public void procurarFestival(String festival) throws ExcecaoNaoExiste, ExcecaoProgramaNaoExiste{
-        gestfest.procuraFestivalPrograma(festival);
+
+    public void procurarPrograma(String festival) throws ExcecaoNaoExiste, ExcecaoProgramaNaoExiste{
+        programa = gestfest.procuraFestivalPrograma(festival);
     }
-    
-    public void procurarPrograma() throws ExcecaoProgramaNaoExiste{
-        programa = gestfest.procuraPrograma(festival);
-    }
-    
+
     public String dadosPrograma(){
         return programa.toString();
     }

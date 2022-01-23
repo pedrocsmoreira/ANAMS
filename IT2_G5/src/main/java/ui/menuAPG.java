@@ -33,13 +33,13 @@ public class menuAPG {
                 UC01_UI ui = new UC01_UI(gestfest);
                 ui.run();
             }else if(opcao.equals("2")){
-                UC2_UI ui = new UC2_UI(gestfest);
+                UC02_UI ui = new UC02_UI(gestfest);
                 ui.run();
             }else if(opcao.equals("3")){
-                UC3_UI ui = new UC3_UI(gestfest);
+                UC03_UI ui = new UC03_UI(gestfest);
                 ui.run();
             }else if(opcao.equals("4")){
-                UC6_UI ui = new UC6_UI(gestfest);
+                UC06_UI ui = new UC06_UI(gestfest);
                 ui.run();
             }
         }while(!opcao.equals("0"));

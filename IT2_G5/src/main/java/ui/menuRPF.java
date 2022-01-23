@@ -28,10 +28,10 @@ public class menuRPF {
             opcao = Utils.readLineFromConsole("Introduza opção: ");
 
             if(opcao.equals("1")){
-                UC7_UI ui = new UC7_UI(gestfest);
+                UC07_UI ui = new UC07_UI(gestfest);
                 ui.run();
             }else if(opcao.equals("2")){
-                UC8_UI ui = new UC8_UI(gestfest);
+                UC08_UI ui = new UC08_UI(gestfest);
                 ui.run();
             }
         }while(!opcao.equals("0"));

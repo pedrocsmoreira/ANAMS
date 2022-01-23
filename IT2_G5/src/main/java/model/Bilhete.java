@@ -8,6 +8,7 @@ package model;
 public class Bilhete {
     private int referencia;
     private String designacao;
+    private Festival festival;
     private TipoBilhete tipo;
     private int preco;
 
@@ -19,23 +20,24 @@ public class Bilhete {
     public Bilhete(){
         this.referencia = ++contador;
         this.designacao = STR_DEFAULT;
+        this.festival = new Festival();
         this.tipo = new TipoBilhete();
         this.preco = INT_DEFAULT;
     }
 
-    public Bilhete(String designacao, TipoBilhete tipo, int preco){
+    public Bilhete(String designacao, Festival festival, TipoBilhete tipo, int preco){
         this.referencia = ++contador;
         this.designacao = designacao;
+        this.festival = festival;
         this.tipo = tipo;
         this.preco = preco;
     }
 
     public Bilhete(Bilhete bilhete){
         this.referencia = bilhete.referencia;
-        this.bilhete = bilhete.bilhete;
-        this.precoTotal = bilhete.precoTotal;
-        this.quantidade  =  bilhete.quantidade;
-        this.desconto = bilhete.desconto;
+        this.designacao = bilhete.designacao;
+        this.tipo  =  bilhete.tipo;
+        this.preco = bilhete.preco;
     }
 
     public int getReferencia() {
@@ -48,6 +50,22 @@ public class Bilhete {
 
     public void setDesignacao(String designacao) {
         this.designacao = designacao;
+    }
+
+    public Festival getFestival() {
+        return festival;
+    }
+
+    public void setFestival(Festival festival) {
+        this.festival = festival;
+    }
+
+    public TipoBilhete getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoBilhete tipo) {
+        this.tipo = tipo;
     }
 
     public int getPreco() {

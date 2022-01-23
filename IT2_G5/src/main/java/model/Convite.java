@@ -8,7 +8,20 @@ import java.util.Date;
  */
 
 public class Convite {
-    enum Estado {sem_resposta, aceite, rejeitado, anulado};
+    public enum Estado {
+        sem_resposta,
+        aceite,
+        rejeitado,
+        anulado;
+        
+        private static Estado[] listaEstados = Estado.values();
+        
+        public static Estado[] getListaEstados(){ return listaEstados; }
+
+        public static Estado getEstado(int i) {
+            return listaEstados[i];
+        }
+    };
     private int referencia;
     private Festival festival;
     private Artista artista;
@@ -31,14 +44,14 @@ public class Convite {
         this.estado = Estado.sem_resposta;
     }
 
-    public Convite(Festival festival, Artista artista, String email, Date dataConvite, Date dataLimite, String estado){
+    public Convite(Festival festival, Artista artista, String email, Date dataConvite, Date dataLimite, Estado estado){
         this.referencia = ++contador;
         this.festival = festival;
         this.artista = artista;
         this.email = email;
         this.dataConvite = dataConvite;
         this.dataLimite = dataLimite;
-        this.estado = Estado.valueOf(estado);
+        this.estado = estado;
     }
 
     public Convite(Convite c){
@@ -87,8 +100,8 @@ public class Convite {
         return estado;
     }
 
-    public void setEstado(String estado) {
-        this.estado = Estado.valueOf(estado);
+    public void setEstado(int est) {
+        this.estado = Estado.getEstado(est);
     }
 
     public Festival getFestival() {
@@ -97,6 +110,10 @@ public class Convite {
 
     public void setFestival(Festival festival) {
         this.festival = festival;
+    }
+    
+    public Estado[] getListaEstados(){
+        return Estado.getListaEstados();
     }
 
     public String toString(){

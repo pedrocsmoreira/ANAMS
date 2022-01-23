@@ -29,10 +29,10 @@ public class menuRIF {
             opcao = Utils.readLineFromConsole("Introduza opção: ");
             
             if(opcao.equals("1")){
-                UC4_UI ui = new UC4_UI(gestfest);
+                UC04_UI ui = new UC04_UI(gestfest);
                 ui.run();
             }else if(opcao.equals("2")){
-                UC5_UI ui = new UC5_UI(gestfest);
+                UC05_UI ui = new UC05_UI(gestfest);
                 ui.run();
             }else if(opcao.equals("3")){
                 menuRPF ui = new menuRPF(gestfest);   

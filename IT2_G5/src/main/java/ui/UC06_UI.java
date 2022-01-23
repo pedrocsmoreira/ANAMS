@@ -2,6 +2,7 @@ package ui;
 
 import controller.consultarInformacaoController;
 import exceptions.ExcecaoNaoExiste;
+import java.util.Date;
 import model.GESTFEST;
 import utils.Utils;
 
@@ -32,32 +33,30 @@ public class UC06_UI {
 
             if(opcao.equals("1")){
                 try{
-                    controller.consultarFestival(introduzaNome());
+                    controller.consultarFestivalString(introduzaNome());
                 }catch(ExcecaoNaoExiste e){
                     e.printStackTrace();
                 }
             }else if(opcao.equals("2")){
                 try{
-                    controller.consultarFestival(introduzaData());
+                    controller.consultarFestivalData(introduzaData());
                 }catch(ExcecaoNaoExiste e){
                     e.printStackTrace();
                 }
             }
         }while(!opcao.equals("0") || !opcao.equals("1") || !opcao.equals("2"));
-        
-        apresentaDados();
 
-        
+        apresentaDados();
     }
 
     public Date introduzaData(){
-        return Utils.readLineFromConsole("Introduza o nome do Festival a consultar");
+        return Utils.readDateFromConsole("Introduza a data a iniciar a consulta");
     }
 
     public String introduzaNome(){
         return Utils.readLineFromConsole("Introduza o nome do Festival a consultar");
     }
-    
+
     public void apresentaDados(){
         System.out.println(controller.apresentarFestival());
     }

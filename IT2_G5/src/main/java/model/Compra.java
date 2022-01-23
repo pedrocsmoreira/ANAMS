@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author grupo5
@@ -36,31 +38,55 @@ public class Compra {
     }
 
     public Compra(Compra compra){
-        this.referencia = bilhete.referencia;
-        this.bilhete = bilhete.bilhete;
-        this.precoTotal = bilhete.precoTotal;
-        this.data = bilhete.data;
-        this.quantidade  =  bilhete.quantidade;
-        this.desconto = bilhete.desconto;
+        this.referencia = compra.referencia;
+        this.bilhete = compra.bilhete;
+        this.precoTotal = compra.precoTotal;
+        this.data = compra.data;
+        this.quantidade  =  compra.quantidade;
+        this.desconto = compra.desconto;
     }
 
     public int getReferencia() {
         return referencia;
     }
 
-    public String getDesignacao() {
-        return designacao;
+    public Bilhete getBilhete() {
+        return bilhete;
     }
 
-    public void setDesignacao(String designacao) {
-        this.designacao = designacao;
+    public void setBilhete(Bilhete bilhete) {
+        this.bilhete = bilhete;
     }
 
-    public int getPrecoTotal() {
-        return preco;
+    public float getPrecoTotal() {
+        return precoTotal;
     }
 
-    public void setPrecoTotal(int precoTotal) {
+    public void setPrecoTotal(float precoTotal) {
         this.precoTotal = precoTotal;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public float getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(float desconto) {
+        this.desconto = desconto;
     }
 }

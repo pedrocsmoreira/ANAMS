@@ -4,7 +4,6 @@ import exceptions.ExcecaoNaoExiste;
 import java.util.Date;
 import model.Artista;
 import model.Convite;
-import model.Estado;
 import model.GESTFEST;
 
 /**
@@ -42,7 +41,7 @@ public class convidarArtistaController {
     }
 
     public void setEstado(){
-        convite.setEstado(new Estado(0));
+        convite.setEstado(0);
     }
 
     public String apresentarDados(){

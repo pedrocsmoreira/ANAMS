@@ -22,30 +22,21 @@ public class UC10_UI {
     public void run(){
         System.out.println("Consultar programa do festival");
         
-        
         try{
-            controller.procurarFestival(inserirFestival());
-            procurarPrograma();
+            controller.procurarPrograma(inserirFestival());
         }catch(ExcecaoNaoExiste e){
             e.printStackTrace();
         }catch(ExcecaoProgramaNaoExiste e){
             e.printStackTrace();
         }
+        
+        apresentarDados();
     }
-    
+
     public String inserirFestival(){
         return Utils.readLineFromConsole("Insira o nome do festival a procurar");
     }
-    
-    public void procurarPrograma(){
-        try{
-            controller.procurarPrograma();
-            apresentarDados();
-        }catch(ExcecaoProgramaNaoExiste e){
-            e.printStackTrace();
-        }
-    }
-    
+
     public void apresentarDados(){
         System.out.println(controller.dadosPrograma());
     }

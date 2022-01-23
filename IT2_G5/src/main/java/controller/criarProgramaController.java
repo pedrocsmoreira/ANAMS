@@ -74,7 +74,7 @@ public class criarProgramaController {
     }
     
     public Artista procurarArtista(String artista) throws ExcecaoNaoExiste{
-        return gestfest.procuraArtista(artista);
+        return gestfest.procurarArtista(artista);
     }
 
     public void programaDiario(LocalDate ld, ProgramaDiario pd){

@@ -1,11 +1,21 @@
 package controller;
 
 import exceptions.ExcecaoNaoExiste;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import model.Festival;
 import model.Entidade;
 import model.GESTFEST;
+import model.PlanoBilheteira;
+import model.TipoBilhete;
 
 /**
  *
@@ -15,7 +25,7 @@ import model.GESTFEST;
 public class registarPlanoBilheticaController {
     private GESTFEST gestfest;
     private Festival festival;
-    private PlanoBilheteira plano;
+    private PlanoBilheteira planoBilheteira;
     private HashMap<LocalDate, HashMap<TipoBilhete, Integer>> plano;
     private HashMap<TipoBilhete, Integer> planoDiario;
 
@@ -24,18 +34,24 @@ public class registarPlanoBilheticaController {
     }
 
     public void consultarFestival(String festival) throws ExcecaoNaoExiste{
-        this.festival = gestfest.procuraFestival(festival);
+        this.festival = gestfest.procuraFestivalString(festival);
     }
 
     public List<LocalDate> getDatas(){
-        LocalDate startdate = festival.getDataInicio();
-        LocalDate enddate =  festival.getDataFim();
+        LocalDate startdate = convertToLocalDateViaMilisecond(festival.getDataInicioFestival());
+        LocalDate enddate =  convertToLocalDateViaMilisecond(festival.getDataFimFestival());
         long numOfDaysBetween = startdate.until(enddate.plusDays(1), ChronoUnit.DAYS);
-        datas = IntStream.iterate(0, i -> i + 1)
+        List<LocalDate> datas = IntStream.iterate(0, i -> i + 1)
                 .limit(numOfDaysBetween)
                 .mapToObj(i -> startdate.plusDays(i))
                 .collect(Collectors.toList());
         return datas;
+    }
+    
+    public LocalDate convertToLocalDateViaMilisecond(Date dateToConvert) {
+        return Instant.ofEpochMilli(dateToConvert.getTime())
+          .atZone(ZoneId.systemDefault())
+          .toLocalDate();
     }
 
     public List<TipoBilhete> setTipoBilhete(){
@@ -50,8 +66,8 @@ public class registarPlanoBilheticaController {
         planoDiario = new HashMap<>();
     }
 
-    public int getLotacao(LocalDate data){
-        return int;
+    public int getLotacao(){
+        return festival.getLotacaoPalcos();
     }
 
     public void setPlanoDiario(TipoBilhete tp, int numBilhetes){
@@ -60,6 +76,14 @@ public class registarPlanoBilheticaController {
 
     public void setPlano(LocalDate d){
         plano.put(d, this.planoDiario);
+    }
+
+    public boolean registarPlano() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<TipoBilhete> getTipoBilhete() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

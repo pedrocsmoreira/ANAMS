@@ -24,7 +24,7 @@ public class associarEntidadeController {
     }
 
     public void consultarFestival(String festival) throws ExcecaoNaoExiste{
-        this.festival = gestfest.procuraFestival(festival);
+        this.festival = gestfest.procuraFestivalString(festival);
     }
 
     public void consultarEntidade(String entidade) throws ExcecaoNaoExiste{

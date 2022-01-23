@@ -20,12 +20,12 @@ public class consultarInformacaoController {
         this.gestfest = gestfest;
     }
     
-    public void consultarFestival(String festival) throws ExcecaoNaoExiste{
-        this.festival = gestfest.procuraFestival(festival);
+    public void consultarFestivalString(String festival) throws ExcecaoNaoExiste{
+        this.festival = gestfest.procuraFestivalString(festival);
     }
     
-    public void consultarFestival(Date data) throws ExcecaoNaoExiste{
-        this.festivais = gestfest.procuraFestival(data);
+    public void consultarFestivalData(Date data) throws ExcecaoNaoExiste{
+        this.festivais = gestfest.procuraFestivalData(data);
     }
 
     public String apresentarFestival(){

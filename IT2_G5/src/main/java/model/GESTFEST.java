@@ -1,6 +1,8 @@
 package model;
 
 import exceptions.ExcecaoNaoExiste;
+import exceptions.ExcecaoProgramaExiste;
+import exceptions.ExcecaoProgramaNaoExiste;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Date;
@@ -22,6 +24,8 @@ public class GESTFEST {
     private HashSet<TipoBilhete> listaTipoBilhetes;
     private HashSet<Artista> listaArtistas;
     private HashSet<Convite> listaConvites;
+    private HashSet<PlanoBilheteira> listaPlanosBilheteira;
+    private HashSet<ProgramaFestival> listaProgramas;
 
     private static final String STR_DEFAULT = "";
     private static final int INT_DEFAULT = 0;
@@ -147,16 +151,16 @@ public class GESTFEST {
         festival.setEntidades(entidades);
     }
 
-    public Festival procuraFestival(String festival) throws ExcecaoNaoExiste{
+    public Festival procuraFestivalString(String festival) throws ExcecaoNaoExiste{
         for(Festival f : listaFestivais){
             if(f.getDesignacao().equals(festival)){
                 return f;
             }
         }
-        throw new ExcecaoNaoExiste("O festival pedido não existe!!!"); 
+        throw new ExcecaoNaoExiste("O festival pedido não existe!!!");
     }
 
-    public ArrayList<Festival> procuraFestival(Date data) throws ExcecaoNaoExiste{
+    public ArrayList<Festival> procuraFestivalData(Date data) throws ExcecaoNaoExiste{
         ArrayList<Festival> festivais = new ArrayList<Festival>();
         for(Festival f : listaFestivais){
             if(f.getDataInicioFestival().equals(data)){
@@ -287,5 +291,47 @@ public class GESTFEST {
             }
         }
         throw new ExcecaoNaoExiste("O artista pedido não existe!!!");
+    }
+
+    public void alteraEstadoConvite(Convite convite) {
+        for(Convite c : listaConvites){
+            if(c.getFestival().equals(convite.getFestival()) && c.getArtista().equals(convite.getArtista())){
+                c = convite;
+            }
+        }
+    }
+
+    public PlanoBilheteira procurarPlano(Festival festival) {
+        for(PlanoBilheteira pl : listaPlanosBilheteira){
+            if(pl.getFestival().equals(festival)){
+                return pl;
+            }
+        }
+        return new PlanoBilheteira();
+    }
+
+    public Festival procuraFestivalSemPrograma(String festival) throws ExcecaoNaoExiste, ExcecaoProgramaExiste {
+        Festival fest = procuraFestivalString(festival);
+        for(ProgramaFestival pf : listaProgramas){
+            if(pf.getFestival().equals(fest)){
+                throw new ExcecaoProgramaExiste("Este festival já tem um programa designado");
+            }
+        }
+        return fest;
+    }
+    
+     public ProgramaFestival procuraFestivalPrograma(String festival) throws ExcecaoNaoExiste, ExcecaoProgramaNaoExiste {
+        Festival fest = procuraFestivalString(festival);
+        for(ProgramaFestival pf : listaProgramas){
+            if(pf.getFestival().equals(fest)){
+                return pf;
+            }
+        }
+        throw new ExcecaoProgramaNaoExiste("Este festival não tem um programa designado");
+    }
+
+    public boolean inserirPrograma(ProgramaFestival programaFestival) {
+        listaProgramas.add(programaFestival);
+        return true;
     }
 }

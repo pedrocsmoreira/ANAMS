@@ -1,8 +1,14 @@
 package model;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  *
@@ -21,8 +27,8 @@ public class Festival {
     private int numpalcos;
     private int lotacaoPalcos;
     private HashSet<Entidade> entidades;
-    private HashSet<BilheteFestival> bilhetes;
-    private HashSet<LocalDate> datas;
+    private HashSet<Bilhete> bilhetes;
+    private List<LocalDate> datas;
 
     private int contador = 0;
     private final String STR_DEFAULT = "";
@@ -42,10 +48,9 @@ public class Festival {
         this.lotacaoPalcos = INT_DEFAULT;
         this.entidades = new HashSet<>();
         this.bilhetes = new HashSet<>();
-        this.datas = new HashSet<>();
     }
 
-    public Festival(String designacao, int edicao, String localizacao, Date dataInicioFestival, Date dataFimFestival, Recinto recinto, HashSet<Entidade> entidades, HashSet<BilheteFestival> entidades){
+    public Festival(String designacao, int edicao, String localizacao, Date dataInicioFestival, Date dataFimFestival, Recinto recinto, HashSet<Entidade> entidades, HashSet<Bilhete> bilhetes){
         this.referencia = ++contador;
         this.designacao = designacao;
         this.edicao = edicao;
@@ -160,6 +165,23 @@ public class Festival {
     public int numPalcos(){
         return recinto.getPalcos().size();
     }
+    
+    public List<LocalDate> datas(Date dataInicio, Date dataFim){
+        LocalDate dataInicioLocal = convertToLocalDateViaMilisecond(dataInicio);
+        LocalDate dataFimLocal = convertToLocalDateViaMilisecond(dataFim);
+        long numOfDaysBetween = dataInicioLocal.until(dataFimLocal.plusDays(1), ChronoUnit.DAYS);
+        List<LocalDate> datas = IntStream.iterate(0, i -> i + 1)
+                .limit(numOfDaysBetween)
+                .mapToObj(i -> dataInicioLocal.plusDays(i))
+                .collect(Collectors.toList());
+        return datas;
+    }
+
+    public LocalDate convertToLocalDateViaMilisecond(Date dateToConvert) {
+        return Instant.ofEpochMilli(dateToConvert.getTime())
+          .atZone(ZoneId.systemDefault())
+          .toLocalDate();
+    }
 
     public String toString(){
         StringBuffer sb = new StringBuffer();
@@ -175,4 +197,8 @@ public class Festival {
     }
 
     //falta equals
+
+    public List<TipoBilhete> getTipoBilhete() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
