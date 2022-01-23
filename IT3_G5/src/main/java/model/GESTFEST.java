@@ -334,4 +334,8 @@ public class GESTFEST {
         listaProgramas.add(programaFestival);
         return true;
     }
+
+    public void registarPlano(PlanoBilheteira planoBilheteira) {
+        this.listaPlanosBilheteira.add(planoBilheteira);
+    }
 }

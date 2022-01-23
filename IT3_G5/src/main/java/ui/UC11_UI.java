@@ -9,7 +9,6 @@ import model.TipoBilhete;
 import utils.Utils;
 
 public class UC11_UI {
-
     private GESTFEST gestfest;
     private registarPlanoBilheticaController controller;
 

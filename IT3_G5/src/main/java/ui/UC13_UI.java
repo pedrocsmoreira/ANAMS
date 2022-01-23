@@ -15,13 +15,11 @@ public class UC13_UI {
 
     public void run() {
         System.out.println("Consultar Bilhética de um festival");
-
         try {
             controller.consultarFestival(introduzFestival());
         }catch (ExcecaoNaoExiste e) {
             e.printStackTrace();
         }
-
         apresentaDados();
     }
 

@@ -79,11 +79,11 @@ public class registarPlanoBilheticaController {
     }
 
     public boolean registarPlano() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        gestfest.registarPlano(planoBilheteira);
+        return true;
     }
 
     public List<TipoBilhete> getTipoBilhete() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }
