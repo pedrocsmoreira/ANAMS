@@ -1,5 +1,5 @@
 package com.anams.View;
 
-public class UC1_View {
+public class UC6View {
     
 }

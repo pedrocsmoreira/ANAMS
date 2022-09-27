@@ -1,5 +1,5 @@
 package com.anams.Controller;
 
-public class UC5_Controller {
+public class UC1Controller {
     
 }
