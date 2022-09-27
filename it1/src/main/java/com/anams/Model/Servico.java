@@ -1,4 +1,4 @@
-package com.anams.Controller;
+package com.anams.Model;
 
 public class Servico {
     
