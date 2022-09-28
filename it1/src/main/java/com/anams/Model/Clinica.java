@@ -86,6 +86,10 @@ public class Clinica {
 
     public void inserirConvencao(Convencao c){ this.listaConvencoes.add(c); }
 
+
+
+    public void registarMedico(Medico m){ listaMedicos.add(m); }
+
     
 
     public void removerEspecialidadeCodigo(int codigo){
