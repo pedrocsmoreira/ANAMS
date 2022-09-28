@@ -33,4 +33,33 @@ public class Especialidade {
     public void setDataArranque(Data data) { this.dataArranque = data; }
 
     public Data getDataArranque(){ return this.dataArranque; }
+
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n\tCódigo -> ");
+        sb.append(this.codigo);
+        sb.append("\n\tDesignação -> ");
+        sb.append(this.designacao);
+        sb.append("\n\tAcrónimo -> ");
+        sb.append(this.acronimo);
+        sb.append("\n\tData de Arranque -> ");
+        sb.append(this.dataArranque);
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object outro){
+        if(this == outro){
+            return true;
+        }
+        if(outro == null || this.getClass() != outro.getClass()) {
+            return false;
+        }
+        Especialidade obj = (Especialidade) outro;
+        return this.codigo == obj.codigo
+                && this.designacao.equals(obj.designacao)
+                && this.acronimo.equals(obj.acronimo)
+                && this.dataArranque.equals(obj.dataArranque);
+    }
+
 }
