@@ -16,6 +16,9 @@ public class Medico {
     private static final String STR_DEFAULT = "";
     private static final int INT_DEFAULT = 0;
 
+    /**
+     * 
+     */
     public Medico(){
         this.codigo = INT_DEFAULT;
         this.nome = STR_DEFAULT;
@@ -27,6 +30,16 @@ public class Medico {
         this.contacto = INT_DEFAULT;
     }
 
+    /**
+     * @param codigo
+     * @param nome
+     * @param data
+     * @param nif
+     * @param cedula
+     * @param lista
+     * @param email
+     * @param contacto
+     */
     public Medico(int codigo, String nome, Data data, int nif, int cedula, ArrayList<Especialidade> lista , String email, int contacto){
         this.codigo = codigo;
         this.nome = nome;
@@ -38,38 +51,89 @@ public class Medico {
         this.contacto = contacto;
     }
 
+    /**
+     * @param codigo
+     */
     public void setCodigo(int codigo){ this.codigo = codigo; }
 
+    /**
+     * @return
+     */
     public int getCodigo(){ return this.codigo; }
 
+    /**
+     * @param nome
+     */
     public void setNome(String nome){ this.nome = nome; }
 
+    /**
+     * @return
+     */
     public String getNome(){ return this.nome; }
 
+    /**
+     * @param data
+     */
     public void setDataContratacao(Data data){ this.dataContratacao = data; }
 
+    /**
+     * @return
+     */
     public Data getDataContratacao(){ return this.dataContratacao; }
 
+    /**
+     * @param nif
+     */
     public void setNif(int nif){ this.nif = nif; }
 
+    /**
+     * @return
+     */
     public int getNif(){ return this.nif; }
 
+    /**
+     * @param cedula
+     */
     public void setCedula(int cedula){ this.cedula = cedula; }
 
+    /**
+     * @return
+     */
     public int getCedula(){ return this.cedula; }
 
+    /**
+     * @param lista
+     */
     public void setEspecialidades(ArrayList<Especialidade> lista) { this.especialidades = lista; }
 
+    /**
+     * @return
+     */
     public ArrayList<Especialidade> getEspecialidades(){ return this.especialidades; }
 
+    /**
+     * @param email
+     */
     public void setEmail(String email){ this.email = email; }
 
+    /**
+     * @return
+     */
     public String getEmail(){ return this.email; }
 
+    /**
+     * @param contacto
+     */
     public void setContacto(int contacto){ this.contacto = contacto; }
 
+    /**
+     * @return
+     */
     public int getContacto(){ return this.contacto; }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
@@ -97,6 +161,9 @@ public class Medico {
         return sb.toString();
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
     @Override
     public boolean equals(Object outro){
         if(this == outro){

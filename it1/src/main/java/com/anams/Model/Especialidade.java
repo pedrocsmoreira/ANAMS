@@ -11,6 +11,9 @@ public class Especialidade {
     private static final String STR_DEFAULT = "";
     private static final int INT_DEFAULT = 0;
     
+    /**
+     * 
+     */
     public Especialidade(){
         this.codigo = INT_DEFAULT;
         this.designacao = STR_DEFAULT;
@@ -18,22 +21,49 @@ public class Especialidade {
         this.dataArranque = new Data();
     }
 
+    /**
+     * @param codigo
+     */
     public void setCodigo(int codigo){ this.codigo = codigo; }
 
+    /**
+     * @return
+     */
     public int getCodigo(){ return this.codigo; }
 
+    /**
+     * @param designacao
+     */
     public void setDesignacao(String designacao){ this.designacao = designacao; }
 
+    /**
+     * @return
+     */
     public String getDesignacao(){ return this.designacao; }
 
+    /**
+     * @param acronimoString
+     */
     public void setAcronimo(String acronimoString){ this.acronimo = acronimo; }
 
+    /**
+     * @return
+     */
     public String getAcronimo(){ return this.acronimo; }
 
+    /**
+     * @param data
+     */
     public void setDataArranque(Data data) { this.dataArranque = data; }
 
+    /**
+     * @return
+     */
     public Data getDataArranque(){ return this.dataArranque; }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
@@ -47,6 +77,9 @@ public class Especialidade {
         return sb.toString();
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
     @Override
     public boolean equals(Object outro){
         if(this == outro){

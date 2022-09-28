@@ -38,26 +38,59 @@ public class Convencao {
         this.website = website;
     }
 
+    /**
+     * @param codigo
+     */
     public void setCodigo(int codigo){ this.codigo = codigo; }
     
+    /**
+     * @return
+     */
     public int getCodigo(){ return this.codigo; }
 
+    /**
+     * @param sigla
+     */
     public void setSigla(String sigla){ this.sigla = sigla; }
     
+    /**
+     * @return
+     */
     public String getSigla(){ return this.sigla; }
 
+    /**
+     * @param nome
+     */
     public void setNome(String nome){ this.nome = nome; }
     
+    /**
+     * @return
+     */
     public String getNome(){ return this.nome; }
 
+    /**
+     * @param data
+     */
     public void setDataConvencao(Data data){ this.dataConvencao = data; }
     
+    /**
+     * @return
+     */
     public Data getData(){ return this.dataConvencao; }
 
+    /**
+     * @param web
+     */
     public void setWebsite(String web){ this.website = web; }
     
+    /**
+     * @return
+     */
     public String getWebsite(){ return this.website; }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
@@ -73,6 +106,9 @@ public class Convencao {
         return sb.toString();
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
     @Override
     public boolean equals(Object outro){
         if(this == outro){
