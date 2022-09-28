@@ -12,6 +12,9 @@ public class Convencao {
     private static final String STR_DEFAULT = "";
     private static final int INT_DEFAULT = 0;
 
+    /**
+     * 
+     */
     public Convencao(){
         this.codigo = INT_DEFAULT;
         this.sigla = STR_DEFAULT;
@@ -20,6 +23,13 @@ public class Convencao {
         this.website = STR_DEFAULT;
     }
 
+    /**
+     * @param codigo
+     * @param sigla
+     * @param nome
+     * @param data
+     * @param website
+     */
     public Convencao(int codigo, String sigla, String nome, Data data, String website){
         this.codigo = codigo;
         this.sigla = sigla;
