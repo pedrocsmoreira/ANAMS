@@ -70,4 +70,50 @@ public class Medico {
 
     public int getContacto(){ return this.contacto; }
 
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n\tCódigo -> ");
+        sb.append(this.codigo);
+        sb.append("\n\tNome -> ");
+        sb.append(this.nome);
+        sb.append("\n\tData de Contratação -> ");
+        sb.append(this.dataContratacao);
+        sb.append("\n\tNIF -> ");
+        sb.append(this.nif);
+        sb.append("\n\tCédula Profissional -> ");
+        sb.append(this.cedula);
+        sb.append("\n\tEspecialidades -> ");
+        if(this.especialidades.isEmpty()) {
+            sb.append(" (sem especialidades) ");
+        }else {
+            for (Especialidade e : especialidades) {
+                sb.append(e + "\n");
+            }
+        }
+        sb.append("\n\tEmail -> ");
+        sb.append(this.email);
+        sb.append("\n\tContacto -> ");
+        sb.append(this.contacto);
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object outro){
+        if(this == outro){
+            return true;
+        }
+        if(outro == null || this.getClass() != outro.getClass()) {
+            return false;
+        }
+        Medico obj = (Medico) outro;
+        return this.codigo == obj.codigo
+                && this.nome.equals(obj.nome)
+                && this.dataContratacao.equals(obj.dataContratacao)
+                && this.nif == obj.nif
+                && this.cedula == obj.cedula
+                && this.especialidades.equals(obj.especialidades)
+                && this.email.equals(obj.email)
+                && this.contacto == obj.contacto;
+    }
+
 }
