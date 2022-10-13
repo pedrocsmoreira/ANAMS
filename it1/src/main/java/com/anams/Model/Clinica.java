@@ -140,33 +140,71 @@ public class Clinica {
 
 
     /**
+     * 
+     * 
      * @param e
      */
     public void inserirEspecialidade(Especialidade e){ this.listaEspecialidades.add(e); }
 
     /**
+     * 
+     * 
      * @param m
      */
     public void inserirMedico(Medico m){ this.listaMedicos.add(m); }
 
     /**
+     * 
+     * 
      * @param ts
      */
     public void inserirTipoServico(TipoServico ts){ this.listaTipoServicos.add(ts); }
 
     /**
+     * 
+     * 
      * @param s
      */
     public void inserirServico(Servico s){this.listaServicos.add(s); }
 
     /**
+     * 
+     * 
      * @param c
      */
     public void inserirConvencao(Convencao c){ this.listaConvencoes.add(c); }
 
 
 
+    public Medico procurarMedicoCodigo(int codigo){
+        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getCodigo() == codigo)).findFirst();
+        Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
+        return med;
+    }
+
+    public Medico procurarMedicoNome(String nome){
+        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getNome().equals(nome))).findFirst();
+        Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
+        return med;
+    }
+
+    public Medico procurarMedicoCedula(int cedula){
+        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getCedula() == cedula)).findFirst();
+        Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
+        return med;
+    }
+
+    public Medico procurarMedicoNif(int nif){
+        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getNif() == nif)).findFirst();
+        Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
+        return med;
+    }
+
+
+
     /**
+     * 
+     * 
      * @param m
      */
     public void registarMedico(Medico m){ listaMedicos.add(m); }
@@ -174,6 +212,8 @@ public class Clinica {
     
 
     /**
+     * 
+     * 
      * @param codigo
      */
     public void removerEspecialidadeCodigo(int codigo){
@@ -182,6 +222,8 @@ public class Clinica {
     }
 
     /**
+     * 
+     * 
      * @param designacao
      */
     public void removerEspecialidadeDesignacao(String designacao){
@@ -190,6 +232,8 @@ public class Clinica {
     }
 
     /**
+     * 
+     * 
      * @param acronimo
      */
     public void removerEspecialidadeAcronimo(String acronimo){

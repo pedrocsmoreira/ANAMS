@@ -14,7 +14,7 @@ public class UC2View {
 
     public void run(){
         System.out.println("Insira o código do serviço:");
-        //int codigo = ;
         
     }
+
 }
