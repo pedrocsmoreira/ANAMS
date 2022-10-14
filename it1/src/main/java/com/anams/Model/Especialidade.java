@@ -1,6 +1,6 @@
 package com.anams.Model;
 
-import com.anams.Extra.Data;
+import com.anams.Utils.Data;
 
 public class Especialidade {
     private int codigo;
@@ -13,6 +13,7 @@ public class Especialidade {
     
     /**
      * 
+     * 
      */
     public Especialidade(){
         this.codigo = INT_DEFAULT;
@@ -22,42 +23,85 @@ public class Especialidade {
     }
 
     /**
+     * 
+     * 
+     * @param codigo
+     * @param designacao
+     * @param acronimo
+     * @param data
+     */
+    public Especialidade(int codigo, String designacao, String acronimo, Data data){
+        this.codigo = codigo;
+        this.designacao = designacao;
+        this.acronimo = acronimo;
+        this.dataArranque = data;
+    }
+
+    /**
+     * 
+     * 
+     * @param e
+     */
+    public Especialidade(Especialidade e){
+        this.codigo = e.codigo;
+        this.designacao = e.designacao;
+        this.acronimo = e.acronimo;
+        this.dataArranque = e.dataArranque;
+    }
+
+    /**
+     * 
+     * 
      * @param codigo
      */
     public void setCodigo(int codigo){ this.codigo = codigo; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return codigo
      */
     public int getCodigo(){ return this.codigo; }
 
     /**
+     * 
+     * 
      * @param designacao
      */
     public void setDesignacao(String designacao){ this.designacao = designacao; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return designacao
      */
     public String getDesignacao(){ return this.designacao; }
 
     /**
+     * 
+     * 
      * @param acronimoString
      */
     public void setAcronimo(String acronimoString){ this.acronimo = acronimo; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return acronimo
      */
     public String getAcronimo(){ return this.acronimo; }
 
     /**
+     * 
+     * 
      * @param data
      */
     public void setDataArranque(Data data) { this.dataArranque = data; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return dataArranque
      */
     public Data getDataArranque(){ return this.dataArranque; }
 

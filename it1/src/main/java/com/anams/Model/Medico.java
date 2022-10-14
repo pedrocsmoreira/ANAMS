@@ -1,7 +1,8 @@
 package com.anams.Model;
 
 import java.util.ArrayList;
-import com.anams.Extra.Data;
+
+import com.anams.Utils.Data;
 
 public class Medico {
     private int codigo;
@@ -18,6 +19,8 @@ public class Medico {
 
     /**
      * 
+     * 
+     * 
      */
     public Medico(){
         this.codigo = INT_DEFAULT;
@@ -31,6 +34,8 @@ public class Medico {
     }
 
     /**
+     * 
+     * 
      * @param codigo
      * @param nome
      * @param data
@@ -52,22 +57,46 @@ public class Medico {
     }
 
     /**
+     * 
+     * 
+     * @param m
+     */
+    public Medico(Medico m){
+        this.codigo = m.codigo;
+        this.nome = m.nome;
+        this.dataContratacao = m.dataContratacao;
+        this.nif = m.nif;
+        this.cedula = m.cedula;
+        this.especialidades = m.especialidades;
+        this.email = m.email;
+        this.contacto = m.contacto;
+    }
+
+    /**
+     * 
+     * 
      * @param codigo
      */
     public void setCodigo(int codigo){ this.codigo = codigo; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return codigo
      */
     public int getCodigo(){ return this.codigo; }
 
     /**
+     * 
+     * 
      * @param nome
      */
     public void setNome(String nome){ this.nome = nome; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return nome
      */
     public String getNome(){ return this.nome; }
 
@@ -77,57 +106,79 @@ public class Medico {
     public void setDataContratacao(Data data){ this.dataContratacao = data; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return dataContratacao
      */
     public Data getDataContratacao(){ return this.dataContratacao; }
 
     /**
+     * 
+     * 
      * @param nif
      */
     public void setNif(int nif){ this.nif = nif; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return nif
      */
     public int getNif(){ return this.nif; }
 
     /**
+     * 
+     * 
      * @param cedula
      */
     public void setCedula(int cedula){ this.cedula = cedula; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return cedula
      */
     public int getCedula(){ return this.cedula; }
 
     /**
+     * 
+     * 
      * @param lista
      */
     public void setEspecialidades(ArrayList<Especialidade> lista) { this.especialidades = lista; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return lista
      */
     public ArrayList<Especialidade> getEspecialidades(){ return this.especialidades; }
 
     /**
+     * 
+     * 
      * @param email
      */
     public void setEmail(String email){ this.email = email; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return email
      */
     public String getEmail(){ return this.email; }
 
     /**
+     * 
+     * 
      * @param contacto
      */
     public void setContacto(int contacto){ this.contacto = contacto; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return contacto
      */
     public int getContacto(){ return this.contacto; }
 

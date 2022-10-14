@@ -1,6 +1,6 @@
 package com.anams.Model;
 
-import com.anams.Extra.Data;
+import com.anams.Utils.Data;
 
 public class Convencao {
     private int codigo;
@@ -14,6 +14,7 @@ public class Convencao {
 
     /**
      * 
+     * 
      */
     public Convencao(){
         this.codigo = INT_DEFAULT;
@@ -24,6 +25,8 @@ public class Convencao {
     }
 
     /**
+     * 
+     * 
      * @param codigo
      * @param sigla
      * @param nome
@@ -36,6 +39,19 @@ public class Convencao {
         this.nome = nome;
         this.dataConvencao = data;
         this.website = website;
+    }
+
+    /**
+     * 
+     * 
+     * @param c
+     */
+    public Convencao(Convencao c){
+        this.codigo = c.codigo;
+        this.sigla = c.sigla;
+        this.nome = c.nome;
+        this.dataConvencao = c.dataConvencao;
+        this.website = c.website;
     }
 
     /**

@@ -2,10 +2,11 @@ package com.anams.Controller;
 
 import java.util.ArrayList;
 
-import com.anams.Extra.Data;
+import com.anams.Exception.ExceptionMedico.ExceptionMedicoExiste;
 import com.anams.Model.Clinica;
 import com.anams.Model.Especialidade;
 import com.anams.Model.Medico;
+import com.anams.Utils.Data;
 
 public class UC3Controller {
     private Clinica clinica;
@@ -32,6 +33,8 @@ public class UC3Controller {
 
     public void setContacto(int contacto){ m.setContacto(contacto); }
 
-    public void registarMedico(){ clinica.registarMedico(m); }
+    public Medico getMedico() { return this.m; }
+
+    public void registarMedico() throws ExceptionMedicoExiste { clinica.registarMedico(m); }
     
 }

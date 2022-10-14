@@ -3,6 +3,11 @@ package com.anams.Model;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import com.anams.Exception.ExceptionMedico.ExceptionMedicoExiste;
+import com.anams.Exception.ExceptionMedico.ExceptionMedicoNotFound;
+import com.anams.Exception.ExceptionServico.ExceptionServicoExiste;
+import com.anams.Exception.ExceptionServico.ExceptionServicoNotFound;
+
 public class Clinica {
     private String nome;
     private String endereco;
@@ -21,6 +26,7 @@ public class Clinica {
 
     /**
      * 
+     * 
      */
     public Clinica(){
         this.nome = STR_DEFAULT;
@@ -36,115 +42,159 @@ public class Clinica {
     }
 
     /**
+     * 
+     * 
      * @param nome
      */
     public void setNome(String nome){ this.nome = nome; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return nome
      */
     public String getNome(){ return this.nome; }
 
     /**
+     * 
+     * 
      * @param endereco
      */
     public void setEndereco(String endereco){ this.endereco = endereco; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return endereco
      */
     public String getEndereco(){ return this.endereco; }
 
     /**
+     * 
+     * 
      * @param nif
      */
     public void setNif(int nif){ this.nif = nif; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return nif
      */
     public int getNif(){ return this.nif; }
 
     /**
+     * 
+     * 
      * @param contacto
      */
     public void setContacto(int contacto){ this.contacto = contacto; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return contacto
      */
     public int getContacto(){ return this.contacto; }
 
     /**
+     * 
+     * 
      * @param website
      */
     public void setWebsite(String website){ this.website = website; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return website
      */
     public String getWebsite(){ return this.website; }
 
 
 
     /**
+     * 
+     * 
      * @param listaEspecialidades
      */
     public void setListaEspecialidades(ArrayList<Especialidade> listaEspecialidades){ this.listaEspecialidades = listaEspecialidades; }
 
     /**
+     * 
+     * 
      * @return
      */
     public ArrayList<Especialidade> getListaEspecialidades(){ return this.listaEspecialidades; }
 
     /**
+     * 
+     * 
      * @param listaMedicos
      */
     public void setListaMedicos(ArrayList<Medico> listaMedicos){ this.listaMedicos = listaMedicos; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return listaMedicos
      */
     public ArrayList<Medico> getListaMedicos(){ return this.listaMedicos; }
 
     /**
+     * 
+     * 
      * @param listaTipoServicos
      */
     public void setListaTipoServicos(ArrayList<TipoServico> listaTipoServicos){ this.listaTipoServicos = listaTipoServicos; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return listaTipoServicos
      */
     public ArrayList<TipoServico> getListaTipoServicos(){ return this.listaTipoServicos; }
 
     /**
+     * 
+     * 
      * @param listaServicos
      */
     public void setListaServicos(ArrayList<Servico> listaServicos){ this.listaServicos = listaServicos; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return listaServicos
      */
     public ArrayList<Servico> getListaServicos(){ return this.listaServicos; }
 
     /**
+     * 
+     * 
      * @param listaConvencoes
      */
     public void setListaConvencoes(ArrayList<Convencao> listaConvencoes){ this.listaConvencoes = listaConvencoes; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return listaConvencoes
      */
     public ArrayList<Convencao> getListaConvencoes(){ return this.listaConvencoes; }
 
 
 
     /**
+     * 
+     * 
      * @param e
      */
     public void inserirEspecialidade(Especialidade e){ this.listaEspecialidades.add(e); }
 
     /**
+     * 
+     * 
      * @param m
      */
     public void inserirMedico(Medico m){ this.listaMedicos.add(m); }
@@ -155,25 +205,64 @@ public class Clinica {
     public void inserirTipoServico(TipoServico ts){ this.listaTipoServicos.add(ts); }
 
     /**
+     * 
+     * 
      * @param s
      */
     public void inserirServico(Servico s){this.listaServicos.add(s); }
 
     /**
+     * 
+     * 
      * @param c
      */
     public void inserirConvencao(Convencao c){ this.listaConvencoes.add(c); }
 
 
+    //ERRO ESTAO INVERSOS; DEVIAM RETORNAR QUANDO EXISTE; NAO O CONTRARIO
 
     /**
+     * 
+     * 
      * @param m
      */
-    public void registarMedico(Medico m){ listaMedicos.add(m); }
+    public void registarMedico(Medico m) throws ExceptionMedicoExiste{
+        encontrarMedico(m);
+        listaMedicos.add(m);
+    }
 
-    
+    public Medico encontrarMedico(Medico m) throws ExceptionMedicoExiste{
+        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> element.getCodigo() == m.getCodigo()).findFirst();
+        return optionalVariable.orElseThrow(() -> new ExceptionMedicoExiste("Médico não encontrado!!!"));
+    }
 
     /**
+     * 
+     * 
+     * @param s
+     */
+    public void registarServico(Servico s) throws ExceptionServicoExiste {
+        encontrarServico(s);
+        listaServicos.add(s);
+    }
+
+    public Servico encontrarServico(Servico s) throws ExceptionServicoExiste{
+        Optional<Servico> optionalVariable = listaServicos.stream().filter(element -> element.getCodigo() == s.getCodigo()).findFirst();
+        return optionalVariable.orElseThrow(() -> new ExceptionServicoExiste("Servico não encontrado!!!"));
+    }
+
+    /**
+     * 
+     * 
+     * @param c
+     */
+    public void registarConvencao(Convencao c) { listaConvencoes.add(c); }
+
+
+
+    /**
+     * 
+     * 
      * @param codigo
      */
     public void removerEspecialidadeCodigo(int codigo){
@@ -182,6 +271,8 @@ public class Clinica {
     }
 
     /**
+     * 
+     * 
      * @param designacao
      */
     public void removerEspecialidadeDesignacao(String designacao){
@@ -190,10 +281,13 @@ public class Clinica {
     }
 
     /**
+     * 
+     * 
      * @param acronimo
      */
     public void removerEspecialidadeAcronimo(String acronimo){
         Optional<Especialidade> optionalVariable = listaEspecialidades.stream().filter(element -> element.getAcronimo().equals(acronimo)).findFirst();
         Especialidade esp = optionalVariable.orElseThrow(() -> new NullPointerException());
     }
+
 }

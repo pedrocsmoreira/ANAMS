@@ -10,6 +10,8 @@ public class TipoServico {
 
     /**
      * 
+     * 
+     * 
      */
     public TipoServico(){
         this.codigo = ++contador;
@@ -17,6 +19,8 @@ public class TipoServico {
     }
 
     /**
+     * 
+     * 
      * @param nome
      */
     public TipoServico(String nome){
@@ -25,20 +29,39 @@ public class TipoServico {
     }
 
     /**
+     * 
+     * 
+     * @param ts
+     */
+    public TipoServico(TipoServico ts){
+        this.codigo = ts.codigo;
+        this.nome = ts.nome;
+    }
+
+    /**
+     * 
+     * 
      * @return codigo
      */
     public int getCodigo(){ return this.codigo; }
 
     /**
+     * 
+     * 
      * @param nome
      */
     public void setNome(String nome){ this.nome = nome; }
 
     /**
+     * 
+     * 
      * @return
      */
     public String getNome(){ return this.nome; }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
@@ -48,6 +71,9 @@ public class TipoServico {
         return sb.toString();
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
     @Override
     public boolean equals(Object outro){
         if(this == outro){ return true; }

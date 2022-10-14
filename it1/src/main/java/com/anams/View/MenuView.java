@@ -1,32 +1,44 @@
 package com.anams.View;
 
+import java.io.Console;
+
 import com.anams.Model.Clinica;
 
 public class MenuView {
-
+    private Console console = System.console();
     private Clinica clinica;
     private String opcao;
 
     private static final String STR_DEFAULT = "";
 
+    /**
+     * 
+     * 
+     * @param c
+     */
     public MenuView(Clinica c){
         this.clinica = c;
         this.opcao = STR_DEFAULT;
     }
 
-    public void run() throws IOException {
+    /**
+     * 
+     * 
+     * 
+     */
+    public void run() {
         do {
             System.out.println("\n\n");
             System.out.println("1. Especificar Especialidades");
             System.out.println("2. Especificar Tipos de Serviço");
-            System.out.println("3. Registo de Médicos");
-            System.out.println("4. Registo de Serviços");
-            System.out.println("5. Registo de Convenções");
-            System.out.println("6. Consulta de Informação");
+            System.out.println("3. Registar Médicos");
+            System.out.println("4. Registar Serviços");
+            System.out.println("5. Registar Convenções");
+            System.out.println("6. Consultar Informação");
             
             System.out.println("0. Sair");
 
-            opcao = Utils.readLineFromConsole("Introduza opção: ");
+            opcao = console.readLine("Introduza opção: ");
 
             switch(opcao){
                 case "1":
@@ -41,9 +53,19 @@ public class MenuView {
                     UC3View ui3 = new UC3View(this.clinica);
                     ui3.run();
                     break;
-            }
-            
-        }
-        while (!opcao.equals("0") );
+                case "4":
+                    UC4View ui4 = new UC4View(this.clinica);
+                    ui4.run();
+                    break;
+                case "5":
+                    UC5View ui5 = new UC5View(this.clinica);
+                    ui5.run();
+                    break;
+                case "6":
+                    UC6View ui6 = new UC6View(this.clinica);
+                    ui6.run();
+                    break;
+            }   
+        }while (!opcao.equals("0") );
     }
 }

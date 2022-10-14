@@ -11,6 +11,8 @@ public class Servico {
 
     /**
      * 
+     * 
+     * 
      */
     public Servico(){
         this.codigo = INT_DEFAULT;
@@ -20,6 +22,8 @@ public class Servico {
     }
 
     /**
+     * 
+     * 
      * @param codigo
      * @param designacao
      * @param preco
@@ -32,6 +36,8 @@ public class Servico {
     }
 
     /**
+     * 
+     * 
      * @param codigo
      * @param designacao
      * @param preco
@@ -43,49 +49,76 @@ public class Servico {
         this.preco = preco;
         this.tipoServico = ts;
     }
+    
+    /**
+     * 
+     * 
+     * @param s
+     */
+    public Servico(Servico s){
+        this.codigo = s.codigo;
+        this.designacao = s.designacao;
+        this.preco = s.preco;
+        this.tipoServico = s.tipoServico;
+    }
 
     /**
+     * 
+     * 
      * @param codigo
      */
     public void setCodigo(int codigo){ this.codigo = codigo; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return codigo
      */
     public int getCodigo(){ return this.codigo; }
 
     /**
+     * 
+     * 
      * @param designacao
      */
     public void setDesignacao(String designacao){ this.designacao = designacao; }
 
     /**
-     * @return
+     * 
+     * 
+     * @return designacao
      */
     public String getDesignacao(){ return this.designacao; }
 
     /**
+     * 
+     * 
      * @param preco
      */
     public void setPreco(float preco){ this.preco = preco; }
 
     /**
-     * @return
+     * @return preco
      */
     public float getPreco(){ return this.preco; }
 
     /**
+     * 
+     * 
      * @param ts
      */
     public void setTipoServico(TipoServico ts) { this.tipoServico = ts;}
 
     /**
-     * @return
+     * 
+     * 
+     * @return tipoServico
      */
     public TipoServico getTipoServico(){ return this.tipoServico; }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
+    /* 
+     * 
+     * 
      */
     public String toString(){
         StringBuilder sb = new StringBuilder();
@@ -100,8 +133,9 @@ public class Servico {
         return sb.toString();
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
+    /* 
+     * 
+     * 
      */
     @Override
     public boolean equals(Object outro){
