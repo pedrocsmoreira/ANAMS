@@ -10,15 +10,11 @@ public class UC1Controller {
     private Clinica clinica;
     private Especialidade especialidade;
 
-    public UC1Controller(Clinica c){
-        this.clinica = c;
-    }
+    public UC1Controller(Clinica c){ this.clinica = c; }
 
     public ArrayList<Especialidade> verEspecialidades() { return clinica.getListaEspecialidades(); }
 
-    public void novaEspecialidade(){
-        this.especialidade = new Especialidade();
-    }
+    public void novaEspecialidade(){ this.especialidade = new Especialidade(); }
 
     public void setCodigo(int codigo) { especialidade.setCodigo(codigo); }
 

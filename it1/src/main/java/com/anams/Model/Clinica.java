@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import com.anams.Exception.ExceptionMedico.ExceptionMedicoExiste;
-import com.anams.Exception.ExceptionMedico.ExceptionMedicoNotFound;
+import com.anams.Exception.ExceptionMedico.ExceptionMedicoNaoExiste;
 import com.anams.Exception.ExceptionServico.ExceptionServicoExiste;
-import com.anams.Exception.ExceptionServico.ExceptionServicoNotFound;
+import com.anams.Exception.ExceptionServico.ExceptionServicoNaoExiste;
+import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoExiste;
+import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoNaoExiste;
+import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoExiste;
+import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoNaoExiste;
 
 public class Clinica {
     private String nome;
@@ -253,10 +257,11 @@ public class Clinica {
      * 
      * 
      * @param m
+     * @throws ExceptionMedicoExiste
      */
     public void registarMedico(Medico m) throws ExceptionMedicoExiste{
         encontrarMedico(m);
-        listaMedicos.add(m);
+        inserirMedico(m);
     }
 
     public Medico encontrarMedico(Medico m) throws ExceptionMedicoExiste{
@@ -267,12 +272,12 @@ public class Clinica {
     /**
      * 
      * 
-<<<<<<< HEAD
      * @param s
+     * @throws ExceptionServicoExiste
      */
     public void registarServico(Servico s) throws ExceptionServicoExiste {
         encontrarServico(s);
-        listaServicos.add(s);
+        inserirServico(s);
     }
 
     public Servico encontrarServico(Servico s) throws ExceptionServicoExiste{
@@ -280,20 +285,56 @@ public class Clinica {
         return optionalVariable.orElseThrow(() -> new ExceptionServicoExiste("Servico não encontrado!!!"));
     }
 
+
+
+    /**
+     * 
+     * 
+     * @param ts
+     * @throws ExceptionTipoServicoExiste
+     */
+    public void registarTipoServico(TipoServico ts) throws ExceptionTipoServicoExiste{
+        try{
+            encontrarTipoServico(ts);
+            throw new ExceptionTipoServicoExiste("Tipo de Serviço já existe");
+        }catch (ExceptionTipoServicoNaoExiste e){
+            inserirTipoServico(ts);
+        }
+    }
+
+    public TipoServico encontrarTipoServico(TipoServico ts) throws ExceptionTipoServicoNaoExiste{
+        Optional<TipoServico> optionalVariable = listaTipoServicos.stream().filter(element -> element.getCodigo() == ts.getCodigo()).findFirst();
+        return optionalVariable.orElseThrow(() -> new ExceptionTipoServicoNaoExiste("Servico não encontrado!!!"));
+    }
+
+
+
+
     /**
      * 
      * 
      * @param c
+     * @throws ExceptionConvencaoExiste
      */
-    public void registarConvencao(Convencao c) { listaConvencoes.add(c); }
+    public void registarConvencao(Convencao c) throws ExceptionConvencaoExiste{
+        try{
+            encontrarConvencao(c);
+            throw new ExceptionConvencaoExiste("Convenção já existe!!!");
+        }catch (ExceptionConvencaoNaoExiste e){
+            inserirConvencao(c);
+        }
+    }
+
+    public Convencao encontrarConvencao(Convencao c) throws ExceptionConvencaoNaoExiste{
+        Optional<Convencao> optionalVariable = listaConvencoes.stream().filter(element -> element.getCodigo() == c.getCodigo()).findFirst();
+        return optionalVariable.orElseThrow(() -> new ExceptionConvencaoNaoExiste("Convenção não encontrado!!!"));
+    }
 
 
 
     /**
      * 
      * 
-=======
->>>>>>> 6eecfdc53f7562af52ba3ae0d20ea2ed187570c0
      * @param codigo
      */
     public void removerEspecialidadeCodigo(int codigo){

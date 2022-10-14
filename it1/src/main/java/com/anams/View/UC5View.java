@@ -3,6 +3,7 @@ package com.anams.View;
 import java.io.Console;
 
 import com.anams.Controller.UC5Controller;
+import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoExiste;
 import com.anams.Model.Clinica;
 import com.anams.Utils.Data;
 
@@ -31,7 +32,7 @@ public class UC5View {
         System.out.println("Convenção:");
         System.out.println(controller.getConvencao().toString());
         if(console.readLine("Pretende registar esta convenção? (Y/N)").equals("Y")){
-            controller.registarConvencao();
+            registarConvencao();
         }else {
             System.out.println("Convenção não registada!!!");
         }
@@ -53,5 +54,14 @@ public class UC5View {
     }
 
     public String setWebsite() { return console.readLine("Insira o website:"); }
+
+
+    private void registarConvencao(){
+        try{
+            controller.registarConvencao();
+        }catch (ExceptionConvencaoExiste err) {
+            err.printStackTrace();
+        }
+    }
 
 }
