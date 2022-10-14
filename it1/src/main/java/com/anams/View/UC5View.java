@@ -8,14 +8,10 @@ import com.anams.Utils.Data;
 
 public class UC5View {
     private Console console = System.console();
+
     private Clinica clinica;
     private UC5Controller controller;
 
-    /**
-     * 
-     * 
-     * @param c
-     */
     public UC5View(Clinica c){
         this.clinica = c;
         this.controller = new UC5Controller(c);

@@ -200,6 +200,8 @@ public class Clinica {
     public void inserirMedico(Medico m){ this.listaMedicos.add(m); }
 
     /**
+     * 
+     * 
      * @param ts
      */
     public void inserirTipoServico(TipoServico ts){ this.listaTipoServicos.add(ts); }
@@ -221,6 +223,32 @@ public class Clinica {
 
     //ERRO ESTAO INVERSOS; DEVIAM RETORNAR QUANDO EXISTE; NAO O CONTRARIO
 
+    public Medico procurarMedicoCodigo(int codigo){
+        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getCodigo() == codigo)).findFirst();
+        Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
+        return med;
+    }
+
+    public Medico procurarMedicoNome(String nome){
+        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getNome().equals(nome))).findFirst();
+        Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
+        return med;
+    }
+
+    public Medico procurarMedicoCedula(int cedula){
+        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getCedula() == cedula)).findFirst();
+        Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
+        return med;
+    }
+
+    public Medico procurarMedicoNif(int nif){
+        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getNif() == nif)).findFirst();
+        Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
+        return med;
+    }
+
+
+
     /**
      * 
      * 
@@ -239,6 +267,7 @@ public class Clinica {
     /**
      * 
      * 
+<<<<<<< HEAD
      * @param s
      */
     public void registarServico(Servico s) throws ExceptionServicoExiste {
@@ -263,6 +292,8 @@ public class Clinica {
     /**
      * 
      * 
+=======
+>>>>>>> 6eecfdc53f7562af52ba3ae0d20ea2ed187570c0
      * @param codigo
      */
     public void removerEspecialidadeCodigo(int codigo){

@@ -2,6 +2,7 @@ package com.anams.View;
 
 import java.io.Console;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import com.anams.Controller.UC3Controller;
 import com.anams.Exception.ExceptionMedico.ExceptionMedicoExiste;
@@ -17,7 +18,7 @@ public class UC3View {
 
     public UC3View(Clinica c){
         this.clinica = c;
-        this.controller = new UC3Controller(clinica);
+        this.controller = new UC3Controller(c);
     }
 
     public void run(){

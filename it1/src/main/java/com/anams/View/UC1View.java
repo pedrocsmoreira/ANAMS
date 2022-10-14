@@ -18,6 +18,7 @@ public class UC1View {
         this.controller = new UC1Controller(c);
     }
 
+    
     public void run(){
         String opcao = "";
         System.out.println("---------- Especificar Especialidades ----------");
