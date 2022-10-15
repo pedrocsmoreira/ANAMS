@@ -1,12 +1,8 @@
 package com.anams.Controller;
 
-import java.util.ArrayList;
-
 import com.anams.Model.Clinica;
-import com.anams.Model.Especialidade;
 import com.anams.Model.Servico;
 import com.anams.Model.TipoServico;
-import com.anams.Utils.Data;
 import com.anams.Exception.ExceptionServico.ExceptionServicoExiste;
 
 public class UC4Controller {
