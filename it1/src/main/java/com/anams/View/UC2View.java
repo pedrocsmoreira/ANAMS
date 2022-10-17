@@ -55,7 +55,7 @@ public class UC2View {
             controller.registaTipoServico();
         }catch (ExceptionTipoServicoExiste err) {
             err.printStackTrace();
-        }        
+        }
     }
 
 }

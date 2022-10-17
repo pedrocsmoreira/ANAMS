@@ -3,10 +3,6 @@ package com.anams.Menu;
 import java.io.Console;
 
 import com.anams.Model.Clinica;
-import com.anams.View.UC1View;
-import com.anams.View.UC2View;
-import com.anams.View.UC3View;
-import com.anams.View.UC4View;
 import com.anams.View.UC5View;
 import com.anams.View.UC6View;
 

@@ -5,9 +5,6 @@ import java.io.Console;
 import com.anams.Model.Clinica;
 import com.anams.View.UC1View;
 import com.anams.View.UC2View;
-import com.anams.View.UC3View;
-import com.anams.View.UC4View;
-import com.anams.View.UC5View;
 import com.anams.View.UC6View;
 
 public class MenuDC {
@@ -35,11 +32,11 @@ public class MenuDC {
 
             switch(opcao){
                 case "1":
-                    UC3View ui = new UC3View(this.clinica);
+                    UC1View ui = new UC1View(this.clinica);
                     ui.run();
                     break;
                 case "2":
-                    UC4View ui2 = new UC4View(this.clinica);
+                    UC2View ui2 = new UC2View(this.clinica);
                     ui2.run();
                     break;
                 case "3":

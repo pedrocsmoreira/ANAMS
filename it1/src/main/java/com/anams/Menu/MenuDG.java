@@ -3,11 +3,8 @@ package com.anams.Menu;
 import java.io.Console;
 
 import com.anams.Model.Clinica;
-import com.anams.View.UC1View;
-import com.anams.View.UC2View;
 import com.anams.View.UC3View;
 import com.anams.View.UC4View;
-import com.anams.View.UC5View;
 import com.anams.View.UC6View;
 
 public class MenuDG {
@@ -35,20 +32,18 @@ public class MenuDG {
 
             switch(opcao){
                 case "1":
-                    UC1View ui = new UC1View(this.clinica);
+                    UC3View ui = new UC3View(this.clinica);
                     ui.run();
                     break;
                 case "2":
-                    UC2View ui2 = new UC2View(this.clinica);
+                    UC4View ui2 = new UC4View(this.clinica);
                     ui2.run();
                     break;
                 case "3":
                     UC6View ui3 = new UC6View(this.clinica);
                     ui3.run();
                     break;
-            }
-            
-        }
-        while (!opcao.equals("0") );
+            }            
+        }while (!opcao.equals("0") );
     }
 }
