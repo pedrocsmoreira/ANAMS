@@ -11,8 +11,9 @@ public class UC5Controller {
 
     public UC5Controller(Clinica c){
         this.clinica = c;
-        this.c = new Convencao();
     }
+
+    public void novaConvencao(){ this.c = new Convencao(); }
 
     public void setCodigo(int codigo) { this.c.setCodigo(codigo); }
 

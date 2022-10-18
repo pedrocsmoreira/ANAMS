@@ -22,6 +22,7 @@ public class UC3View {
 
     public void run(){
         System.out.println("---------- Registar Médicos ----------");
+        novoMedico();
         inserirDados();
         apresentaDados();
         if(validaDados()){
@@ -30,6 +31,8 @@ public class UC3View {
             System.out.println("Médico não registado!!!");
         }
     }
+
+    private void novoMedico(){ controller.novoMedico(); }
 
     private void inserirDados(){
         controller.setCodigo(getCodigo());

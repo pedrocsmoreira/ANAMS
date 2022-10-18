@@ -26,24 +26,25 @@ public class UC1View {
         do{
             opcao = console.readLine("Pretende especificar uma nova especialidade?? (Y/N) ");
             if(opcao.equals("Y") || opcao.equals("y")){
-                controller.novaEspecialidade();
+                novaEspecialidade();
                 inserirEspecialidade();
                 apresentarDados();
                 String inserir = "";
-                do{
-                    inserir = console.readLine("Pretende registar esta especialidade?");
-                    if(inserir.equals("Y")){
-                        controller.inserirEspecialidade();
-                    }
-                }while(!inserir.equals("Y") || !inserir.equals("N"));
+                if(console.readLine("Pretende registar esta especialidade?").equals("Y")){
+                    controller.inserirEspecialidade();
+                }else{
+                    System.out.println("Especialidade não registada!!!");
+                }
             }
-        }while(opcao != "N");
+        }while(!opcao.equals("N"));
     }
 
     private void apresentarEspecialidades() {
         ArrayList<Especialidade> especialidades = controller.verEspecialidades();
         for(Especialidade e : especialidades){ System.out.println(e.toString()); }
     }
+
+    private void novaEspecialidade(){ controller.novaEspecialidade(); }
 
     private void inserirEspecialidade(){ 
         controller.setCodigo(getCodigo());

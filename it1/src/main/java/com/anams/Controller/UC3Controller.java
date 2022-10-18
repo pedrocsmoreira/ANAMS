@@ -14,8 +14,9 @@ public class UC3Controller {
 
     public UC3Controller(Clinica c){
         this.clinica = c;
-        this.m = new Medico();
     }
+
+    public void novoMedico(){ this.m = new Medico(); }
 
     public void setCodigo(int codigo){ m.setCodigo(codigo); }
 

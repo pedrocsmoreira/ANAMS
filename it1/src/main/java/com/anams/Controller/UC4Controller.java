@@ -15,8 +15,9 @@ public class UC4Controller {
 
     public UC4Controller(Clinica c){
         this.clinica = c;
-        this.s = new Servico();
     }
+
+    public void novoServico(){ this.s = new Servico(); }
     
     public void setCodigo(int codigo){ s.setCodigo(codigo); }
 
