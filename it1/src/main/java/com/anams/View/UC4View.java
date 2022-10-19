@@ -21,6 +21,7 @@ public class UC4View {
 
     public void run(){
         System.out.println("---------- Registar Serviços ----------");
+        novoServico();
         inserirDados();
         apresentarDados();
         if(validaDados()){
@@ -29,6 +30,8 @@ public class UC4View {
             System.out.println("Serviço não registado!!!");
         }
     }
+
+    private void novoServico(){ controller.novoServico(); }
 
     private void inserirDados(){
         controller.setCodigo(getCodigo());

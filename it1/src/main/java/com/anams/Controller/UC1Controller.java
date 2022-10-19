@@ -26,4 +26,6 @@ public class UC1Controller {
 
     public Especialidade getDados() { return this.especialidade; }
 
+    public void inserirEspecialidade() { clinica.inserirEspecialidade(especialidade); }
+
 }

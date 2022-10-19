@@ -8,7 +8,6 @@ import com.anams.Controller.UC3Controller;
 import com.anams.Exception.ExceptionMedico.ExceptionMedicoExiste;
 import com.anams.Model.Clinica;
 import com.anams.Model.Especialidade;
-import com.anams.Model.Medico;
 import com.anams.Utils.Data;
 
 public class UC3View {
@@ -23,6 +22,7 @@ public class UC3View {
 
     public void run(){
         System.out.println("---------- Registar Médicos ----------");
+        novoMedico();
         inserirDados();
         apresentaDados();
         if(validaDados()){
@@ -32,12 +32,15 @@ public class UC3View {
         }
     }
 
+    private void novoMedico(){ controller.novoMedico(); }
+
     private void inserirDados(){
         controller.setCodigo(getCodigo());
         controller.setNome(getNome());
         controller.setDataContratacao(getData());
         controller.setNif(getNif());
         controller.setCedula(getCedula());
+        // o q fazer se getEspecialidades return null
         controller.setEspecialidades(getEspecialidades());
         controller.setEmail(getEmail());
         controller.setContacto(getContacto());
@@ -57,7 +60,7 @@ public class UC3View {
         int day = Integer.parseInt(str[0]);
         int month = Integer.parseInt(str[1]);
         int year = Integer.parseInt(str[2]);
-        return new Data(day,month,year);
+        return new Data(year,month,day);
     }
 
     private int getNif(){ return Integer.parseInt(console.readLine("Insira NIF do médico")); }
@@ -67,17 +70,23 @@ public class UC3View {
     private ArrayList<Especialidade> getEspecialidades(){
         ArrayList<Especialidade> especialidades = clinica.getListaEspecialidades();
         ArrayList<Especialidade> list = new ArrayList<Especialidade>();
-        String opcao;
-        do{
-            for(Especialidade e : especialidades){ System.out.println(e.toString()); }
-            opcao = console.readLine("Insira o número da especialidade a inserir (ou 0 para sair)");
-            if(list.size() < 2){
-                list.add(especialidades.get(Integer.parseInt(opcao)));
-            }else {
-                System.out.println("Não pode inserir mais especialidades neste médico!!!!");
-                opcao = "0";
-            }
-        }while(!opcao.equals("0"));
+        if(especialidades.size() == 0){
+            System.out.println("Não existem especialidades para atribuir!!!");
+        }else{
+            String opcao = "";
+            do{
+                for(Especialidade e : especialidades){ System.out.println(e.toString()); }
+                opcao = console.readLine("Insira o número da especialidade a inserir (ou 0 para sair)");
+                if(opcao.equals("0")){
+                    break;
+                }else if(list.size() < 2){
+                    list.add(especialidades.get(Integer.parseInt(opcao)));
+                }else {
+                    System.out.println("Não pode inserir mais especialidades neste médico!!!!");
+                    opcao = "0";
+                }
+            }while(!opcao.equals("0"));
+        }
         return list;
     }
 

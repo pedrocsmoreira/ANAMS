@@ -24,18 +24,29 @@ public class UC5View {
      */
     public void run(){
         System.out.println("---------- Registar Convenções ----------");
-        controller.setCodigo(setCodigo());
-        controller.setSigla(setSigla());
-        controller.setNome(setNome());
-        controller.setDataConvencao(setDataConvencao());
-        controller.setWebsite(setWebsite());
-        System.out.println("Convenção:");
-        System.out.println(controller.getConvencao().toString());
+        novaConvencao();
+        inserirDados();
+        apresentarDados();
         if(console.readLine("Pretende registar esta convenção? (Y/N)").equals("Y")){
             registarConvencao();
         }else {
             System.out.println("Convenção não registada!!!");
         }
+    }
+
+    private void novaConvencao(){ controller.novaConvencao(); }
+
+    private void inserirDados(){
+        controller.setCodigo(setCodigo());
+        controller.setSigla(setSigla());
+        controller.setNome(setNome());
+        controller.setDataConvencao(setDataConvencao());
+        controller.setWebsite(setWebsite());
+    }
+
+    private void apresentarDados(){
+        System.out.println("Convenção:");
+        System.out.println(controller.getConvencao().toString());
     }
 
     public int setCodigo() { return Integer.parseInt(console.readLine("Insira o código do serviço: ")); }
