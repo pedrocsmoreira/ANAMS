@@ -28,6 +28,7 @@ public class UC6View {
     public void run(){
         String op = "";
         System.out.println("---------- Consultar Informação ----------");
+        System.out.println(this.clinica.toString());
         do{
             menu();
             op = console.readLine("Pretende consultar mais informação? (Y/N)");
