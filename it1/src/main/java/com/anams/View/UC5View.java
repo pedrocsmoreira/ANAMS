@@ -34,8 +34,14 @@ public class UC5View {
         }
     }
 
+    /**
+     * 
+     */
     private void novaConvencao(){ controller.novaConvencao(); }
 
+    /**
+     * 
+     */
     private void inserirDados(){
         controller.setCodigo(setCodigo());
         controller.setSigla(setSigla());
@@ -44,17 +50,40 @@ public class UC5View {
         controller.setWebsite(setWebsite());
     }
 
+    /**
+     * 
+     */
     private void apresentarDados(){
         System.out.println("Convenção:");
         System.out.println(controller.getConvencao().toString());
     }
 
+    /**
+     * 
+     * 
+     * @return
+     */
     public int setCodigo() { return Integer.parseInt(console.readLine("Insira o código do serviço: ")); }
 
+    /**
+     * 
+     * 
+     * @return
+     */
     private String setSigla(){ return console.readLine("Insira a sigla do médico: "); }
 
+    /**
+     * 
+     * 
+     * @return
+     */
     private String setNome(){ return console.readLine("Insira o nome do médico: "); }
 
+    /**
+     * 
+     * 
+     * @return
+     */
     public Data setDataConvencao() {
         String strData = console.readLine("Insira a data de convenção (formato dia/mês/ano):");
         String str[] = strData.split("/");
@@ -64,9 +93,15 @@ public class UC5View {
         return new Data(day,month,year);
     }
 
+    /**
+     * @return
+     */
     public String setWebsite() { return console.readLine("Insira o website:"); }
 
 
+    /**
+     * 
+     */
     private void registarConvencao(){
         try{
             controller.registarConvencao();

@@ -20,6 +20,9 @@ public class UC3View {
         this.controller = new UC3Controller(c);
     }
 
+    /**
+     * 
+     */
     public void run(){
         System.out.println("---------- Registar Médicos ----------");
         novoMedico();
@@ -32,8 +35,14 @@ public class UC3View {
         }
     }
 
+    /**
+     * 
+     */
     private void novoMedico(){ controller.novoMedico(); }
 
+    /**
+     * 
+     */
     private void inserirDados(){
         controller.setCodigo(getCodigo());
         controller.setNome(getNome());
@@ -46,14 +55,29 @@ public class UC3View {
         controller.setContacto(getContacto());
     }
 
+    /**
+     * 
+     */
     private void apresentaDados(){ System.out.println(controller.getMedico().toString()); }
 
+    /**
+     * @return
+     */
     private boolean validaDados() { return console.readLine("Pretende registar este médico? (Y/N)").equals("Y")  ? true : false;  }
     
+    /**
+     * @return
+     */
     private int getCodigo(){ return Integer.parseInt(console.readLine("Insira o código do médico:")); }
 
+    /**
+     * @return
+     */
     private String getNome(){ return console.readLine("Insira o nome do médico:"); }
 
+    /**
+     * @return
+     */
     private Data getData(){
         String strData = console.readLine("Insira a data de contratação (formato dia/mês/ano):");
         String str[] = strData.split("/");
@@ -63,10 +87,19 @@ public class UC3View {
         return new Data(year,month,day);
     }
 
+    /**
+     * @return
+     */
     private int getNif(){ return Integer.parseInt(console.readLine("Insira NIF do médico")); }
 
+    /**
+     * @return
+     */
     private int getCedula(){ return Integer.parseInt(console.readLine("Insira o número da cédula profissional:")); }
 
+    /**
+     * @return
+     */
     private ArrayList<Especialidade> getEspecialidades(){
         ArrayList<Especialidade> especialidades = clinica.getListaEspecialidades();
         ArrayList<Especialidade> list = new ArrayList<Especialidade>();
@@ -90,10 +123,19 @@ public class UC3View {
         return list;
     }
 
+    /**
+     * @return
+     */
     private String getEmail(){ return console.readLine("Insira o email do médico:"); }
 
+    /**
+     * @return
+     */
     private int getContacto(){ return Integer.parseInt(console.readLine("Insira o contacto do médico:")); }
 
+    /**
+     * 
+     */
     private void registarMedico(){
         try{
             controller.registarMedico();

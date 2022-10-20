@@ -19,6 +19,9 @@ public class UC4View {
         this.controller = new UC4Controller(c);
     }
 
+    /**
+     * 
+     */
     public void run(){
         System.out.println("---------- Registar Serviços ----------");
         novoServico();
@@ -31,6 +34,9 @@ public class UC4View {
         }
     }
 
+    /**
+     * 
+     */
     private void novoServico(){ controller.novoServico(); }
 
     private void inserirDados(){
@@ -40,14 +46,29 @@ public class UC4View {
         controller.setTipoServico(getTipoServico());
     }
 
+    /**
+     * 
+     */
     private void apresentarDados() { System.out.println(controller.getServico().toString()); }
 
+    /**
+     * @return
+     */
     private boolean validaDados() { return console.readLine("Pretende registar este serviço? (Y/N)").equals("Y")  ? true : false; }
 
+    /**
+     * @return
+     */
     private int getCodigo(){ return Integer.parseInt(console.readLine("Insira o código do serviço: ")); }
 
+    /**
+     * @return
+     */
     private String getDesignacao(){ return console.readLine("Insira a designação do serviço:"); }
 
+    /**
+     * @return
+     */
     private float getPreco(){ return Float.parseFloat(console.readLine("Insira o preço do serviço")); }
 
     private TipoServico getTipoServico(){

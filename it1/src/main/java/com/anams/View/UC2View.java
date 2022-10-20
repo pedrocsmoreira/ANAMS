@@ -18,6 +18,9 @@ public class UC2View {
         this.controller = new UC2Controller(c);
     }
 
+    /**
+     * 
+     */
     public void run(){
         String op1 = "";
         String op2 = "";
@@ -37,21 +40,39 @@ public class UC2View {
         }while(!op1.equalsIgnoreCase("Y"));
     }
 
+    /**
+     * 
+     */
     private void apresentarTiposServico(){
         ArrayList<TipoServico> tiposServico = controller.verTiposServico();
         for(TipoServico ts : tiposServico){ System.out.println(ts.toString());  }
     }
 
+    /**
+     * 
+     */
     private void novoTipoServico(){ controller.novoTipoServico(); }
 
+    /**
+     * 
+     */
     private void inserirTipoServico(){
         controller.setNome(getNome());
     }
 
+    /**
+     * @return
+     */
     private String getNome() { return console.readLine("Insira o nome do Tipo de Serviço: "); }
 
+    /**
+     * 
+     */
     private void apresentarDados() { System.out.println(controller.apresentarDados().toString()); }
 
+    /**
+     * 
+     */
     private void registaTipoServico() {
         try{
             controller.registaTipoServico();

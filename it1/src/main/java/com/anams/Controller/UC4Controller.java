@@ -1,7 +1,5 @@
 package com.anams.Controller;
 
-import java.util.ArrayList;
-
 import com.anams.Model.Clinica;
 import com.anams.Model.Servico;
 import com.anams.Model.TipoServico;
