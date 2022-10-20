@@ -11,7 +11,6 @@ public class TipoServico {
     /**
      * 
      * 
-     * 
      */
     public TipoServico(){
         this.codigo = ++contador;

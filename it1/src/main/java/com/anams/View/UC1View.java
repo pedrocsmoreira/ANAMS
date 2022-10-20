@@ -25,11 +25,10 @@ public class UC1View {
         apresentarEspecialidades();
         do{
             opcao = console.readLine("Pretende especificar uma nova especialidade?? (Y/N) ");
-            if(opcao.equals("Y") || opcao.equals("y")){
+            if(opcao.equalsIgnoreCase("Y")){
                 novaEspecialidade();
                 inserirEspecialidade();
                 apresentarDados();
-                String inserir = "";
                 if(console.readLine("Pretende registar esta especialidade?").equals("Y")){
                     controller.inserirEspecialidade();
                 }else{

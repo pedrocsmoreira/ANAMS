@@ -57,7 +57,7 @@ public class Data {
                                        "Março", "Abril", "Maio", "Junho",
                                        "Julho", "Agosto", "Setembro",
                                        "Outubro", "Novembro", "Dezembro"};
-   
+
     /**
      * Constrói uma instância de Data recebendo o ano, o mês e o dia. 
      * 
@@ -70,6 +70,7 @@ public class Data {
         this.mes = mes;
         this.dia = dia;              
     }
+
     /**
      * Constrói uma instância de Data com a data por omissÃ£o.  
      */
@@ -78,6 +79,7 @@ public class Data {
         mes = data.mes;
         dia = data.dia;
     }
+
     /**
      * Constrói uma instância de Data com a data por omissÃ£o.  
      */
@@ -86,8 +88,7 @@ public class Data {
         mes = MES_POR_OMISSAO;
         dia = DIA_POR_OMISSAO;
     }
-    
-    
+
     /**
      * Devolve o ano da data.
      * 

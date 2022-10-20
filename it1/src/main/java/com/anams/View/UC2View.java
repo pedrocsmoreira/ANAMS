@@ -25,7 +25,7 @@ public class UC2View {
         apresentarTiposServico();
         do{
             op1 = console.readLine("Pretende especificar um novo tipo de serviço? (Y/N) ");
-            if(op1.equals("Y")){
+            if(op1.equalsIgnoreCase("Y")){
                 novoTipoServico();
                 inserirTipoServico();
                 apresentarDados();
@@ -34,7 +34,7 @@ public class UC2View {
                     if(op2.equals("Y")){ registaTipoServico(); }
                 }while(!op2.equals("Y"));
             }
-        }while(!op1.equals("Y"));
+        }while(!op1.equalsIgnoreCase("Y"));
     }
 
     private void apresentarTiposServico(){
@@ -45,8 +45,10 @@ public class UC2View {
     private void novoTipoServico(){ controller.novoTipoServico(); }
 
     private void inserirTipoServico(){
-
+        controller.setNome(getNome());
     }
+
+    private String getNome() { return console.readLine("Insira o nome do Tipo de Serviço: "); }
 
     private void apresentarDados() { System.out.println(controller.apresentarDados().toString()); }
 

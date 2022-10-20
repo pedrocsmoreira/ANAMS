@@ -16,8 +16,7 @@ public class UC2Controller {
 
     public void novoTipoServico(){ this.tipoServico = new TipoServico(); }
 
-
-
+    public void setNome(String nome){ this.tipoServico.setNome(nome); }
 
     public TipoServico apresentarDados() { return this.tipoServico; }
 
