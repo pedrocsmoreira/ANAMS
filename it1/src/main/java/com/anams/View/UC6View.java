@@ -1,10 +1,23 @@
 package com.anams.View;
 
 import java.io.Console;
+import java.util.ArrayList;
 
 import com.anams.Controller.UC6Controller;
 import com.anams.Model.Clinica;
 import com.anams.Model.Especialidade;
+import com.anams.Model.TipoServico;
+
+import com.anams.Exception.ExceptionMedico.ExceptionMedicoExiste;
+import com.anams.Exception.ExceptionMedico.ExceptionMedicoNaoExiste;
+import com.anams.Exception.ExceptionServico.ExceptionServicoExiste;
+import com.anams.Exception.ExceptionServico.ExceptionServicoNaoExiste;
+import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoExiste;
+import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoNaoExiste;
+import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoExiste;
+import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoNaoExiste;
+import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeExiste;
+import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeNaoExiste;
 
 public class UC6View {
     private Console console = System.console();
@@ -87,7 +100,7 @@ public class UC6View {
 
             switch(op){
                 case "1":
-                    consultarMedico();
+                    consultarMedicos();
                     break;
                 case "2":
                     consultarMedicosEspecialidade();
@@ -107,29 +120,96 @@ public class UC6View {
                 case "7":
                     consultarMedicoEmail();
                     break;
+                default:
+                    break;
             }
         }while(!op.equals("0"));
     }
 
-    private void consultarMedico() {
+    private void consultarMedicos() {
+        System.out.println(this.controller.consultarMedicos());
     }
 
     private void consultarMedicosEspecialidade() {
+        consultarMedicos();
+        String op = "";
+        do{
+            op = console.readLine("Insira o código a Especialidade a consultar: (Use S para sair)");
+        }while(!op.equalsIgnoreCase("S"));
+        int codigo = Integer.parseInt(op);
+        try{
+            System.out.println(this.controller.consultarMedicosEspecialidade(codigo));
+        }catch (ExceptionEspecialidadeNaoExiste e){
+            e.printStackTrace();
+        }
     }
 
     private void consultarMedicoID() {
+        consultarMedicos();
+        String op = "";
+        do{
+            op = console.readLine("Insira o ID a consultar: (Use S para sair)");
+        }while(!op.equalsIgnoreCase("S"));
+        int id = Integer.parseInt(op);
+        try{
+            System.out.println(this.controller.consultarMedicosID(id));
+        }catch (ExceptionEspecialidadeNaoExiste e){
+            e.printStackTrace();
+        }
     }
 
     private void consultarMedicoNome() {
+        consultarMedicos();
+        String op = "";
+        do{
+            op = console.readLine("Insira o ID a consultar: (Use S para sair)");
+        }while(!op.equalsIgnoreCase("S"));
+        try{
+            System.out.println(this.controller.consultarMedicosNome(op));
+        }catch (ExceptionEspecialidadeNaoExiste e){
+            e.printStackTrace();
+        }
     }
 
     private void consultarMedicoCedula() {
+        consultarMedicos();
+        String op = "";
+        do{
+            op = console.readLine("Insira o ID a consultar: (Use S para sair)");
+        }while(!op.equalsIgnoreCase("S"));
+        int cedula = Integer.parseInt(op);
+        try{
+            System.out.println(this.controller.consultarMedicosCedula(cedula));
+        }catch (ExceptionEspecialidadeNaoExiste e){
+            e.printStackTrace();
+        }
     }
 
     private void consultarMedicoContacto() {
+        consultarMedicos();
+        String op = "";
+        do{
+            op = console.readLine("Insira o ID a consultar: (Use S para sair)");
+        }while(!op.equalsIgnoreCase("S"));
+        int contacto = Integer.parseInt(op);
+        try{
+            System.out.println(this.controller.consultarMedicosContacto(contacto));
+        }catch (ExceptionEspecialidadeNaoExiste e){
+            e.printStackTrace();
+        }
     }
 
     private void consultarMedicoEmail() {
+        consultarMedicos();
+        String op = "";
+        do{
+            op = console.readLine("Insira o ID a consultar: (Use S para sair)");
+        }while(!op.equalsIgnoreCase("S"));
+        try{
+            System.out.println(this.controller.consultarMedicosEmail(op));
+        }catch (ExceptionEspecialidadeNaoExiste e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -140,29 +220,116 @@ public class UC6View {
     private void servicoMenu(){
         String op = "";
         do{
-            
+            System.out.println("\n\n");
+            System.out.println("1. Consultar Lista de Serviços");
+            System.out.println("2. Consultar Serviços por Tipo de Serviço");
+
+            System.out.println("0. Sair");
+
+            op = console.readLine("Introduza opção: ");
+
+            switch(op){
+                case "1":
+                    consultarServicos();
+                    break;
+                case "2":
+                    consultarServicosTipo();
+                    break;
+                default:
+                    break;
+            }
         }while(!op.equals("0"));
     }
+
+    private void consultarServicos(){
+        System.out.println(this.controller.consultarServicos());
+    }
+
+
+    private void consultarServicosTipo(){
+        consultarTipoServico();
+        String op = "";
+        do{
+            op = console.readLine("Insira o código do Tipo de Serviço a consultar: (Use S para sair)");
+        }while(!op.equalsIgnoreCase("S"));
+        int codigo = Integer.parseInt(op);
+        System.out.println(this.controller.consultarServicosTipo(codigo));
+    }
+
+
 
     private void especialidadeMenu(){
         String op = "";
         do{
-            
+            System.out.println("\n\n");
+            System.out.println("1. Consultar Lista de Especialidades");
+
+            System.out.println("0. Sair");
+
+            op = console.readLine("Introduza opção: ");
+
+            switch(op){
+                case "1":
+                    consultarEspecialidades();
+                    break;
+                default:
+                    break;
+            }
         }while(!op.equals("0"));
     }
+
+    private void consultarEspecialidades(){
+        System.out.println(this.controller.consultarEspecialidades());
+    }
+
+
 
     private void tipoServicoMenu(){
         String op = "";
         do{
-            
+            System.out.println("\n\n");
+            System.out.println("1. Consultar Lista de Tipos de Serviços");
+
+            System.out.println("0. Sair");
+
+            op = console.readLine("Introduza opção: ");
+
+            switch(op){
+                case "1":
+                    consultarTipoServico();
+                    break;
+                default:
+                    break;
+            }
         }while(!op.equals("0"));
+    }
+
+    private void consultarTipoServico(){
+        
     }
 
     private void convencaoMenu(){
         String op = "";
         do{
-            
+            System.out.println("\n\n");
+            System.out.println("1. Consultar Lista de Convenções");
+
+            System.out.println("0. Sair");
+
+            op = console.readLine("Introduza opção: ");
+
+            switch(op){
+                case "1":
+                    consultarConvencoes();
+                    break;
+                default:
+                    break;
+            }
         }while(!op.equals("0"));
+    }
+    
+    private void consultarConvencoes(){
+        this.controller.consultarConvencoes();
     }
 
 

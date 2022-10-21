@@ -11,6 +11,8 @@ import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoExiste;
 import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoNaoExiste;
 import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoExiste;
 import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoNaoExiste;
+import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeExiste;
+import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeNaoExiste;
 
 public class Clinica {
     private String nome;
@@ -21,7 +23,7 @@ public class Clinica {
 
     private ArrayList<Especialidade> listaEspecialidades;
     private ArrayList<Medico> listaMedicos;
-    private ArrayList<TipoServico> listaTipoServicos;
+    private ArrayList<TipoServico> listaTipoServico;
     private ArrayList<Servico> listaServicos;
     private ArrayList<Convencao> listaConvencoes;
 
@@ -40,7 +42,7 @@ public class Clinica {
         this.website = STR_DEFAULT;
         this.listaEspecialidades = new ArrayList<Especialidade>();
         this.listaMedicos = new ArrayList<Medico>();
-        this.listaTipoServicos = new ArrayList<TipoServico>();
+        this.listaTipoServico = new ArrayList<TipoServico>();
         this.listaServicos = new ArrayList<Servico>();
         this.listaConvencoes =  new ArrayList<Convencao>();
     }
@@ -150,14 +152,14 @@ public class Clinica {
      * 
      * @param listaTipoServicos
      */
-    public void setListaTipoServicos(ArrayList<TipoServico> listaTipoServicos){ this.listaTipoServicos = listaTipoServicos; }
+    public void setListaTipoServicos(ArrayList<TipoServico> listaTipoServicos){ this.listaTipoServico = listaTipoServicos; }
 
     /**
      * 
      * 
      * @return listaTipoServicos
      */
-    public ArrayList<TipoServico> getListaTipoServicos(){ return this.listaTipoServicos; }
+    public ArrayList<TipoServico> getListaTipoServicos(){ return this.listaTipoServico; }
 
     /**
      * 
@@ -208,7 +210,7 @@ public class Clinica {
      * 
      * @param ts
      */
-    public void inserirTipoServico(TipoServico ts){ this.listaTipoServicos.add(ts); }
+    public void inserirTipoServico(TipoServico ts){ this.listaTipoServico.add(ts); }
 
     /**
      * 
@@ -303,8 +305,153 @@ public class Clinica {
     }
 
     public TipoServico encontrarTipoServico(TipoServico ts) throws ExceptionTipoServicoNaoExiste{
-        Optional<TipoServico> optionalVariable = listaTipoServicos.stream().filter(element -> element.getCodigo() == ts.getCodigo()).findFirst();
+        Optional<TipoServico> optionalVariable = listaTipoServico.stream().filter(element -> element.getCodigo() == ts.getCodigo()).findFirst();
         return optionalVariable.orElseThrow(() -> new ExceptionTipoServicoNaoExiste("Servico não encontrado!!!"));
+    }
+
+
+
+    public String consultarMedicos() {
+        StringBuilder lst = new StringBuilder();
+        for(Medico m : listaMedicos){
+            lst.append(m.toString());
+            lst.append("\n");
+        }
+        return lst.toString();
+    }
+
+    public String consultarMedicosEspecialidade(int codigo) throws ExceptionEspecialidadeNaoExiste{
+        StringBuilder lst = new StringBuilder();
+        try{
+            Especialidade e = encontrarEspecialidadeCodigo(codigo);
+            lst = MedicosEspecialidade(e);
+            return lst.toString();
+        }catch (ExceptionEspecialidadeNaoExiste e){
+            throw e;
+        }
+    }
+
+    private Especialidade encontrarEspecialidadeCodigo(int codigo) throws ExceptionEspecialidadeNaoExiste{
+        Optional<Especialidade> optionalVariable = listaEspecialidades.stream().filter(element -> element.getCodigo() == codigo).findFirst();
+        return optionalVariable.orElseThrow(() -> new ExceptionEspecialidadeNaoExiste("Especialide não encontrada!!!"));
+    }
+
+    private StringBuilder MedicosEspecialidade(Especialidade e){
+        StringBuilder lst = new StringBuilder();
+        for(Medico m : listaMedicos) {
+            ArrayList<Especialidade> lstEsp = m.getEspecialidades();
+            for(Especialidade esp : lstEsp){
+                if(esp.equals(e)){
+                    lst.append(m.toString());
+                    lst.append("\n");
+                }
+            }
+        }
+        return lst;
+    }
+
+
+
+    public String consultarMedicoID(int id) {
+        StringBuilder lst = new StringBuilder();
+        for(Medico m : listaMedicos) {
+            if(m.getCodigo() == id){
+                lst.append(m.toString());
+                lst.append("\n");
+            }
+        }
+        return lst.toString();
+    }
+
+    public String consultarMedicoNome(String nome) {
+        StringBuilder lst = new StringBuilder();
+        for(Medico m : listaMedicos) {
+            if(m.getNome().equals(nome)){
+                lst.append(m.toString());
+                lst.append("\n");
+            }
+        }
+        return lst.toString();
+    }
+
+    public String consultarMedicoCedula(int cedula) {
+        StringBuilder lst = new StringBuilder();
+        for(Medico m : listaMedicos) {
+            if(m.getCedula() == cedula){
+                lst.append(m.toString());
+                lst.append("\n");
+            }
+        }
+        return lst.toString();
+    }
+
+    public String consultarMedicoContacto(int contacto) {
+        StringBuilder lst = new StringBuilder();
+        for(Medico m : listaMedicos) {
+            if(m.getContacto() == contacto){
+                lst.append(m.toString());
+                lst.append("\n");
+            }
+        }
+        return lst.toString();
+    }
+
+    public String consultarMedicoEmail(String email) {
+        StringBuilder lst = new StringBuilder();
+        for(Medico m : listaMedicos) {
+            if(m.getEmail().equals(email)){
+                lst.append(m.toString());
+                lst.append("\n");
+            }
+        }
+        return lst.toString();
+    }
+    
+    public String consultarServicos(){
+        StringBuilder lst = new StringBuilder();
+        for(Servico s : listaServicos) {
+            lst.append(s.toString());
+            lst.append("\n");
+        }
+        return lst.toString();
+    }
+
+    public String consultarServicosTipo(int codigo){
+        StringBuilder lst = new StringBuilder();
+        for(Servico s : listaServicos) {
+            if(s.getTipoServico().getCodigo() == codigo){
+                lst.append(s.toString());
+                lst.append("\n");
+            }
+        }
+        return lst.toString();
+    }
+
+    public String consultarEspecialidades(){
+        StringBuilder lst = new StringBuilder();
+        for(Especialidade esp : listaEspecialidades) {
+            lst.append(esp.toString());
+            lst.append("\n");
+        }
+        return lst.toString();
+    }
+    
+    public String consultarTipoServico(){
+        StringBuilder lst = new StringBuilder();
+        for(TipoServico ts : listaTipoServico) {
+            lst.append(ts.toString());
+            lst.append("\n");
+        }
+        return lst.toString();
+    }
+
+    public String consultarConvencoes(){
+        StringBuilder lst = new StringBuilder();
+        for(Convencao c : listaConvencoes) {
+            lst.append(c.toString());
+            lst.append("\n");
+        }
+        return lst.toString();
     }
 
 

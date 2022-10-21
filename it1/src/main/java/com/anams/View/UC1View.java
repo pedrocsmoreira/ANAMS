@@ -18,7 +18,6 @@ public class UC1View {
         this.controller = new UC1Controller(c);
     }
 
-    
     /**
      * 
      */
