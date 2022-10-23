@@ -141,6 +141,8 @@ public class UC6View {
             System.out.println(this.controller.consultarMedicosEspecialidade(codigo));
         }catch (ExceptionEspecialidadeNaoExiste e){
             e.printStackTrace();
+        }catch (ExceptionMedicoNaoExiste e){
+            e.printStackTrace();
         }
     }
 
@@ -152,8 +154,8 @@ public class UC6View {
         }while(!op.equalsIgnoreCase("S"));
         int id = Integer.parseInt(op);
         try{
-            System.out.println(this.controller.consultarMedicosID(id));
-        }catch (ExceptionEspecialidadeNaoExiste e){
+            System.out.println(this.controller.consultarMedicoID(id));
+        }catch (ExceptionMedicoNaoExiste e){
             e.printStackTrace();
         }
     }
@@ -165,8 +167,8 @@ public class UC6View {
             op = console.readLine("Insira o ID a consultar: (Use S para sair)");
         }while(!op.equalsIgnoreCase("S"));
         try{
-            System.out.println(this.controller.consultarMedicosNome(op));
-        }catch (ExceptionEspecialidadeNaoExiste e){
+            System.out.println(this.controller.consultarMedicoNome(op));
+        }catch (ExceptionMedicoNaoExiste e){
             e.printStackTrace();
         }
     }
@@ -179,8 +181,8 @@ public class UC6View {
         }while(!op.equalsIgnoreCase("S"));
         int cedula = Integer.parseInt(op);
         try{
-            System.out.println(this.controller.consultarMedicosCedula(cedula));
-        }catch (ExceptionEspecialidadeNaoExiste e){
+            System.out.println(this.controller.consultarMedicoCedula(cedula));
+        }catch (ExceptionMedicoNaoExiste e){
             e.printStackTrace();
         }
     }
@@ -193,8 +195,8 @@ public class UC6View {
         }while(!op.equalsIgnoreCase("S"));
         int contacto = Integer.parseInt(op);
         try{
-            System.out.println(this.controller.consultarMedicosContacto(contacto));
-        }catch (ExceptionEspecialidadeNaoExiste e){
+            System.out.println(this.controller.consultarMedicoContacto(contacto));
+        }catch (ExceptionMedicoNaoExiste e){
             e.printStackTrace();
         }
     }
@@ -206,8 +208,8 @@ public class UC6View {
             op = console.readLine("Insira o ID a consultar: (Use S para sair)");
         }while(!op.equalsIgnoreCase("S"));
         try{
-            System.out.println(this.controller.consultarMedicosEmail(op));
-        }catch (ExceptionEspecialidadeNaoExiste e){
+            System.out.println(this.controller.consultarMedicoEmail(op));
+        }catch (ExceptionMedicoNaoExiste e){
             e.printStackTrace();
         }
     }
@@ -253,7 +255,13 @@ public class UC6View {
             op = console.readLine("Insira o código do Tipo de Serviço a consultar: (Use S para sair)");
         }while(!op.equalsIgnoreCase("S"));
         int codigo = Integer.parseInt(op);
-        System.out.println(this.controller.consultarServicosTipo(codigo));
+        try{
+            System.out.println(this.controller.consultarServicosTipo(codigo));
+        }catch (ExceptionTipoServicoNaoExiste e){
+            e.printStackTrace();
+        }catch (ExceptionServicoNaoExiste e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -279,7 +287,11 @@ public class UC6View {
     }
 
     private void consultarEspecialidades(){
-        System.out.println(this.controller.consultarEspecialidades());
+        try{
+            System.out.println(this.controller.consultarEspecialidades());
+        }catch (ExceptionEspecialidadeNaoExiste e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -305,7 +317,11 @@ public class UC6View {
     }
 
     private void consultarTipoServico(){
-        
+        try{
+            System.out.println(this.controller.consultarTipoServico());
+        }catch (ExceptionTipoServicoNaoExiste e){
+            e.printStackTrace();
+        }
     }
 
     private void convencaoMenu(){
@@ -329,7 +345,11 @@ public class UC6View {
     }
     
     private void consultarConvencoes(){
-        this.controller.consultarConvencoes();
+        try{
+            System.out.println(this.controller.consultarConvencoes());
+        }catch (ExceptionConvencaoNaoExiste e){
+            e.printStackTrace();
+        }
     }
 
 
