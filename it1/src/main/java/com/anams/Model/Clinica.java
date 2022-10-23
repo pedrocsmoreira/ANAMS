@@ -196,7 +196,7 @@ public class Clinica {
      * 
      * @param e
      */
-    public void inserirEspecialidade(Especialidade e){ this.listaEspecialidades.add(e); }
+    public void registarEspecialidade(Especialidade e){ this.listaEspecialidades.add(e); }
 
     /**
      * 
@@ -333,12 +333,13 @@ public class Clinica {
 
 
 
-    public String consultarMedicos() {
+    public String consultarMedicos() throws ExceptionMedicoNaoExiste{
         StringBuilder lst = new StringBuilder();
         for(Medico m : listaMedicos){
             lst.append(m.toString());
             lst.append("\n");
         }
+        if(lst.toString() == null){ throw new ExceptionMedicoNaoExiste("Médico não encontrado!!!"); }
         return lst.toString();
     }
 
@@ -528,5 +529,31 @@ public class Clinica {
         Optional<Especialidade> optionalVariable = listaEspecialidades.stream().filter(element -> element.getAcronimo().equals(acronimo)).findFirst();
         Especialidade esp = optionalVariable.orElseThrow(() -> new NullPointerException());
     }
+
+    public Especialidade verificarCodigo(int codigo) throws ExceptionEspecialidadeNaoExiste{
+        for(Especialidade e : listaEspecialidades){
+            if(e.getCodigo() == codigo){
+                return e;
+            }
+        }
+        throw new ExceptionEspecialidadeNaoExiste();
+    }
+
+    public String procurarMedicos(Especialidade e) throws ExceptionMedicoNaoExiste{
+        StringBuilder str = new StringBuilder();
+        int count = 0;
+        for(Medico m : listaMedicos){
+            if(m.getEspecialidades().contains(e)){
+                str.append(m.toString());
+                str.append("\n");
+                count++;
+            }
+        }
+        if(count == 0){
+            throw new ExceptionMedicoNaoExiste();
+        }
+        return str.toString();
+    }
+
 
 }

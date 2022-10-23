@@ -3,11 +3,9 @@ package com.anams.Controller;
 import java.util.ArrayList;
 
 import com.anams.Model.Clinica;
-import com.anams.Exception.ExceptionMedico.ExceptionMedicoNaoExiste;
-import com.anams.Exception.ExceptionServico.ExceptionServicoNaoExiste;
-import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoNaoExiste;
-import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoNaoExiste;
+import com.anams.Model.Especialidade;
 import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeNaoExiste;
+import com.anams.Exception.ExceptionMedico.ExceptionMedicoNaoExiste;
 
 public class UC6Controller {
     private Clinica clinica;
@@ -16,52 +14,25 @@ public class UC6Controller {
         this.clinica = c;
     }
 
-    public String consultarMedicos() {
-        return clinica.consultarMedicos();
+    public String verEspecialidades() throws ExceptionEspecialidadeNaoExiste{
+        ArrayList<Especialidade> lst = this.clinica.getListaEspecialidades();
+        if(lst.size() == 0) { throw new ExceptionEspecialidadeNaoExiste(); }
+        StringBuilder str = new StringBuilder();
+        for(Especialidade e : lst){
+            str.append(e.toString());
+            str.append("\n");
+        }
+        return str.toString();
     }
 
-    public String consultarMedicosEspecialidade(int codigo) throws ExceptionEspecialidadeNaoExiste, ExceptionMedicoNaoExiste{
-        return clinica.consultarMedicosEspecialidade(codigo);
+    public Especialidade verificarCodigo(int codigo) throws ExceptionEspecialidadeNaoExiste{
+        return this.clinica.verificarCodigo(codigo);
     }
 
-    public String consultarMedicoID(int id) throws ExceptionMedicoNaoExiste{
-        return clinica.consultarMedicoID(id);
+    public String procurarMedicos(Especialidade e) throws ExceptionMedicoNaoExiste{
+        return clinica.procurarMedicos(e);
     }
 
-    public String consultarMedicoNome(String nome) throws ExceptionMedicoNaoExiste{
-        return clinica.consultarMedicoNome(nome);
-    }
 
-    public String consultarMedicoCedula(int cedula) throws ExceptionMedicoNaoExiste{
-        return clinica.consultarMedicoCedula(cedula);
-    }
 
-    public String consultarMedicoContacto(int contacto) throws ExceptionMedicoNaoExiste{
-        return clinica.consultarMedicoContacto(contacto);
-    }
-
-    public String consultarMedicoEmail(String email) throws ExceptionMedicoNaoExiste{
-        return clinica.consultarMedicoEmail(email);
-    }
-    
-    public String consultarServicos(){
-        return clinica.consultarServicos();
-    }
-
-    public String consultarServicosTipo(int codigo) throws ExceptionTipoServicoNaoExiste, ExceptionServicoNaoExiste{
-        return clinica.consultarServicosTipo(codigo);
-    }
-
-    public String consultarEspecialidades() throws ExceptionEspecialidadeNaoExiste{
-        return clinica.consultarEspecialidades();
-    }
-    
-    public String consultarTipoServico() throws ExceptionTipoServicoNaoExiste{
-        return clinica.consultarTipoServico();
-    }
-
-    public String consultarConvencoes() throws ExceptionConvencaoNaoExiste{
-        return clinica.consultarConvencoes();
-    }
-    
 }

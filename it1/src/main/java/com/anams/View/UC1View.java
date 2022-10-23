@@ -32,7 +32,7 @@ public class UC1View {
                 inserirEspecialidade();
                 apresentarDados();
                 if(console.readLine("Pretende registar esta especialidade?").equals("Y")){
-                    controller.inserirEspecialidade();
+                    controller.registarEspecialidade();
                 }else{
                     System.out.println("Especialidade não registada!!!");
                 }
@@ -41,6 +41,7 @@ public class UC1View {
     }
 
     /**
+     * 
      * 
      */
     private void apresentarEspecialidades() {
