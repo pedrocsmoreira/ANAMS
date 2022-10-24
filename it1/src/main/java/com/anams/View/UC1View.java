@@ -20,6 +20,7 @@ public class UC1View {
     }
 
     /**
+     * Méotodo principal na UC1
      * 
      */
     public void run(){
