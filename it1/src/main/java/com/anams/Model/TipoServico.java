@@ -9,58 +9,62 @@ public class TipoServico {
     private static final String STR_DEFAULT = "";
 
     /**
-     * 
+     * Construtor do Tipo de Serviço
      * 
      */
     public TipoServico(){
-        this.codigo = ++contador;
-        this.nome = STR_DEFAULT;
+        setCodigo(++contador);
+        setNome(STR_DEFAULT);
     }
 
     /**
-     * 
+     * Construtor Completo do Tipo de Serviço
      * 
      * @param nome
      */
     public TipoServico(String nome){
-        this.codigo = ++contador;
-        this.nome = nome;
+        setCodigo(++contador);
+        setNome(nome);
     }
 
     /**
-     * 
+     * Construtor Cópia do Tipo de Serviço
      * 
      * @param ts
      */
     public TipoServico(TipoServico ts){
-        this.codigo = ts.codigo;
-        this.nome = ts.nome;
+        setCodigo(ts.codigo);
+        setNome(ts.nome);
     }
 
     /**
+     * Define código do Tipo de Serviço
      * 
+     * @param codigo
+     */
+    private void setCodigo(int codigo){ this.codigo = codigo; }
+
+    /**
+     * Devolve código do Tipo de Serviço
      * 
      * @return codigo
      */
     public int getCodigo(){ return this.codigo; }
 
     /**
-     * 
+     * Define nome do Tipo de Serviço
      * 
      * @param nome
      */
     public void setNome(String nome){ this.nome = nome; }
 
     /**
-     * 
+     * Devolve nome do Tipo de Serviço
      * 
      * @return
      */
     public String getNome(){ return this.nome; }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
@@ -70,9 +74,6 @@ public class TipoServico {
         return sb.toString();
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
     @Override
     public boolean equals(Object outro){
         if(this == outro){ return true; }

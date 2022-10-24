@@ -2,6 +2,7 @@ package com.anams.Controller;
 
 import java.util.ArrayList;
 
+import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeExiste;
 import com.anams.Model.Clinica;
 import com.anams.Model.Especialidade;
 import com.anams.Utils.Data;
@@ -26,6 +27,6 @@ public class UC1Controller {
 
     public Especialidade getDados() { return this.especialidade; }
 
-    public void registarEspecialidade() { clinica.registarEspecialidade(especialidade); }
+    public void registarEspecialidade() throws ExceptionEspecialidadeExiste { clinica.registarEspecialidade(especialidade); }
 
 }

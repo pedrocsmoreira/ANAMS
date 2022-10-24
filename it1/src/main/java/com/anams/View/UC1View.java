@@ -4,6 +4,7 @@ import java.io.Console;
 import java.util.ArrayList;
 
 import com.anams.Controller.UC1Controller;
+import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeExiste;
 import com.anams.Model.Clinica;
 import com.anams.Model.Especialidade;
 import com.anams.Utils.Data;
@@ -32,7 +33,7 @@ public class UC1View {
                 inserirEspecialidade();
                 apresentarDados();
                 if(console.readLine("Pretende registar esta especialidade?").equals("Y")){
-                    controller.registarEspecialidade();
+                    registaEspecialidade();
                 }else{
                     System.out.println("Especialidade não registada!!!");
                 }
@@ -92,5 +93,13 @@ public class UC1View {
     }
 
     private void apresentarDados() { System.out.println(controller.getDados().toString()); }
+
+    private void registaEspecialidade(){
+        try{
+            controller.registarEspecialidade();
+        }catch (ExceptionEspecialidadeExiste err){
+            err.printStackTrace();
+        }
+    }
 
 }

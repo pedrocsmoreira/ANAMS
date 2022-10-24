@@ -28,7 +28,7 @@ public class UC4View {
         inserirDados();
         apresentarDados();
         if(validaDados()){
-            
+            registarServico();
         }else {
             System.out.println("Serviço não registado!!!");
         }

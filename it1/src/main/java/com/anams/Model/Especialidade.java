@@ -16,10 +16,10 @@ public class Especialidade {
      * 
      */
     public Especialidade(){
-        this.codigo = INT_DEFAULT;
-        this.designacao = STR_DEFAULT;
-        this.acronimo =STR_DEFAULT;
-        this.dataArranque = new Data();
+        setCodigo(INT_DEFAULT);
+        setDesignacao(STR_DEFAULT);
+        setAcronimo(STR_DEFAULT);
+        setDataArranque(new Data());
     }
 
     /**
@@ -31,10 +31,10 @@ public class Especialidade {
      * @param data
      */
     public Especialidade(int codigo, String designacao, String acronimo, Data data){
-        this.codigo = codigo;
-        this.designacao = designacao;
-        this.acronimo = acronimo;
-        this.dataArranque = data;
+        setCodigo(codigo);
+        setDesignacao(designacao);
+        setAcronimo(acronimo);
+        setDataArranque(data);
     }
 
     /**
@@ -43,71 +43,68 @@ public class Especialidade {
      * @param e
      */
     public Especialidade(Especialidade e){
-        this.codigo = e.codigo;
-        this.designacao = e.designacao;
-        this.acronimo = e.acronimo;
-        this.dataArranque = e.dataArranque;
+        setCodigo(e.codigo);
+        setDesignacao(e.designacao);
+        setAcronimo(e.acronimo);
+        setDataArranque(e.dataArranque);
     }
 
     /**
-     * 
+     * Define código da Especialidade
      * 
      * @param codigo
      */
     public void setCodigo(int codigo){ this.codigo = codigo; }
 
     /**
-     * 
+     * Devolve código da Especialidade
      * 
      * @return codigo
      */
     public int getCodigo(){ return this.codigo; }
 
     /**
-     * 
+     * Define Designação da Especialidade
      * 
      * @param designacao
      */
     public void setDesignacao(String designacao){ this.designacao = designacao; }
 
     /**
-     * 
+     * Devolve Designação da Especialidade
      * 
      * @return designacao
      */
     public String getDesignacao(){ return this.designacao; }
 
     /**
-     * 
+     * Define Acrónimo da Especialidade
      * 
      * @param acronimoString
      */
     public void setAcronimo(String acronimoString){ this.acronimo = acronimo; }
 
     /**
-     * 
+     * Devolve Acrónimo da Especialidade
      * 
      * @return acronimo
      */
     public String getAcronimo(){ return this.acronimo; }
 
     /**
-     * 
+     * Define Data de Arranque da Especialidade
      * 
      * @param data
      */
     public void setDataArranque(Data data) { this.dataArranque = data; }
 
     /**
-     * 
+     * Devolve Data de Arranque da Especialidade
      * 
      * @return dataArranque
      */
     public Data getDataArranque(){ return this.dataArranque; }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
@@ -121,9 +118,6 @@ public class Especialidade {
         return sb.toString();
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
     @Override
     public boolean equals(Object outro){
         if(this == outro){
