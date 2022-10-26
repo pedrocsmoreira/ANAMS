@@ -3,6 +3,10 @@ package com.anams.Controller;
 import com.anams.Model.Clinica;
 import com.anams.Model.Servico;
 import com.anams.Model.TipoServico;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
 import com.anams.Exception.ExceptionServico.ExceptionServicoExiste;
 
 public class UC4Controller {
@@ -41,6 +45,20 @@ public class UC4Controller {
      * @param preco
      */
     public void setPreco(float preco){ s.setPreco(preco); }
+
+    public String verTiposServico() {
+        ArrayList<TipoServico> listaTS = clinica.getListaTipoServicos();
+        StringBuilder str = new StringBuilder();
+        for(TipoServico ts : listaTS){ str.append(ts.toString()); }
+        return str.toString();
+    }
+
+    public TipoServico getTipoServico(int cod) {
+        ArrayList<TipoServico> listaTS = clinica.getListaTipoServicos();
+        Optional<TipoServico> optionalVariable = listaTS.stream().filter(element -> element.getCodigo() == cod).findFirst();
+        TipoServico ts = optionalVariable.orElseThrow(() -> new NullPointerException());
+        return ts;
+    }
 
     /**
      * 

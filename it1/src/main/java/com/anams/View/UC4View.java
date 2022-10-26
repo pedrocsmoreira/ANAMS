@@ -1,8 +1,6 @@
 package com.anams.View;
 
 import java.io.Console;
-import java.util.ArrayList;
-import java.util.Optional;
 
 import com.anams.Controller.UC4Controller;
 import com.anams.Exception.ExceptionServico.ExceptionServicoExiste;
@@ -72,11 +70,9 @@ public class UC4View {
     private float getPreco(){ return Float.parseFloat(console.readLine("Insira o preço do serviço")); }
 
     private TipoServico getTipoServico(){
-        ArrayList<TipoServico> listaTS = clinica.getListaTipoServicos();
-        for(TipoServico ts : listaTS){ System.out.println(ts.toString()); }
+        System.out.println(controller.verTiposServico());
         int cod =  Integer.parseInt(console.readLine("Insira código do Tipo de Serviço"));
-        Optional<TipoServico> optionalVariable = listaTS.stream().filter(element -> element.getCodigo() == cod).findFirst();
-        TipoServico ts = optionalVariable.orElseThrow(() -> new NullPointerException());
+        TipoServico ts = controller.getTipoServico(cod);
         return ts;
     }
 
