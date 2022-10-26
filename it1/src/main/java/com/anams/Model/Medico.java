@@ -18,8 +18,7 @@ public class Medico {
     private static final int INT_DEFAULT = 0;
 
     /**
-     * 
-     * 
+     * Construtor Vazio do Médico
      * 
      */
     public Medico(){
@@ -34,7 +33,7 @@ public class Medico {
     }
 
     /**
-     * 
+     * Construtor Completo do Médico
      * 
      * @param codigo
      * @param nome
@@ -57,7 +56,7 @@ public class Medico {
     }
 
     /**
-     * 
+     * Construtor Cópia do Médico
      * 
      * @param m
      */

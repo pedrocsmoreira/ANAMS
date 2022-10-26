@@ -124,9 +124,6 @@ public class Convencao {
      */
     public String getWebsite(){ return this.website; }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
@@ -142,9 +139,6 @@ public class Convencao {
         return sb.toString();
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
     @Override
     public boolean equals(Object outro){
         if(this == outro){

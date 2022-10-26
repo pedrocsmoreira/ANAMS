@@ -12,7 +12,7 @@ public class Especialidade {
     private static final int INT_DEFAULT = 0;
     
     /**
-     * 
+     * Construtor vazio da Especialidade
      * 
      */
     public Especialidade(){
@@ -23,7 +23,7 @@ public class Especialidade {
     }
 
     /**
-     * 
+     * Construtor Completo da Especialidade
      * 
      * @param codigo
      * @param designacao
@@ -38,7 +38,7 @@ public class Especialidade {
     }
 
     /**
-     * 
+     * Construtor Cópia da Especialidade
      * 
      * @param e
      */

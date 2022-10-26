@@ -388,7 +388,7 @@ public class Clinica {
     
 
     /**
-     * 
+     * Método de procura de Médico pelo código
      * 
      * @param codigo
      * @return
@@ -400,7 +400,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método de procura de Médico pelo Nome
      * 
      * @param nome
      * @return
@@ -412,7 +412,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método de procura de Médico pela Cédula Profissional
      * 
      * @param cedula
      * @return
@@ -424,7 +424,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método de procura de Médico pelo NIF
      * 
      * @param nif
      * @return
@@ -445,7 +445,7 @@ public class Clinica {
 
 
     /**
-     * 
+     * Método de consulta de Médicos
      * 
      * @return
      * @throws ExceptionMedicoNaoExiste
@@ -461,7 +461,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Médicos pela Especialidade, com verificação da Especialidade
      * 
      * @param codigo
      * @return
@@ -481,7 +481,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método de consulta de Médicos pela Especialidade
      * 
      * @param e
      * @return
@@ -507,7 +507,7 @@ public class Clinica {
 
 
     /**
-     * 
+     * Método principal de consulta de Médicos pelo ID, com verificação do Id
      * 
      * @param id
      * @return
@@ -528,7 +528,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Médicos, com verificação do Nome
      * 
      * @param nome
      * @return
@@ -549,7 +549,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Médicos, com verificação da Cédula Profissional
      * 
      * @param cedula
      * @return
@@ -570,7 +570,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Médicos, com verificação de Contacto
      * 
      * @param contacto
      * @return
@@ -591,7 +591,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Médicos, com verificação de Email
      * 
      * @param email
      * @return
@@ -612,7 +612,7 @@ public class Clinica {
     }
     
     /**
-     * 
+     * Método principal de consulta de Serviços
      * 
      * @return
      * @throws ExceptionServicoNaoExiste
@@ -628,7 +628,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Serviços, com verificação do Tipo de Serviço
      * 
      * @param codigo
      * @return
@@ -643,7 +643,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Tipo de Serviço
      * 
      * @param codigo
      * @return
