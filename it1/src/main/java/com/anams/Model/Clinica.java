@@ -21,9 +21,9 @@ public class Clinica {
     private int contacto;
     private String website;
 
-    private DC diretorClinico = new DC();
-    private DG diretorGeral = new DG();
-    private AA assistenteAdministrativa = new AA();
+    private DC diretorClinico = new DC("root", "root");
+    private DG diretorGeral = new DG("root", "root");
+    private AA assistenteAdministrativa = new AA("root", "root");
 
     private ArrayList<Especialidade> listaEspecialidades;
     private ArrayList<Medico> listaMedicos;

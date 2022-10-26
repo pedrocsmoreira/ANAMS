@@ -27,8 +27,8 @@ public class MenuDG {
     }
 
     private boolean login(){
-        String username = console.readLine();
-        String password = console.readLine();
+        String username = console.readLine("Insira o username: ");
+        String password = console.readLine("Insira a password: ");
         DG diretorGeral = new DG(username, password);
         return clinica.loginDG(diretorGeral);
     }

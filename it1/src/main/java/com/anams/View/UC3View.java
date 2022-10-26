@@ -115,7 +115,7 @@ public class UC3View {
     /**
      * 
      * 
-     * @return
+     * @return list
      */
     private ArrayList<Especialidade> getEspecialidades(){
         ArrayList<Especialidade> list = new ArrayList<Especialidade>();
@@ -126,7 +126,7 @@ public class UC3View {
             do{
                 System.out.println(controller.verEspecialidades());
                 opcao = console.readLine("Insira o número da especialidade a inserir (ou 0 para sair)");
-                if(opcao.equals("0")){
+                if(opcao.equalsIgnoreCase("0")){
                     break;
                 }else if(list.size() < 2){
                     list.add(controller.getEspecialidade(Integer.parseInt(opcao)));
@@ -135,7 +135,7 @@ public class UC3View {
                     System.out.println("Não pode inserir mais especialidades neste médico!!!!");
                     break;
                 }
-            }while(!opcao.equals("0"));
+            }while(!opcao.equalsIgnoreCase("0"));
         }
         return list;
     }
