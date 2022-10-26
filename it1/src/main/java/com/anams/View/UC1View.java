@@ -1,12 +1,10 @@
 package com.anams.View;
 
 import java.io.Console;
-import java.util.ArrayList;
 
 import com.anams.Controller.UC1Controller;
 import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeExiste;
 import com.anams.Model.Clinica;
-import com.anams.Model.Especialidade;
 import com.anams.Utils.Data;
 
 public class UC1View {
@@ -20,7 +18,7 @@ public class UC1View {
     }
 
     /**
-     * Méotodo principal na UC1
+     * Método principal na UC1
      * 
      */
     public void run(){
@@ -39,22 +37,19 @@ public class UC1View {
                     System.out.println("Especialidade não registada!!!");
                 }
             }
-        }while(!opcao.equals("N"));
+        }while(!opcao.equalsIgnoreCase("N"));
     }
 
     /**
      * 
      * 
      */
-    private void apresentarEspecialidades() {
-        ArrayList<Especialidade> especialidades = controller.verEspecialidades();
-        for(Especialidade e : especialidades){ System.out.println(e.toString()); }
-    }
+    private void apresentarEspecialidades() { controller.verEspecialidades(); }
 
     /**
      * 
      */
-    private void novaEspecialidade(){ controller.novaEspecialidade(); }
+    private void novaEspecialidade() { controller.novaEspecialidade(); }
 
     /**
      * 

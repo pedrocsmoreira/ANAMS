@@ -2,7 +2,6 @@ package com.anams.View;
 
 import java.io.Console;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import com.anams.Controller.UC3Controller;
 import com.anams.Exception.ExceptionMedico.ExceptionMedicoExiste;
@@ -22,6 +21,7 @@ public class UC3View {
 
     /**
      * 
+     * 
      */
     public void run(){
         System.out.println("---------- Registar Médicos ----------");
@@ -37,13 +37,15 @@ public class UC3View {
 
     /**
      * 
+     * 
      */
     private void novoMedico(){ controller.novoMedico(); }
 
     /**
      * 
+     * 
      */
-    private void inserirDados(){
+    private void inserirDados() {
         controller.setCodigo(getCodigo());
         controller.setNome(getNome());
         controller.setDataContratacao(getData());
@@ -57,28 +59,37 @@ public class UC3View {
 
     /**
      * 
+     * 
      */
-    private void apresentaDados(){ System.out.println(controller.getMedico().toString()); }
+    private void apresentaDados() { System.out.println(controller.getMedico()); }
 
     /**
+     * 
+     * 
      * @return
      */
     private boolean validaDados() { return console.readLine("Pretende registar este médico? (Y/N)").equals("Y")  ? true : false;  }
     
     /**
+     * 
+     * 
      * @return
      */
-    private int getCodigo(){ return Integer.parseInt(console.readLine("Insira o código do médico:")); }
+    private int getCodigo() { return Integer.parseInt(console.readLine("Insira o código do médico:")); }
 
     /**
+     * 
+     * 
      * @return
      */
-    private String getNome(){ return console.readLine("Insira o nome do médico:"); }
+    private String getNome() { return console.readLine("Insira o nome do médico:"); }
 
     /**
+     * 
+     * 
      * @return
      */
-    private Data getData(){
+    private Data getData() {
         String strData = console.readLine("Insira a data de contratação (formato dia/mês/ano):");
         String str[] = strData.split("/");
         int day = Integer.parseInt(str[0]);
@@ -88,35 +99,41 @@ public class UC3View {
     }
 
     /**
+     * 
+     * 
      * @return
      */
     private int getNif(){ return Integer.parseInt(console.readLine("Insira NIF do médico")); }
 
     /**
+     * 
+     * 
      * @return
      */
     private int getCedula(){ return Integer.parseInt(console.readLine("Insira o número da cédula profissional:")); }
 
     /**
+     * 
+     * 
      * @return
      */
     private ArrayList<Especialidade> getEspecialidades(){
-        ArrayList<Especialidade> especialidades = clinica.getListaEspecialidades();
         ArrayList<Especialidade> list = new ArrayList<Especialidade>();
-        if(especialidades.size() == 0){
+        if(controller.verificarEspecialidades()){
             System.out.println("Não existem especialidades para atribuir!!!");
         }else{
             String opcao = "";
             do{
-                for(Especialidade e : especialidades){ System.out.println(e.toString()); }
+                System.out.println(controller.verEspecialidades());
                 opcao = console.readLine("Insira o número da especialidade a inserir (ou 0 para sair)");
                 if(opcao.equals("0")){
                     break;
                 }else if(list.size() < 2){
-                    list.add(especialidades.get(Integer.parseInt(opcao)));
+                    list.add(controller.getEspecialidade(Integer.parseInt(opcao)));
+                    break;
                 }else {
                     System.out.println("Não pode inserir mais especialidades neste médico!!!!");
-                    opcao = "0";
+                    break;
                 }
             }while(!opcao.equals("0"));
         }
@@ -124,14 +141,18 @@ public class UC3View {
     }
 
     /**
-     * @return
+     * 
+     * 
+     * @return email
      */
-    private String getEmail(){ return console.readLine("Insira o email do médico:"); }
+    private String getEmail() { return console.readLine("Insira o email do médico:"); }
 
     /**
-     * @return
+     * 
+     * 
+     * @return contacto
      */
-    private int getContacto(){ return Integer.parseInt(console.readLine("Insira o contacto do médico:")); }
+    private int getContacto() { return Integer.parseInt(console.readLine("Insira o contacto do médico:")); }
 
     /**
      * 

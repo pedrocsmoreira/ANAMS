@@ -13,9 +13,16 @@ public class UC1Controller {
 
     public UC1Controller(Clinica c){ this.clinica = c; }
 
-    public ArrayList<Especialidade> verEspecialidades() { return clinica.getListaEspecialidades(); }
+    public String verEspecialidades() {
+        ArrayList<Especialidade> especialidades = clinica.getListaEspecialidades();
+        StringBuilder str = new StringBuilder();
+        for(Especialidade e : especialidades){ str.append(e.toString()); }
+        return str.toString();
+    }
 
-    public void novaEspecialidade(){ this.especialidade = new Especialidade(); }
+    public void novaEspecialidade(){ setEspecialidade(); }
+
+    private void setEspecialidade() { this.especialidade = clinica.novaEspecialidade(); }
 
     public void setCodigo(int codigo) { especialidade.setCodigo(codigo); }
 

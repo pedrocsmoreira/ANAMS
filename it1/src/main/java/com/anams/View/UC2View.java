@@ -1,12 +1,10 @@
 package com.anams.View;
 
 import java.io.Console;
-import java.util.ArrayList;
 
 import com.anams.Controller.UC2Controller;
 import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoExiste;
 import com.anams.Model.Clinica;
-import com.anams.Model.TipoServico;
 
 public class UC2View {
     private Console console = System.console();
@@ -22,43 +20,38 @@ public class UC2View {
      * 
      */
     public void run(){
-        String op1 = "";
-        String op2 = "";
+        String opcao = "";
         System.out.println("---------- Especificar Tipos de Serviço ----------");
         apresentarTiposServico();
         do{
-            op1 = console.readLine("Pretende especificar um novo tipo de serviço? (Y/N) ");
-            if(op1.equalsIgnoreCase("Y")){
+            opcao = console.readLine("Pretende especificar um novo tipo de serviço? (Y/N) ");
+            if(opcao.equalsIgnoreCase("Y")){
                 novoTipoServico();
                 inserirTipoServico();
                 apresentarDados();
-                do{
-                    op2 = console.readLine("Pretende inserir este tipo de serviço?");
-                    if(op2.equals("Y")){ registaTipoServico(); }
-                }while(!op2.equals("Y"));
+                if(console.readLine("Pretende inserir este tipo de serviço?").equals("")){
+                    registaTipoServico();
+                }else{
+                    System.out.println("Tipo de Serviço não registado!!!");
+                }
             }
-        }while(!op1.equalsIgnoreCase("Y"));
+        }while(!opcao.equalsIgnoreCase("N"));
     }
 
     /**
      * 
      */
-    private void apresentarTiposServico(){
-        ArrayList<TipoServico> tiposServico = controller.verTiposServico();
-        for(TipoServico ts : tiposServico){ System.out.println(ts.toString());  }
-    }
+    private void apresentarTiposServico() { System.out.println(controller.verTiposServico()); }
 
     /**
      * 
      */
-    private void novoTipoServico(){ controller.novoTipoServico(); }
+    private void novoTipoServico() { controller.novoTipoServico(); }
 
     /**
      * 
      */
-    private void inserirTipoServico(){
-        controller.setNome(getNome());
-    }
+    private void inserirTipoServico() { controller.setNome(getNome()); }
 
     /**
      * @return

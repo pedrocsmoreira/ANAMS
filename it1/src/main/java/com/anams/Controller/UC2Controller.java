@@ -12,9 +12,16 @@ public class UC2Controller {
 
     public UC2Controller(Clinica c){ this.clinica = c; }
 
-    public ArrayList<TipoServico> verTiposServico(){ return clinica.getListaTipoServicos(); }
+    public String verTiposServico(){
+        ArrayList<TipoServico> tiposServico = clinica.getListaTipoServicos();
+        StringBuilder str = new StringBuilder();
+        for(TipoServico ts : tiposServico){ str.append(ts.toString());  }
+        return str.toString();
+    }
 
-    public void novoTipoServico(){ this.tipoServico = new TipoServico(); }
+    public void novoTipoServico(){ setTipoServico(); }
+
+    private void setTipoServico() { this.tipoServico = clinica.novoTipoServico(); }
 
     public void setNome(String nome){ this.tipoServico.setNome(nome); }
 

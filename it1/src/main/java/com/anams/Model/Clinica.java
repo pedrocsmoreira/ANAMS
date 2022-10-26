@@ -285,6 +285,13 @@ public class Clinica {
 
 
     /**
+     * 
+     * 
+     * @return new Especialidade()
+     */
+    public Especialidade novaEspecialidade() { return new Especialidade(); }
+
+    /**
      * Método de registo de Especialidades, com verificação da existência do código inserido
      * 
      * @param e
@@ -315,6 +322,13 @@ public class Clinica {
     private void inserirEspecialidade(Especialidade e){ this.listaEspecialidades.add(e); }
 
 
+
+    /**
+     * 
+     * 
+     * @return new Medico()
+     */
+    public Medico novoMedico() { return new Medico();}
 
     /**
      * Método de registo de Médicos, com verificação da existência do código inserido
@@ -348,6 +362,8 @@ public class Clinica {
 
 
 
+    public Servico novoServico() { return new Servico(); }
+
     /**
      * Método de registo de Serviços, com verificação da existência do código inserido
      * 
@@ -379,6 +395,13 @@ public class Clinica {
     private void inserirServico(Servico s){this.listaServicos.add(s); }
 
 
+
+    /**
+     * 
+     * 
+     * @return new TipoServico()
+     */
+    public TipoServico novoTipoServico() { return new TipoServico(); }
 
     /**
      * Método de registo de Tipos de Serviço, com verificação da existência do código inserido
@@ -416,6 +439,13 @@ public class Clinica {
 
 
 
+    /**
+     * 
+     * 
+     * @return new Convencao()
+     */
+    public Convencao novaConvencao() { return new Convencao(); }
+    
     /**
      * Método de registo de Convenções, com verificação da existência do código inserido
      * 

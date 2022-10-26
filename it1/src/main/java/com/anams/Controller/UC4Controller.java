@@ -17,7 +17,9 @@ public class UC4Controller {
      * Criar novo serviço, sem dados
      * 
      */
-    public void novoServico(){ this.s = new Servico(); }
+    public void novoServico(){ setServico(); }
+
+    private void setServico() { this.s = clinica.novoServico(); }
     
     /**
      * Definir o código 
