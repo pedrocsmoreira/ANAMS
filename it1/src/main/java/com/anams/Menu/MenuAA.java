@@ -2,11 +2,13 @@ package com.anams.Menu;
 
 import java.io.Console;
 
+import com.anams.Model.AA;
 import com.anams.Model.Clinica;
 import com.anams.View.UC5View;
 import com.anams.View.UC6View;
 
 public class MenuAA {
+    Console console = System.console();
     private Clinica clinica;
     private String opcao;
 
@@ -18,7 +20,20 @@ public class MenuAA {
     }
 
     public void run() {
-        Console console = System.console();
+        if(login()){
+            menu();
+        }
+    }
+
+    private boolean login(){
+        String username = console.readLine();
+        String password = console.readLine();
+        AA assistenteAdministrativa = new AA(username, password);
+        return clinica.loginAA(assistenteAdministrativa);
+    }
+
+    private void menu() {
+        System.out.println("--------- Menu Assistente Administrativa ----------");
         do {
             System.out.println("\n\n");
             System.out.println("1. Registar Convenções");

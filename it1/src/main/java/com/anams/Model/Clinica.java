@@ -21,6 +21,10 @@ public class Clinica {
     private int contacto;
     private String website;
 
+    private DC diretorClinico = new DC();
+    private DG diretorGeral = new DG();
+    private AA assistenteAdministrativa = new AA();
+
     private ArrayList<Especialidade> listaEspecialidades;
     private ArrayList<Medico> listaMedicos;
     private ArrayList<TipoServico> listaTipoServico;
@@ -142,6 +146,49 @@ public class Clinica {
 
 
     /**
+     * 
+     * 
+     * @param assistenteAdministrativa
+     */
+    public void setAssistenteAdministrativa(AA assistenteAdministrativa) { this.assistenteAdministrativa = assistenteAdministrativa; }
+
+    /**
+     * 
+     * 
+     * @return assistenteAdministrativa
+     */
+    public AA getAssistenteAdministrativa() { return this.assistenteAdministrativa; }
+
+    /**
+     * 
+     * 
+     * @param diretorClinico
+     */
+    public void setDiretorClinico(DC diretorClinico) { this.diretorClinico = diretorClinico; }
+
+    /**
+     * 
+     * 
+     * @return diretorClinico
+     */
+    public DC getDiretorClinico() { return this.diretorClinico; }
+
+    /**
+     * 
+     * 
+     * @param diretorGeral
+     */
+    public void setDiretorGeral(DG diretorGeral) { this.diretorGeral = diretorGeral; }
+
+    /**
+     * 
+     * 
+     * @return diretorGeral
+     */
+    public DG getDiretorGeral() { return this.diretorGeral; }
+
+
+    /**
      * Define Lista de Especialidades registadas na Clínica
      * 
      * @param listaEspecialidades
@@ -210,6 +257,29 @@ public class Clinica {
      * @return listaConvencoes
      */
     public ArrayList<Convencao> getListaConvencoes(){ return this.listaConvencoes; }
+
+
+
+    public boolean loginAA(AA aa) {
+        if(assistenteAdministrativa.equals(aa)){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean loginDC(DC dc) {
+        if(diretorClinico.equals(dc)){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean loginDG(DG dg) {
+        if(diretorGeral.equals(dg)){
+            return true;
+        }
+        return false;
+    }
 
 
 
