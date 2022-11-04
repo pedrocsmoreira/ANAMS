@@ -28,6 +28,7 @@ public class MenuView {
             System.out.println("1. Diretor Geral");
             System.out.println("2. Diretor Clínico");
             System.out.println("3. Assistente Administrativa");
+            System.out.println("4. Cliente");
             
             System.out.println("0. Sair");
 

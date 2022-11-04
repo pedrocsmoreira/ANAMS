@@ -16,7 +16,18 @@ public class UC3Controller {
         this.clinica = c;
     }
 
-    public void novoMedico(){ this.m = new Medico(); }
+    public boolean verificarEspecialidades() { if(clinica.getListaEspecialidades().size() == 0) { return false; } return true; }
+
+    public String verEspecialidades() {
+        ArrayList<Especialidade> especialidades = clinica.getListaEspecialidades();
+        StringBuilder str = new StringBuilder();
+        for(Especialidade e : especialidades){ str.append(e.toString()); }
+        return str.toString();
+    }
+
+    public void novoMedico(){ setMedico(); }
+
+    private void setMedico() { this.m = clinica.novoMedico(); }
 
     public void setCodigo(int codigo){ m.setCodigo(codigo); }
 
@@ -28,13 +39,15 @@ public class UC3Controller {
 
     public void setCedula(int cedula){ m.setCedula(cedula); }
 
+    public Especialidade getEspecialidade(int num) { return clinica.getListaEspecialidades().get(num); }
+
     public void setEspecialidades(ArrayList<Especialidade> lista){ m.setEspecialidades(lista); }
 
     public void setEmail(String email){ m.setEmail(email); }
 
     public void setContacto(int contacto){ m.setContacto(contacto); }
 
-    public Medico getMedico() { return this.m; }
+    public String getMedico() { return this.m.toString(); }
 
     public void registarMedico() throws ExceptionMedicoExiste { clinica.registarMedico(m); }
     

@@ -17,7 +17,9 @@ public class UC5Controller {
      * Criar nova convenção, sem dados
      * 
      */
-    public void novaConvencao(){ this.c = new Convencao(); }
+    public void novaConvencao(){ setConvencao(); }
+
+    private void setConvencao() { this.c = clinica.novaConvencao(); }
 
     /**
      * Definir o código de uma convenção

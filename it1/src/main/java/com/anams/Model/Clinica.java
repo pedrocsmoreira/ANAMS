@@ -21,6 +21,10 @@ public class Clinica {
     private int contacto;
     private String website;
 
+    private DC diretorClinico = new DC("root", "root");
+    private DG diretorGeral = new DG("root", "root");
+    private AA assistenteAdministrativa = new AA("root", "root");
+
     private ArrayList<Especialidade> listaEspecialidades;
     private ArrayList<Medico> listaMedicos;
     private ArrayList<TipoServico> listaTipoServico;
@@ -142,6 +146,49 @@ public class Clinica {
 
 
     /**
+     * 
+     * 
+     * @param assistenteAdministrativa
+     */
+    public void setAssistenteAdministrativa(AA assistenteAdministrativa) { this.assistenteAdministrativa = assistenteAdministrativa; }
+
+    /**
+     * 
+     * 
+     * @return assistenteAdministrativa
+     */
+    public AA getAssistenteAdministrativa() { return this.assistenteAdministrativa; }
+
+    /**
+     * 
+     * 
+     * @param diretorClinico
+     */
+    public void setDiretorClinico(DC diretorClinico) { this.diretorClinico = diretorClinico; }
+
+    /**
+     * 
+     * 
+     * @return diretorClinico
+     */
+    public DC getDiretorClinico() { return this.diretorClinico; }
+
+    /**
+     * 
+     * 
+     * @param diretorGeral
+     */
+    public void setDiretorGeral(DG diretorGeral) { this.diretorGeral = diretorGeral; }
+
+    /**
+     * 
+     * 
+     * @return diretorGeral
+     */
+    public DG getDiretorGeral() { return this.diretorGeral; }
+
+
+    /**
      * Define Lista de Especialidades registadas na Clínica
      * 
      * @param listaEspecialidades
@@ -213,6 +260,36 @@ public class Clinica {
 
 
 
+    public boolean loginAA(AA aa) {
+        if(assistenteAdministrativa.equals(aa)){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean loginDC(DC dc) {
+        if(diretorClinico.equals(dc)){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean loginDG(DG dg) {
+        if(diretorGeral.equals(dg)){
+            return true;
+        }
+        return false;
+    }
+
+
+
+
+    /**
+     * 
+     * 
+     * @return new Especialidade()
+     */
+    public Especialidade novaEspecialidade() { return new Especialidade(); }
 
     /**
      * Método de registo de Especialidades, com verificação da existência do código inserido
@@ -247,6 +324,13 @@ public class Clinica {
 
 
     /**
+     * 
+     * 
+     * @return new Medico()
+     */
+    public Medico novoMedico() { return new Medico();}
+
+    /**
      * Método de registo de Médicos, com verificação da existência do código inserido
      * 
      * @param m
@@ -277,6 +361,8 @@ public class Clinica {
     private void inserirMedico(Medico m){ this.listaMedicos.add(m); }
 
 
+
+    public Servico novoServico() { return new Servico(); }
 
     /**
      * Método de registo de Serviços, com verificação da existência do código inserido
@@ -309,6 +395,13 @@ public class Clinica {
     private void inserirServico(Servico s){this.listaServicos.add(s); }
 
 
+
+    /**
+     * 
+     * 
+     * @return new TipoServico()
+     */
+    public TipoServico novoTipoServico() { return new TipoServico(); }
 
     /**
      * Método de registo de Tipos de Serviço, com verificação da existência do código inserido
@@ -346,6 +439,13 @@ public class Clinica {
 
 
 
+    /**
+     * 
+     * 
+     * @return new Convencao()
+     */
+    public Convencao novaConvencao() { return new Convencao(); }
+    
     /**
      * Método de registo de Convenções, com verificação da existência do código inserido
      * 
@@ -388,7 +488,7 @@ public class Clinica {
     
 
     /**
-     * 
+     * Método de procura de Médico pelo código
      * 
      * @param codigo
      * @return
@@ -400,7 +500,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método de procura de Médico pelo Nome
      * 
      * @param nome
      * @return
@@ -412,7 +512,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método de procura de Médico pela Cédula Profissional
      * 
      * @param cedula
      * @return
@@ -424,7 +524,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método de procura de Médico pelo NIF
      * 
      * @param nif
      * @return
@@ -445,7 +545,7 @@ public class Clinica {
 
 
     /**
-     * 
+     * Método de consulta de Médicos
      * 
      * @return
      * @throws ExceptionMedicoNaoExiste
@@ -461,7 +561,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Médicos pela Especialidade, com verificação da Especialidade
      * 
      * @param codigo
      * @return
@@ -481,7 +581,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método de consulta de Médicos pela Especialidade
      * 
      * @param e
      * @return
@@ -507,7 +607,7 @@ public class Clinica {
 
 
     /**
-     * 
+     * Método principal de consulta de Médicos pelo ID, com verificação do Id
      * 
      * @param id
      * @return
@@ -528,7 +628,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Médicos, com verificação do Nome
      * 
      * @param nome
      * @return
@@ -549,7 +649,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Médicos, com verificação da Cédula Profissional
      * 
      * @param cedula
      * @return
@@ -570,7 +670,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Médicos, com verificação de Contacto
      * 
      * @param contacto
      * @return
@@ -591,7 +691,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Médicos, com verificação de Email
      * 
      * @param email
      * @return
@@ -612,7 +712,7 @@ public class Clinica {
     }
     
     /**
-     * 
+     * Método principal de consulta de Serviços
      * 
      * @return
      * @throws ExceptionServicoNaoExiste
@@ -628,7 +728,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Serviços, com verificação do Tipo de Serviço
      * 
      * @param codigo
      * @return
@@ -643,7 +743,7 @@ public class Clinica {
     }
 
     /**
-     * 
+     * Método principal de consulta de Tipo de Serviço
      * 
      * @param codigo
      * @return

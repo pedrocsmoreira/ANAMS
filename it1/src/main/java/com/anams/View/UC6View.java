@@ -1,22 +1,12 @@
 package com.anams.View;
 
 import java.io.Console;
-import java.util.ArrayList;
 
 import com.anams.Controller.UC6Controller;
 import com.anams.Model.Clinica;
 import com.anams.Model.Especialidade;
-import com.anams.Model.TipoServico;
 
-import com.anams.Exception.ExceptionMedico.ExceptionMedicoExiste;
 import com.anams.Exception.ExceptionMedico.ExceptionMedicoNaoExiste;
-import com.anams.Exception.ExceptionServico.ExceptionServicoExiste;
-import com.anams.Exception.ExceptionServico.ExceptionServicoNaoExiste;
-import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoExiste;
-import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoNaoExiste;
-import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoExiste;
-import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoNaoExiste;
-import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeExiste;
 import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeNaoExiste;
 
 public class UC6View {
@@ -31,7 +21,7 @@ public class UC6View {
      */
     public UC6View(Clinica c){
         this.clinica = c;
-        this.controller = new UC6Controller(c);
+        this.controller = new UC6Controller(clinica);
     }
 
     public void run(){
