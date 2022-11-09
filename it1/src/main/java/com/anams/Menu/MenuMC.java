@@ -4,18 +4,17 @@ import java.io.Console;
 
 import com.anams.Model.AA;
 import com.anams.Model.Clinica;
-import com.anams.View.UC13View;
-import com.anams.View.UC5View;
-import com.anams.View.UC6View;
+import com.anams.View.UC9View;
+import com.anams.View.UC10View;
 
-public class MenuAA {
+public class MenuMC {
     Console console = System.console();
     private Clinica clinica;
     private String opcao;
 
     private static final String STR_DEFAULT = "";
 
-    public MenuAA(Clinica c){
+    public MenuMC(Clinica c){
         this.clinica = c;
         this.opcao = STR_DEFAULT;
     }
@@ -37,9 +36,8 @@ public class MenuAA {
         System.out.println("--------- Menu Assistente Administrativa ----------");
         do {
             System.out.println("\n\n");
-            System.out.println("1. Registar Convenções");
-            System.out.println("2. Consultar Médicos por Especialidade");
-            System.out.println("3. Consultar vagas para Consultas por Especialidade");
+            System.out.println("1. Registar Calendário");
+            System.out.println("2. Consultar Calendário de Marcações");
             
             System.out.println("0. Sair");
 
@@ -47,19 +45,15 @@ public class MenuAA {
 
             switch(opcao){
                 case "1":
-                    UC5View ui = new UC5View(this.clinica);
-                    ui.run();
+                    UC9View ui9 = new UC9View(this.clinica);
+                    ui9.run();
                     break;
                 case "2":
-                    UC6View ui2 = new UC6View(this.clinica);
-                    ui2.run();
-                    break;
-                case "3":
-                    UC13View ui13 = new UC13View(this.clinica);
-                    ui13.run();
+                    UC10View ui10 = new UC10View(this.clinica);
+                    ui10.run();
                     break;
             }
-            
+
         }while (!opcao.equals("0") );
     }
 }

@@ -7,6 +7,7 @@ import com.anams.Model.Clinica;
 import com.anams.View.UC3View;
 import com.anams.View.UC4View;
 import com.anams.View.UC6View;
+import com.anams.View.UC7View;
 
 public class MenuDC {
     Console console = System.console();
@@ -38,7 +39,8 @@ public class MenuDC {
             System.out.println("\n\n");
             System.out.println("1. Registar Médicos");
             System.out.println("2. Registar Serviços");
-            System.out.println("3. Consulta de Informação");
+            System.out.println("3. Consultar Médicos por Especialidade");
+            System.out.println("4. Adicionar Especialidade a um Médico");
             
             System.out.println("0. Sair");
 
@@ -46,18 +48,23 @@ public class MenuDC {
 
             switch(opcao){
                 case "1":
-                    UC3View ui = new UC3View(this.clinica);
-                    ui.run();
-                    break;
-                case "2":
-                    UC4View ui2 = new UC4View(this.clinica);
-                    ui2.run();
-                    break;
-                case "3":
-                    UC6View ui3 = new UC6View(this.clinica);
+                    UC3View ui3 = new UC3View(this.clinica);
                     ui3.run();
                     break;
-            }            
+                case "2":
+                    UC4View ui4 = new UC4View(this.clinica);
+                    ui4.run();
+                    break;
+                case "3":
+                    UC6View ui6 = new UC6View(this.clinica);
+                    ui6.run();
+                    break;
+                case "4":
+                    UC7View ui7 = new UC7View(this.clinica);
+                    ui7.run();
+                    break;
+            }
+
         }while (!opcao.equals("0") );
     }
 

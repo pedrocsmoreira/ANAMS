@@ -7,8 +7,9 @@ public final class Main {
     public static void main(String[] args) {
         try{
             Clinica clinica = new Clinica();
-            MenuView menu = new MenuView(clinica);
 
+            MenuView menu = new MenuView(clinica);
+            
             menu.run();
         }catch(Exception e){
             e.printStackTrace();

@@ -47,6 +47,10 @@ public class MenuView {
                     MenuAA aa = new MenuAA(this.clinica);
                     aa.run();
                     break;
+                case "4":
+                    MenuCliente cl = new MenuCliente(this.clinica);
+                    cl.run();
+                    break;
             }   
         }while (!opcao.equals("0") );
     }

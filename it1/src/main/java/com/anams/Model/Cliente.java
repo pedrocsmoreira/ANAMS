@@ -11,4 +11,19 @@ public class Cliente {
     private int contacto;
     private String email;
 
+    private static int contador = 0;
+
+    private static final String STR_DEFAULT = "";
+    private static final int INT_DEFAULT = 0;
+
+    public Cliente(){
+
+    }
+
+    public Cliente(String nome, String endereco, int nif, Data dataNascimento, int contacto, String email){
+
+    }
+
+
+
 }

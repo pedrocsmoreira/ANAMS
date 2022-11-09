@@ -38,7 +38,7 @@ public class MenuDG {
             System.out.println("\n\n");
             System.out.println("1. Especificar Especialidades");
             System.out.println("2. Especificar Tipos de Serviço");
-            System.out.println("3. Consulta de Informação");
+            System.out.println("3. Consultar Médicos por Especialidade");
             
             System.out.println("0. Sair");
 
@@ -46,20 +46,19 @@ public class MenuDG {
 
             switch(opcao){
                 case "1":
-                    UC1View ui = new UC1View(this.clinica);
-                    ui.run();
+                    UC1View ui1 = new UC1View(this.clinica);
+                    ui1.run();
                     break;
                 case "2":
                     UC2View ui2 = new UC2View(this.clinica);
                     ui2.run();
                     break;
                 case "3":
-                    UC6View ui3 = new UC6View(this.clinica);
-                    ui3.run();
+                    UC6View ui6 = new UC6View(this.clinica);
+                    ui6.run();
                     break;
             }
             
-        }
-        while (!opcao.equals("0") );
+        }while (!opcao.equals("0") );
     }
 }
