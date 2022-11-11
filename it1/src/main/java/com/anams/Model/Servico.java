@@ -13,7 +13,7 @@ public class Servico {
      * Construtor Vazio do Serviço
      * 
      */
-    public Servico(){
+    public Servico() {
         setCodigo(INT_DEFAULT);
         setDesignacao(STR_DEFAULT);
         setPreco(INT_DEFAULT);
@@ -27,7 +27,7 @@ public class Servico {
      * @param designacao
      * @param preco
      */
-    public Servico(int codigo, String designacao, float preco){
+    public Servico(int codigo, String designacao, float preco) {
         setCodigo(codigo);
         setDesignacao(designacao);
         setPreco(preco);
@@ -42,7 +42,7 @@ public class Servico {
      * @param preco
      * @param ts
      */
-    public Servico(int codigo, String designacao, float preco, TipoServico ts){
+    public Servico(int codigo, String designacao, float preco, TipoServico ts) {
         setCodigo(codigo);
         setDesignacao(designacao);
         setPreco(preco);
@@ -54,7 +54,7 @@ public class Servico {
      * 
      * @param s
      */
-    public Servico(Servico s){
+    public Servico(Servico s) {
         setCodigo(s.codigo);
         setDesignacao(s.designacao);
         setPreco(s.preco);
@@ -66,42 +66,42 @@ public class Servico {
      * 
      * @param codigo
      */
-    public void setCodigo(int codigo){ this.codigo = codigo; }
+    public void setCodigo(int codigo) { this.codigo = codigo; }
 
     /**
      * Devolve código do Serviço
      * 
      * @return codigo
      */
-    public int getCodigo(){ return this.codigo; }
+    public int getCodigo() { return this.codigo; }
 
     /**
      * Define designação do Serviço
      * 
      * @param designacao
      */
-    public void setDesignacao(String designacao){ this.designacao = designacao; }
+    public void setDesignacao(String designacao) { this.designacao = designacao; }
 
     /**
      * Devolve designação do Serviço
      * 
      * @return designacao
      */
-    public String getDesignacao(){ return this.designacao; }
+    public String getDesignacao() { return this.designacao; }
 
     /**
      * Define preço do Serviço
      * 
      * @param preco
      */
-    public void setPreco(float preco){ this.preco = preco; }
+    public void setPreco(float preco) { this.preco = preco; }
 
     /**
      * Devolve preço do Serviço
      * 
      * @return preco
      */
-    public float getPreco(){ return this.preco; }
+    public float getPreco() { return this.preco; }
 
     /**
      * Define tipo de serviço do Serviço
@@ -115,9 +115,9 @@ public class Servico {
      * 
      * @return tipoServico
      */
-    public TipoServico getTipoServico(){ return this.tipoServico; }
+    public TipoServico getTipoServico() { return this.tipoServico; }
 
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
         sb.append(this.codigo);
@@ -131,7 +131,7 @@ public class Servico {
     }
 
     @Override
-    public boolean equals(Object outro){
+    public boolean equals(Object outro) {
         if(this == outro){
             return true;
         }

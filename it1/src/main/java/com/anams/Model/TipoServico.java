@@ -12,7 +12,7 @@ public class TipoServico {
      * Construtor do Tipo de Serviço
      * 
      */
-    public TipoServico(){
+    public TipoServico() {
         setCodigo(++contador);
         setNome(STR_DEFAULT);
     }
@@ -22,7 +22,7 @@ public class TipoServico {
      * 
      * @param nome
      */
-    public TipoServico(String nome){
+    public TipoServico(String nome) {
         setCodigo(++contador);
         setNome(nome);
     }
@@ -32,7 +32,7 @@ public class TipoServico {
      * 
      * @param ts
      */
-    public TipoServico(TipoServico ts){
+    public TipoServico(TipoServico ts) {
         setCodigo(ts.codigo);
         setNome(ts.nome);
     }
@@ -42,30 +42,30 @@ public class TipoServico {
      * 
      * @param codigo
      */
-    private void setCodigo(int codigo){ this.codigo = codigo; }
+    private void setCodigo(int codigo) { this.codigo = codigo; }
 
     /**
      * Devolve código do Tipo de Serviço
      * 
      * @return codigo
      */
-    public int getCodigo(){ return this.codigo; }
+    public int getCodigo() { return this.codigo; }
 
     /**
      * Define nome do Tipo de Serviço
      * 
      * @param nome
      */
-    public void setNome(String nome){ this.nome = nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
     /**
      * Devolve nome do Tipo de Serviço
      * 
      * @return
      */
-    public String getNome(){ return this.nome; }
+    public String getNome() { return this.nome; }
 
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
         sb.append(this.codigo);
@@ -75,7 +75,7 @@ public class TipoServico {
     }
 
     @Override
-    public boolean equals(Object outro){
+    public boolean equals(Object outro) {
         if(this == outro){ return true; }
         if(outro == null || this.getClass() != outro.getClass()){ return false; }
         TipoServico obj = (TipoServico) outro;

@@ -23,7 +23,6 @@ public class MenuView {
     }
 
     public void run() {
-        Console console = System.console();
         do {
             System.out.println("\n\n");
             System.out.println("1. Diretor Geral");
@@ -60,4 +59,5 @@ public class MenuView {
             }
         }while (!opcao.equals("0") );
     }
+
 }

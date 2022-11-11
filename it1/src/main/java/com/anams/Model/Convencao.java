@@ -16,7 +16,7 @@ public class Convencao {
      * Construtor vazio da Convenção
      * 
      */
-    public Convencao(){
+    public Convencao() {
         setCodigo(INT_DEFAULT);
         setSigla(STR_DEFAULT);
         setNome(STR_DEFAULT);
@@ -33,7 +33,7 @@ public class Convencao {
      * @param data
      * @param website
      */
-    public Convencao(int codigo, String sigla, String nome, Data data, String website){
+    public Convencao(int codigo, String sigla, String nome, Data data, String website) {
         setCodigo(codigo);
         setSigla(sigla);
         setNome(nome);
@@ -46,7 +46,7 @@ public class Convencao {
      * 
      * @param c
      */
-    public Convencao(Convencao c){
+    public Convencao(Convencao c) {
         setCodigo(c.codigo);
         setSigla(c.sigla);
         setNome(c.nome);
@@ -59,72 +59,72 @@ public class Convencao {
      * 
      * @param codigo
      */
-    public void setCodigo(int codigo){ this.codigo = codigo; }
+    public void setCodigo(int codigo) { this.codigo = codigo; }
     
     /**
      * Devolve código da Convenção
      * 
      * @return codigo
      */
-    public int getCodigo(){ return this.codigo; }
+    public int getCodigo() { return this.codigo; }
 
     /**
      * Define código da Convenção
      * 
      * @param sigla
      */
-    public void setSigla(String sigla){ this.sigla = sigla; }
+    public void setSigla(String sigla) { this.sigla = sigla; }
     
     /**
      * Devolve sigla da Convenção
      * 
      * @return sigla
      */
-    public String getSigla(){ return this.sigla; }
+    public String getSigla() { return this.sigla; }
 
     /**
      * Define código da Convenção
      * 
      * @param nome
      */
-    public void setNome(String nome){ this.nome = nome; }
+    public void setNome(String nome) { this.nome = nome; }
     
     /**
      * Devolve nome da Convenção
      * 
      * @return nome
      */
-    public String getNome(){ return this.nome; }
+    public String getNome() { return this.nome; }
 
     /**
      * Define código da Convenção
      * 
      * @param data
      */
-    public void setDataConvencao(Data data){ this.dataConvencao = data; }
+    public void setDataConvencao(Data data) { this.dataConvencao = data; }
     
     /**
      * Devolve data da Convenção
      * 
      * @return dataConvencao
      */
-    public Data getData(){ return this.dataConvencao; }
+    public Data getData() { return this.dataConvencao; }
 
     /**
      * Define código da Convenção
      * 
      * @param web
      */
-    public void setWebsite(String web){ this.website = web; }
+    public void setWebsite(String web) { this.website = web; }
     
     /**
      * Devolve website da Convenção
      * 
      * @return website
      */
-    public String getWebsite(){ return this.website; }
+    public String getWebsite() { return this.website; }
 
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
         sb.append(this.codigo);
@@ -140,7 +140,7 @@ public class Convencao {
     }
 
     @Override
-    public boolean equals(Object outro){
+    public boolean equals(Object outro) {
         if(this == outro){
             return true;
         }

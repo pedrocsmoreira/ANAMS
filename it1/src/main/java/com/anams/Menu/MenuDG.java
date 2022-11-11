@@ -57,8 +57,8 @@ public class MenuDG {
                     UC6View ui6 = new UC6View(this.clinica);
                     ui6.run();
                     break;
-            }
-            
+            }            
         }while (!opcao.equals("0") );
     }
+
 }

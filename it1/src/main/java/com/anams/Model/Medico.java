@@ -21,7 +21,7 @@ public class Medico {
      * Construtor Vazio do Médico
      * 
      */
-    public Medico(){
+    public Medico() {
         setCodigo(INT_DEFAULT);
         setNome(STR_DEFAULT);
         setDataContratacao(new Data());
@@ -44,7 +44,7 @@ public class Medico {
      * @param email
      * @param contacto
      */
-    public Medico(int codigo, String nome, Data data, int nif, int cedula, ArrayList<Especialidade> lista , String email, int contacto){
+    public Medico(int codigo, String nome, Data data, int nif, int cedula, ArrayList<Especialidade> lista , String email, int contacto) {
         setCodigo(codigo);
         setNome(nome);
         setDataContratacao(data);
@@ -60,7 +60,7 @@ public class Medico {
      * 
      * @param m
      */
-    public Medico(Medico m){
+    public Medico(Medico m) {
         setCodigo(m.codigo);
         setNome(m.nome);
         setDataContratacao(m.dataContratacao);
@@ -76,70 +76,70 @@ public class Medico {
      * 
      * @param codigo
      */
-    public void setCodigo(int codigo){ this.codigo = codigo; }
+    public void setCodigo(int codigo) { this.codigo = codigo; }
 
     /**
      * Devolve código do Médico
      * 
      * @return codigo
      */
-    public int getCodigo(){ return this.codigo; }
+    public int getCodigo() { return this.codigo; }
 
     /**
      * Define nome do Médico
      * 
      * @param nome
      */
-    public void setNome(String nome){ this.nome = nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
     /**
      * Devolve nome do Médico
      * 
      * @return nome
      */
-    public String getNome(){ return this.nome; }
+    public String getNome() { return this.nome; }
 
     /**
      * Define data de contratação do Médico
      * 
      * @param data
      */
-    public void setDataContratacao(Data data){ this.dataContratacao = data; }
+    public void setDataContratacao(Data data) { this.dataContratacao = data; }
 
     /**
      * Devolve data de contratação do Médico
      * 
      * @return dataContratacao
      */
-    public Data getDataContratacao(){ return this.dataContratacao; }
+    public Data getDataContratacao() { return this.dataContratacao; }
 
     /**
      * Define nif do Médico
      * 
      * @param nif
      */
-    public void setNif(int nif){ this.nif = nif; }
+    public void setNif(int nif) { this.nif = nif; }
 
     /**
      * Devolve nif do Médico
      * 
      * @return nif
      */
-    public int getNif(){ return this.nif; }
+    public int getNif() { return this.nif; }
 
     /**
      * Define cédula profissional do Médico
      * 
      * @param cedula
      */
-    public void setCedula(int cedula){ this.cedula = cedula; }
+    public void setCedula(int cedula) { this.cedula = cedula; }
 
     /**
      * Devolve cédula profissional do Médico
      * 
      * @return cedula
      */
-    public int getCedula(){ return this.cedula; }
+    public int getCedula() { return this.cedula; }
 
     /**
      * Define especialidades do Médico
@@ -153,37 +153,37 @@ public class Medico {
      * 
      * @return lista
      */
-    public ArrayList<Especialidade> getEspecialidades(){ return this.especialidades; }
+    public ArrayList<Especialidade> getEspecialidades() { return this.especialidades; }
 
     /**
      * Define email do Médico
      * 
      * @param email
      */
-    public void setEmail(String email){ this.email = email; }
+    public void setEmail(String email) { this.email = email; }
 
     /**
      * Devolve email do Médico
      * 
      * @return email
      */
-    public String getEmail(){ return this.email; }
+    public String getEmail() { return this.email; }
 
     /**
      * Define contacto do Médico
      * 
      * @param contacto
      */
-    public void setContacto(int contacto){ this.contacto = contacto; }
+    public void setContacto(int contacto) { this.contacto = contacto; }
 
     /**
      * Devolve contacto do Médico
      * 
      * @return contacto
      */
-    public int getContacto(){ return this.contacto; }
+    public int getContacto() { return this.contacto; }
 
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
         sb.append(this.codigo);
@@ -211,7 +211,7 @@ public class Medico {
     }
 
     @Override
-    public boolean equals(Object outro){
+    public boolean equals(Object outro) {
         if(this == outro){
             return true;
         }

@@ -38,7 +38,7 @@ public class Clinica {
      * Construtor vazio
      * 
      */
-    public Clinica(){
+    public Clinica() {
         setNome(STR_DEFAULT);
         setEndereco(STR_DEFAULT);
         setNif(INT_DEFAULT);
@@ -60,7 +60,7 @@ public class Clinica {
      * @param contacto
      * @param website
      */
-    public Clinica(String nome, String endereco, int nif, int contacto, String website){
+    public Clinica(String nome, String endereco, int nif, int contacto, String website) {
         setNome(nome);
         setEndereco(endereco);
         setNif(nif);
@@ -78,70 +78,70 @@ public class Clinica {
      * 
      * @param nome
      */
-    public void setNome(String nome){ this.nome = nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
     /**
      * Devolve Nome da Clinica
      * 
      * @return nome
      */
-    public String getNome(){ return this.nome; }
+    public String getNome() { return this.nome; }
 
     /**
      * Define Endereco da Clinica
      * 
      * @param endereco
      */
-    public void setEndereco(String endereco){ this.endereco = endereco; }
+    public void setEndereco(String endereco) { this.endereco = endereco; }
 
     /**
      * Devolve Endereco da Clinica
      * 
      * @return endereco
      */
-    public String getEndereco(){ return this.endereco; }
+    public String getEndereco() { return this.endereco; }
 
     /**
      * Define o NIF da Clinica
      * 
      * @param nif
      */
-    public void setNif(int nif){ this.nif = nif; }
+    public void setNif(int nif) { this.nif = nif; }
 
     /**
      * Devolve o NIF da Clinica
      * 
      * @return nif
      */
-    public int getNif(){ return this.nif; }
+    public int getNif() { return this.nif; }
 
     /**
      * Define Contacto da Clinica
      * 
      * @param contacto
      */
-    public void setContacto(int contacto){ this.contacto = contacto; }
+    public void setContacto(int contacto) { this.contacto = contacto; }
 
     /**
      * Devolve Contacto da Clinica
      * 
      * @return contacto
      */
-    public int getContacto(){ return this.contacto; }
+    public int getContacto() { return this.contacto; }
 
     /**
      * Define Website da Clinica
      * 
      * @param website
      */
-    public void setWebsite(String website){ this.website = website; }
+    public void setWebsite(String website) { this.website = website; }
 
     /**
      * Devolve Website da Clinica
      * 
      * @return website
      */
-    public String getWebsite(){ return this.website; }
+    public String getWebsite() { return this.website; }
 
 
 
@@ -193,70 +193,70 @@ public class Clinica {
      * 
      * @param listaEspecialidades
      */
-    public void setListaEspecialidades(ArrayList<Especialidade> listaEspecialidades){ this.listaEspecialidades = listaEspecialidades; }
+    public void setListaEspecialidades(ArrayList<Especialidade> listaEspecialidades) { this.listaEspecialidades = listaEspecialidades; }
 
     /**
      * Devolve Lista de Especialidades registadas na Clínica
      * 
      * @return
      */
-    public ArrayList<Especialidade> getListaEspecialidades(){ return this.listaEspecialidades; }
+    public ArrayList<Especialidade> getListaEspecialidades() { return this.listaEspecialidades; }
 
     /**
      * Define Lista de Médicos registadas na Clínica
      * 
      * @param listaMedicos
      */
-    public void setListaMedicos(ArrayList<Medico> listaMedicos){ this.listaMedicos = listaMedicos; }
+    public void setListaMedicos(ArrayList<Medico> listaMedicos) { this.listaMedicos = listaMedicos; }
 
     /**
      * Devolve Lista de Médicos registadas na Clínica
      * 
      * @return listaMedicos
      */
-    public ArrayList<Medico> getListaMedicos(){ return this.listaMedicos; }
+    public ArrayList<Medico> getListaMedicos() { return this.listaMedicos; }
 
     /**
      * Define Lista de Tipos de Serviços registadas na Clínica
      * 
      * @param listaTipoServicos
      */
-    public void setListaTipoServicos(ArrayList<TipoServico> listaTipoServicos){ this.listaTipoServico = listaTipoServicos; }
+    public void setListaTipoServicos(ArrayList<TipoServico> listaTipoServicos) { this.listaTipoServico = listaTipoServicos; }
 
     /**
      * Devolve Lista de Tipos de Serviços registadas na Clínica
      * 
      * @return listaTipoServicos
      */
-    public ArrayList<TipoServico> getListaTipoServicos(){ return this.listaTipoServico; }
+    public ArrayList<TipoServico> getListaTipoServicos() { return this.listaTipoServico; }
 
     /**
      * Define Lista de Serviços registadas na Clínica
      * 
      * @param listaServicos
      */
-    public void setListaServicos(ArrayList<Servico> listaServicos){ this.listaServicos = listaServicos; }
+    public void setListaServicos(ArrayList<Servico> listaServicos) { this.listaServicos = listaServicos; }
 
     /**
      * Devolve Lista de Serviços registadas na Clínica
      * 
      * @return listaServicos
      */
-    public ArrayList<Servico> getListaServicos(){ return this.listaServicos; }
+    public ArrayList<Servico> getListaServicos() { return this.listaServicos; }
 
     /**
      * Define Lista de Convenções registadas na Clínica
      * 
      * @param listaConvencoes
      */
-    public void setListaConvencoes(ArrayList<Convencao> listaConvencoes){ this.listaConvencoes = listaConvencoes; }
+    public void setListaConvencoes(ArrayList<Convencao> listaConvencoes) { this.listaConvencoes = listaConvencoes; }
 
     /**
      * Devolve Lista de Convenções registadas na Clínica
      * 
      * @return listaConvencoes
      */
-    public ArrayList<Convencao> getListaConvencoes(){ return this.listaConvencoes; }
+    public ArrayList<Convencao> getListaConvencoes() { return this.listaConvencoes; }
 
 
 
@@ -297,7 +297,7 @@ public class Clinica {
      * @param e
      * @throws ExceptionEspecialidadeExiste
      */
-    public void registarEspecialidade(Especialidade e) throws ExceptionEspecialidadeExiste{
+    public void registarEspecialidade(Especialidade e) throws ExceptionEspecialidadeExiste {
         encontrarEspecialidadeCodigo(e.getCodigo());
         inserirEspecialidade(e);
     }
@@ -309,7 +309,7 @@ public class Clinica {
      * @return
      * @throws ExceptionEspecialidadeExiste
      */
-    private Especialidade encontrarEspecialidadeCodigo(int codigo)throws ExceptionEspecialidadeExiste{
+    private Especialidade encontrarEspecialidadeCodigo(int codigo) throws ExceptionEspecialidadeExiste {
         Optional<Especialidade> optionalVariable = listaEspecialidades.stream().filter(element -> element.getCodigo() == codigo).findFirst();
         return optionalVariable.orElseThrow(() -> new ExceptionEspecialidadeExiste("Especialidade não encontrada!!!"));
     }
@@ -319,7 +319,7 @@ public class Clinica {
      * 
      * @param e
      */
-    private void inserirEspecialidade(Especialidade e){ this.listaEspecialidades.add(e); }
+    private void inserirEspecialidade(Especialidade e) { this.listaEspecialidades.add(e); }
 
 
 
@@ -336,7 +336,7 @@ public class Clinica {
      * @param m
      * @throws ExceptionMedicoExiste
      */
-    public void registarMedico(Medico m) throws ExceptionMedicoExiste{
+    public void registarMedico(Medico m) throws ExceptionMedicoExiste {
         encontrarMedico(m);
         inserirMedico(m);
     }
@@ -348,7 +348,7 @@ public class Clinica {
      * @return
      * @throws ExceptionMedicoExiste
      */
-    private Medico encontrarMedico(Medico m) throws ExceptionMedicoExiste{
+    private Medico encontrarMedico(Medico m) throws ExceptionMedicoExiste {
         Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> element.getCodigo() == m.getCodigo()).findFirst();
         return optionalVariable.orElseThrow(() -> new ExceptionMedicoExiste("Médico não encontrado!!!"));
     }
@@ -358,7 +358,7 @@ public class Clinica {
      * 
      * @param m
      */
-    private void inserirMedico(Medico m){ this.listaMedicos.add(m); }
+    private void inserirMedico(Medico m) { this.listaMedicos.add(m); }
 
 
 
@@ -382,7 +382,7 @@ public class Clinica {
      * @return
      * @throws ExceptionServicoExiste
      */
-    private Servico encontrarServico(Servico s) throws ExceptionServicoExiste{
+    private Servico encontrarServico(Servico s) throws ExceptionServicoExiste {
         Optional<Servico> optionalVariable = listaServicos.stream().filter(element -> element.getCodigo() == s.getCodigo()).findFirst();
         return optionalVariable.orElseThrow(() -> new ExceptionServicoExiste("Servico não encontrado!!!"));
     }
@@ -392,7 +392,7 @@ public class Clinica {
      * 
      * @param s
      */
-    private void inserirServico(Servico s){this.listaServicos.add(s); }
+    private void inserirServico(Servico s) {this.listaServicos.add(s); }
 
 
 
@@ -409,7 +409,7 @@ public class Clinica {
      * @param ts
      * @throws ExceptionTipoServicoExiste
      */
-    public void registarTipoServico(TipoServico ts) throws ExceptionTipoServicoExiste{
+    public void registarTipoServico(TipoServico ts) throws ExceptionTipoServicoExiste {
         try{
             encontrarTipoServico(ts);
             throw new ExceptionTipoServicoExiste("Tipo de Serviço já existe");
@@ -425,7 +425,7 @@ public class Clinica {
      * @return
      * @throws ExceptionTipoServicoNaoExiste
      */
-    private TipoServico encontrarTipoServico(TipoServico ts) throws ExceptionTipoServicoNaoExiste{
+    private TipoServico encontrarTipoServico(TipoServico ts) throws ExceptionTipoServicoNaoExiste {
         Optional<TipoServico> optionalVariable = listaTipoServico.stream().filter(element -> element.getCodigo() == ts.getCodigo()).findFirst();
         return optionalVariable.orElseThrow(() -> new ExceptionTipoServicoNaoExiste("Servico não encontrado!!!"));
     }
@@ -435,7 +435,7 @@ public class Clinica {
      * 
      * @param ts
      */
-    private void inserirTipoServico(TipoServico ts){ this.listaTipoServico.add(ts); }
+    private void inserirTipoServico(TipoServico ts) { this.listaTipoServico.add(ts); }
 
 
 
@@ -452,7 +452,7 @@ public class Clinica {
      * @param c
      * @throws ExceptionConvencaoExiste
      */
-    public void registarConvencao(Convencao c) throws ExceptionConvencaoExiste{
+    public void registarConvencao(Convencao c) throws ExceptionConvencaoExiste {
         try{
             encontrarConvencao(c);
             throw new ExceptionConvencaoExiste("Convenção já existe!!!");
@@ -468,7 +468,7 @@ public class Clinica {
      * @return
      * @throws ExceptionConvencaoNaoExiste
      */
-    private Convencao encontrarConvencao(Convencao c) throws ExceptionConvencaoNaoExiste{
+    private Convencao encontrarConvencao(Convencao c) throws ExceptionConvencaoNaoExiste {
         Optional<Convencao> optionalVariable = listaConvencoes.stream().filter(element -> element.getCodigo() == c.getCodigo()).findFirst();
         return optionalVariable.orElseThrow(() -> new ExceptionConvencaoNaoExiste("Convenção não encontrado!!!"));
     }
@@ -478,7 +478,7 @@ public class Clinica {
      * 
      * @param c
      */
-    private void inserirConvencao(Convencao c){ this.listaConvencoes.add(c); }
+    private void inserirConvencao(Convencao c) { this.listaConvencoes.add(c); }
    
 
     
@@ -493,7 +493,7 @@ public class Clinica {
      * @param codigo
      * @return
      */
-    public Medico procurarMedicoCodigo(int codigo){
+    public Medico procurarMedicoCodigo(int codigo) {
         Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getCodigo() == codigo)).findFirst();
         Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
         return med;
@@ -505,7 +505,7 @@ public class Clinica {
      * @param nome
      * @return
      */
-    public Medico procurarMedicoNome(String nome){
+    public Medico procurarMedicoNome(String nome) {
         Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getNome().equals(nome))).findFirst();
         Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
         return med;
@@ -517,7 +517,7 @@ public class Clinica {
      * @param cedula
      * @return
      */
-    public Medico procurarMedicoCedula(int cedula){
+    public Medico procurarMedicoCedula(int cedula) {
         Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getCedula() == cedula)).findFirst();
         Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
         return med;
@@ -529,7 +529,7 @@ public class Clinica {
      * @param nif
      * @return
      */
-    public Medico procurarMedicoNif(int nif){
+    public Medico procurarMedicoNif(int nif) {
         Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getNif() == nif)).findFirst();
         Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
         return med;
@@ -550,7 +550,7 @@ public class Clinica {
      * @return
      * @throws ExceptionMedicoNaoExiste
      */
-    public String consultarMedicos() throws ExceptionMedicoNaoExiste{
+    public String consultarMedicos() throws ExceptionMedicoNaoExiste {
         StringBuilder lst = new StringBuilder();
         if(listaMedicos.size() == 0){ throw new ExceptionMedicoNaoExiste("Médico não encontrado!!!"); }
         for(Medico m : listaMedicos){
@@ -568,7 +568,7 @@ public class Clinica {
      * @throws ExceptionEspecialidadeNaoExiste
      * @throws ExceptionMedicoNaoExiste
      */
-    public String consultarMedicosEspecialidade(int codigo) throws ExceptionEspecialidadeNaoExiste, ExceptionMedicoNaoExiste{
+    public String consultarMedicosEspecialidade(int codigo) throws ExceptionEspecialidadeNaoExiste, ExceptionMedicoNaoExiste {
         StringBuilder lst = new StringBuilder();
         Especialidade e = new Especialidade();
         try{
@@ -587,7 +587,7 @@ public class Clinica {
      * @return
      * @throws ExceptionMedicoNaoExiste
      */
-    private StringBuilder MedicosEspecialidade(Especialidade e) throws ExceptionMedicoNaoExiste{
+    private StringBuilder MedicosEspecialidade(Especialidade e) throws ExceptionMedicoNaoExiste {
         StringBuilder lst = new StringBuilder();
         int count = 0;
         for(Medico m : listaMedicos) {
@@ -613,7 +613,7 @@ public class Clinica {
      * @return
      * @throws ExceptionMedicoNaoExiste
      */
-    public String consultarMedicoID(int id) throws ExceptionMedicoNaoExiste{
+    public String consultarMedicoID(int id) throws ExceptionMedicoNaoExiste {
         StringBuilder lst = new StringBuilder();
         int count = 0;
         for(Medico m : listaMedicos) {
@@ -634,7 +634,7 @@ public class Clinica {
      * @return
      * @throws ExceptionMedicoNaoExiste
      */
-    public String consultarMedicoNome(String nome) throws ExceptionMedicoNaoExiste{
+    public String consultarMedicoNome(String nome) throws ExceptionMedicoNaoExiste {
         StringBuilder lst = new StringBuilder();
         int count = 0;
         for(Medico m : listaMedicos) {
@@ -655,7 +655,7 @@ public class Clinica {
      * @return
      * @throws ExceptionMedicoNaoExiste
      */
-    public String consultarMedicoCedula(int cedula) throws ExceptionMedicoNaoExiste{
+    public String consultarMedicoCedula(int cedula) throws ExceptionMedicoNaoExiste {
         StringBuilder lst = new StringBuilder();
         int count = 0;
         for(Medico m : listaMedicos) {
@@ -676,7 +676,7 @@ public class Clinica {
      * @return
      * @throws ExceptionMedicoNaoExiste
      */
-    public String consultarMedicoContacto(int contacto) throws ExceptionMedicoNaoExiste{
+    public String consultarMedicoContacto(int contacto) throws ExceptionMedicoNaoExiste {
         StringBuilder lst = new StringBuilder();
         int count = 0;
         for(Medico m : listaMedicos) {
@@ -697,7 +697,7 @@ public class Clinica {
      * @return
      * @throws ExceptionMedicoNaoExiste
      */
-    public String consultarMedicoEmail(String email) throws ExceptionMedicoNaoExiste{
+    public String consultarMedicoEmail(String email) throws ExceptionMedicoNaoExiste {
         StringBuilder lst = new StringBuilder();
         int count = 0;
         for(Medico m : listaMedicos) {
@@ -717,7 +717,7 @@ public class Clinica {
      * @return
      * @throws ExceptionServicoNaoExiste
      */
-    public String consultarServicos() throws ExceptionServicoNaoExiste{
+    public String consultarServicos() throws ExceptionServicoNaoExiste {
         StringBuilder lst = new StringBuilder();
         if(listaServicos.size() == 0){ throw new ExceptionServicoNaoExiste(); }
         for(Servico s : listaServicos) {
@@ -735,7 +735,7 @@ public class Clinica {
      * @throws ExceptionTipoServicoNaoExiste
      * @throws ExceptionServicoNaoExiste
      */
-    public String consultarServicosTipo(int codigo)  throws ExceptionTipoServicoNaoExiste, ExceptionServicoNaoExiste{
+    public String consultarServicosTipo(int codigo)  throws ExceptionTipoServicoNaoExiste, ExceptionServicoNaoExiste {
         StringBuilder lst = new StringBuilder();
         TipoServico ts = encontrarTipoServicoCodigo(codigo);
         lst = ServicoTipoServico(ts);
@@ -749,7 +749,7 @@ public class Clinica {
      * @return
      * @throws ExceptionTipoServicoNaoExiste
      */
-    private TipoServico encontrarTipoServicoCodigo(int codigo) throws ExceptionTipoServicoNaoExiste{
+    private TipoServico encontrarTipoServicoCodigo(int codigo) throws ExceptionTipoServicoNaoExiste {
         Optional<TipoServico> optionalVariable = listaTipoServico.stream().filter(element -> element.getCodigo() == codigo).findFirst();
         return optionalVariable.orElseThrow(() -> new ExceptionTipoServicoNaoExiste("Tipo de Serviço não encontrada!!!"));
     }
@@ -761,7 +761,7 @@ public class Clinica {
      * @return
      * @throws ExceptionServicoNaoExiste
      */
-    private StringBuilder ServicoTipoServico(TipoServico ts) throws ExceptionServicoNaoExiste{
+    private StringBuilder ServicoTipoServico(TipoServico ts) throws ExceptionServicoNaoExiste {
         StringBuilder lst = new StringBuilder();
         int count = 0;
         for(Servico s : listaServicos) {
@@ -783,7 +783,7 @@ public class Clinica {
      * @return
      * @throws ExceptionEspecialidadeNaoExiste
      */
-    public String consultarEspecialidades() throws ExceptionEspecialidadeNaoExiste{
+    public String consultarEspecialidades() throws ExceptionEspecialidadeNaoExiste {
         StringBuilder lst = new StringBuilder();
         if(listaEspecialidades.size() == 0){ throw new ExceptionEspecialidadeNaoExiste("Especialidade não encontrada!!!"); }
         for(Especialidade esp : listaEspecialidades) {
@@ -799,7 +799,7 @@ public class Clinica {
      * @return
      * @throws ExceptionTipoServicoNaoExiste
      */
-    public String consultarTipoServico() throws ExceptionTipoServicoNaoExiste{
+    public String consultarTipoServico() throws ExceptionTipoServicoNaoExiste {
         StringBuilder lst = new StringBuilder();
         if(listaTipoServico.size() == 0){ throw new ExceptionTipoServicoNaoExiste("Tipo de Serviço não encontrado!!!"); }
         for(TipoServico ts : listaTipoServico) {
@@ -815,7 +815,7 @@ public class Clinica {
      * @return
      * @throws ExceptionConvencaoNaoExiste
      */
-    public String consultarConvencoes() throws ExceptionConvencaoNaoExiste{
+    public String consultarConvencoes() throws ExceptionConvencaoNaoExiste {
         StringBuilder lst = new StringBuilder();
         if(listaConvencoes.size() == 0){ throw new ExceptionConvencaoNaoExiste("Convenção não encontrada!!!"); }
         for(Convencao c : listaConvencoes) {
@@ -834,7 +834,7 @@ public class Clinica {
      * 
      * @param codigo
      */
-    public void removerEspecialidadeCodigo(int codigo){
+    public void removerEspecialidadeCodigo(int codigo) {
         Optional<Especialidade> optionalVariable = listaEspecialidades.stream().filter(element -> (element.getCodigo() == codigo)).findFirst();
         Especialidade esp = optionalVariable.orElseThrow(() -> new NullPointerException());
         listaEspecialidades.remove(esp);
@@ -845,7 +845,7 @@ public class Clinica {
      * 
      * @param designacao
      */
-    public void removerEspecialidadeDesignacao(String designacao){
+    public void removerEspecialidadeDesignacao(String designacao) {
         Optional<Especialidade> optionalVariable = listaEspecialidades.stream().filter(element -> element.getDesignacao().equals(designacao)).findFirst();
         Especialidade esp = optionalVariable.orElseThrow(() -> new NullPointerException());
         listaEspecialidades.remove(esp);
@@ -856,13 +856,13 @@ public class Clinica {
      * 
      * @param acronimo
      */
-    public void removerEspecialidadeAcronimo(String acronimo){
+    public void removerEspecialidadeAcronimo(String acronimo) {
         Optional<Especialidade> optionalVariable = listaEspecialidades.stream().filter(element -> element.getAcronimo().equals(acronimo)).findFirst();
         Especialidade esp = optionalVariable.orElseThrow(() -> new NullPointerException());
         listaEspecialidades.remove(esp);
     }
 
-    public Especialidade verificarCodigo(int codigo) throws ExceptionEspecialidadeNaoExiste{
+    public Especialidade verificarCodigo(int codigo) throws ExceptionEspecialidadeNaoExiste {
         for(Especialidade e : listaEspecialidades){
             if(e.getCodigo() == codigo){
                 return e;
@@ -878,7 +878,7 @@ public class Clinica {
      * @return
      * @throws ExceptionMedicoNaoExiste
      */
-    public String procurarMedicos(Especialidade e) throws ExceptionMedicoNaoExiste{
+    public String procurarMedicos(Especialidade e) throws ExceptionMedicoNaoExiste {
         StringBuilder str = new StringBuilder();
         int count = 0;
         for(Medico m : listaMedicos){
