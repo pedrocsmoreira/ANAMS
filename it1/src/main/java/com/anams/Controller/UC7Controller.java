@@ -8,4 +8,6 @@ public class UC7Controller {
     public UC7Controller(Clinica c){
         this.clinica = c;
     }
+
+    
 }

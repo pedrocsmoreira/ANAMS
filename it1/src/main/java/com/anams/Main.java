@@ -9,7 +9,7 @@ public final class Main {
             Clinica clinica = new Clinica();
 
             MenuView menu = new MenuView(clinica);
-            
+
             menu.run();
         }catch(Exception e){
             e.printStackTrace();

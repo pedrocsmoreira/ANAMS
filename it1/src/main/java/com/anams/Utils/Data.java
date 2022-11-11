@@ -5,6 +5,7 @@ package com.anams.Utils;
  * 
  * @author docentes
  */
+
 public class Data {
     /**
      * O ano da data.
@@ -43,13 +44,13 @@ public class Data {
                                                "Terça-feira", "Quarta-feira",
                                                "Quinta-feira", "Sexta-feira",
                                                "Sábado"};
-    
+
     /**
     * Número de dias de cada mês do ano.
     */
     private static int[] diasPorMes = {  0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 
                                         31, 30, 31};
-    
+
     /**
     * Nomes dos meses do ano.
     */

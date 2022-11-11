@@ -3,6 +3,7 @@ package com.anams.Menu;
 import java.io.Console;
 
 import com.anams.Model.Clinica;
+import com.anams.View.UC7View;
 
 public class MenuView {
     private Console console = System.console();
@@ -28,7 +29,8 @@ public class MenuView {
             System.out.println("1. Diretor Geral");
             System.out.println("2. Diretor Clínico");
             System.out.println("3. Assistente Administrativa");
-            System.out.println("4. Cliente");
+            System.out.println("4. Registo Cliente");
+            System.out.println("5. Cliente");
             
             System.out.println("0. Sair");
 
@@ -48,10 +50,14 @@ public class MenuView {
                     aa.run();
                     break;
                 case "4":
+                    UC7View registo = new UC7View(this.clinica);
+                    registo.run();
+                    break;
+                case "5":
                     MenuCliente cl = new MenuCliente(this.clinica);
                     cl.run();
                     break;
-            }   
+            }
         }while (!opcao.equals("0") );
     }
 }
