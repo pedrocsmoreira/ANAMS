@@ -13,8 +13,8 @@ public class MenuView {
     private static final String STR_DEFAULT = "";
 
     /**
-     * 
-     * 
+     *
+     *
      * @param c
      */
     public MenuView(Clinica c){
@@ -30,7 +30,7 @@ public class MenuView {
             System.out.println("3. Assistente Administrativa");
             System.out.println("4. Registo Cliente");
             System.out.println("5. Cliente");
-            
+
             System.out.println("0. Sair");
 
             opcao = console.readLine("Introduza opção: ");
@@ -49,7 +49,7 @@ public class MenuView {
                     aa.run();
                     break;
                 case "4":
-                    UC7View registo = new UC7View(this.clinica);
+                    UC7View registo = new UC8View(this.clinica);
                     registo.run();
                     break;
                 case "5":

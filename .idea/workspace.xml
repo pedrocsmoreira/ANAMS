@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="451a3a59-0097-4d94-9a16-7aa2b5cda721" name="Default Changelist" comment="" />
+    <list default="true" id="451a3a59-0097-4d94-9a16-7aa2b5cda721" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it1/src/main/java/com/anams/Menu/MenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/it1/src/main/java/com/anams/Menu/MenuView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it1/src/main/java/com/anams/View/UC7View.java" beforeDir="false" afterPath="$PROJECT_DIR$/it1/src/main/java/com/anams/View/UC7View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it1/src/main/java/com/anams/View/UC8View.java" beforeDir="false" afterPath="$PROJECT_DIR$/it1/src/main/java/com/anams/View/UC8View.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +39,8 @@
       <workItem from="1666642890382" duration="651000" />
       <workItem from="1666722811474" duration="784000" />
       <workItem from="1668279854670" duration="49000" />
+      <workItem from="1668451466668" duration="1373000" />
+      <workItem from="1668452988270" duration="384000" />
     </task>
     <servers />
   </component>
