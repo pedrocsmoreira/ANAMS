@@ -8,4 +8,11 @@ public class Marcacao {
     private Cliente cl;
     private Data dia;
 
+    private static int contador = 0;
+
+    private static final int INT_DEFAULT = 0;
+
+    
+
+
 }
