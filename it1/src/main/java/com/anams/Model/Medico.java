@@ -10,6 +10,7 @@ public class Medico {
     private Data dataContratacao;
     private int nif;
     private int cedula;
+    private int numEspecialidades;
     private ArrayList<Especialidade> especialidades;
     private String email;
     private int contacto;
@@ -140,6 +141,20 @@ public class Medico {
      * @return cedula
      */
     public int getCedula() { return this.cedula; }
+
+    /**
+     * 
+     * 
+     * @param numEspecialidades
+     */
+    public void setNumEspecialidades(int numEspecialidades) { this.numEspecialidades = numEspecialidades; }
+
+    /**
+     * 
+     * 
+     * @return
+     */
+    public int getNumEspecialidades() { return this.numEspecialidades; }
 
     /**
      * Define especialidades do Médico

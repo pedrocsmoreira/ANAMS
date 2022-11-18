@@ -30,6 +30,7 @@ public class Clinica {
     private ArrayList<TipoServico> listaTipoServico;
     private ArrayList<Servico> listaServicos;
     private ArrayList<Convencao> listaConvencoes;
+    private ArrayList<Cliente> listaClientes;
 
     private static final String STR_DEFAULT = "";
     private static final int INT_DEFAULT = 0;

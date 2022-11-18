@@ -23,4 +23,14 @@ public class AA {
     public void setPassword(String password) { this.password = password; }
 
     public String getPassword() { return this.password; }
+
+    public boolean login(AA tentativa){
+        if(!this.username.equalsIgnoreCase(tentativa.username)){
+            return false;
+        }
+        if(!this.password.equalsIgnoreCase(tentativa.password)){
+            return false;
+        }
+        return true;
+    }
 }
