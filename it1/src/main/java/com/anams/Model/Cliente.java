@@ -93,12 +93,12 @@ public class Cliente {
         }
         Cliente obj = (Cliente) outro;
         return this.codigo == obj.codigo
-                && this.nome.equals(obj.nome)
-                && this.endereco.equals(obj.endereco)
+                && this.nome.equalsIgnoreCase(obj.nome)
+                && this.endereco.equalsIgnoreCase(obj.endereco)
                 && this.nif == obj.nif
                 && this.dataNascimento.equals(obj.dataNascimento)
                 && this.contacto == obj.contacto
-                && this.email.equals(obj.email);
+                && this.email.equalsIgnoreCase(obj.email);
     }
 
 }

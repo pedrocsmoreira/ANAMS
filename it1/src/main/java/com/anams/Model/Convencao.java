@@ -144,15 +144,15 @@ public class Convencao {
         if(this == outro){
             return true;
         }
+        
         if(outro == null || this.getClass() != outro.getClass()) {
             return false;
         }
         Convencao obj = (Convencao) outro;
         return this.codigo == obj.codigo
-                && this.sigla.equals(obj.sigla)
-                && this.nome.equals(obj.nome)
+                && this.sigla.equalsIgnoreCase(obj.sigla)
+                && this.nome.equalsIgnoreCase(obj.nome)
                 && this.dataConvencao.equals(obj.dataConvencao)
-                && this.website.equals(obj.website);
+                && this.website.equalsIgnoreCase(obj.website);
     }
-
 }

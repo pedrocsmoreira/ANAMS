@@ -8,8 +8,9 @@ public class Marcacao {
     private Cliente cl;
     private Data dia;
 
+    private static int contador = 0;
+
     private static final int INT_DEFAULT = 0;
-    private static final String STR_DEFAULT = "";
 
     public Marcacao(){
         setId(INT_DEFAULT);

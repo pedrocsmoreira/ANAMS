@@ -220,12 +220,12 @@ public class Medico {
         }
         Medico obj = (Medico) outro;
         return this.codigo == obj.codigo
-                && this.nome.equals(obj.nome)
+                && this.nome.equalsIgnoreCase(obj.nome)
                 && this.dataContratacao.equals(obj.dataContratacao)
                 && this.nif == obj.nif
                 && this.cedula == obj.cedula
                 && this.especialidades.equals(obj.especialidades)
-                && this.email.equals(obj.email)
+                && this.email.equalsIgnoreCase(obj.email)
                 && this.contacto == obj.contacto;
     }
 
