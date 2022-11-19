@@ -23,4 +23,14 @@ public class DG {
     public void setPassword(String password) { this.password = password; }
 
     public String getPassword() { return this.password; }
+
+    public boolean login(DG tentativa){
+        if(!this.username.equalsIgnoreCase(tentativa.username)){
+            return false;
+        }
+        if(!this.password.equalsIgnoreCase(tentativa.password)){
+            return false;
+        }
+        return true;
+    }
 }

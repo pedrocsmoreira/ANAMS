@@ -140,7 +140,7 @@ public class Servico {
         }
         Servico obj = (Servico) outro;
         return this.codigo == obj.codigo
-                && this.designacao.equals(obj.designacao)
+                && this.designacao.equalsIgnoreCase(obj.designacao)
                 && this.preco == obj.preco
                 && this.tipoServico.equals(obj.tipoServico);
     }

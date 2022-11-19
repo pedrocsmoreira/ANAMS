@@ -40,7 +40,7 @@ public class MenuCliente {
                     registar();
                     break;
             }
-        }while (!opcao.equals("0") );
+        }while (!opcao.equalsIgnoreCase("0") );
     }
 
     private boolean login(){
@@ -58,7 +58,6 @@ public class MenuCliente {
         int contacto = Integer.parseInt(console.readLine("Insira o contacto do Cliente: "));
         String email = console.readLine("Insira o email do Cliente: ");
         Cliente cl = new Cliente(nome, endereco, nif, dataNascimento, contacto, email);
-
     }
 
     private void menu(){
@@ -87,7 +86,7 @@ public class MenuCliente {
                     ui13.run();
                     break;
             }   
-        }while (!opcao.equals("0") );
+        }while (!opcao.equalsIgnoreCase("0") );
     }
 
 }

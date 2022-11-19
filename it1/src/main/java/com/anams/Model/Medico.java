@@ -10,6 +10,7 @@ public class Medico {
     private Data dataContratacao;
     private int nif;
     private int cedula;
+    private int numEspecialidades;
     private ArrayList<Especialidade> especialidades;
     private String email;
     private int contacto;
@@ -142,6 +143,20 @@ public class Medico {
     public int getCedula() { return this.cedula; }
 
     /**
+     * 
+     * 
+     * @param numEspecialidades
+     */
+    public void setNumEspecialidades(int numEspecialidades) { this.numEspecialidades = numEspecialidades; }
+
+    /**
+     * 
+     * 
+     * @return
+     */
+    public int getNumEspecialidades() { return this.numEspecialidades; }
+
+    /**
      * Define especialidades do Médico
      * 
      * @param lista
@@ -220,12 +235,12 @@ public class Medico {
         }
         Medico obj = (Medico) outro;
         return this.codigo == obj.codigo
-                && this.nome.equals(obj.nome)
+                && this.nome.equalsIgnoreCase(obj.nome)
                 && this.dataContratacao.equals(obj.dataContratacao)
                 && this.nif == obj.nif
                 && this.cedula == obj.cedula
                 && this.especialidades.equals(obj.especialidades)
-                && this.email.equals(obj.email)
+                && this.email.equalsIgnoreCase(obj.email)
                 && this.contacto == obj.contacto;
     }
 

@@ -30,6 +30,7 @@ public class Clinica {
     private ArrayList<TipoServico> listaTipoServico;
     private ArrayList<Servico> listaServicos;
     private ArrayList<Convencao> listaConvencoes;
+    private ArrayList<Cliente> listaClientes;
 
     private static final String STR_DEFAULT = "";
     private static final int INT_DEFAULT = 0;
@@ -506,7 +507,7 @@ public class Clinica {
      * @return
      */
     public Medico procurarMedicoNome(String nome) {
-        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getNome().equals(nome))).findFirst();
+        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getNome().equalsIgnoreCase(nome))).findFirst();
         Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
         return med;
     }
@@ -638,7 +639,7 @@ public class Clinica {
         StringBuilder lst = new StringBuilder();
         int count = 0;
         for(Medico m : listaMedicos) {
-            if(m.getNome().equals(nome)){
+            if(m.getNome().equalsIgnoreCase(nome)){
                 lst.append(m.toString());
                 lst.append("\n");
                 count++;
@@ -701,7 +702,7 @@ public class Clinica {
         StringBuilder lst = new StringBuilder();
         int count = 0;
         for(Medico m : listaMedicos) {
-            if(m.getEmail().equals(email)){
+            if(m.getEmail().equalsIgnoreCase(email)){
                 lst.append(m.toString());
                 lst.append("\n");
                 count++;
@@ -846,7 +847,7 @@ public class Clinica {
      * @param designacao
      */
     public void removerEspecialidadeDesignacao(String designacao) {
-        Optional<Especialidade> optionalVariable = listaEspecialidades.stream().filter(element -> element.getDesignacao().equals(designacao)).findFirst();
+        Optional<Especialidade> optionalVariable = listaEspecialidades.stream().filter(element -> element.getDesignacao().equalsIgnoreCase(designacao)).findFirst();
         Especialidade esp = optionalVariable.orElseThrow(() -> new NullPointerException());
         listaEspecialidades.remove(esp);
     }
@@ -857,7 +858,7 @@ public class Clinica {
      * @param acronimo
      */
     public void removerEspecialidadeAcronimo(String acronimo) {
-        Optional<Especialidade> optionalVariable = listaEspecialidades.stream().filter(element -> element.getAcronimo().equals(acronimo)).findFirst();
+        Optional<Especialidade> optionalVariable = listaEspecialidades.stream().filter(element -> element.getAcronimo().equalsIgnoreCase(acronimo)).findFirst();
         Especialidade esp = optionalVariable.orElseThrow(() -> new NullPointerException());
         listaEspecialidades.remove(esp);
     }

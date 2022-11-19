@@ -79,7 +79,7 @@ public class TipoServico {
         if(this == outro){ return true; }
         if(outro == null || this.getClass() != outro.getClass()){ return false; }
         TipoServico obj = (TipoServico) outro;
-        return this.codigo == obj.codigo && this.nome.equals(obj.nome);
+        return this.codigo == obj.codigo && this.nome.equalsIgnoreCase(obj.nome);
     }
 
 }

@@ -128,8 +128,8 @@ public class Especialidade {
         }
         Especialidade obj = (Especialidade) outro;
         return this.codigo == obj.codigo
-                && this.designacao.equals(obj.designacao)
-                && this.acronimo.equals(obj.acronimo)
+                && this.designacao.equalsIgnoreCase(obj.designacao)
+                && this.acronimo.equalsIgnoreCase(obj.acronimo)
                 && this.dataArranque.equals(obj.dataArranque);
     }
 

@@ -24,4 +24,14 @@ public class DC {
 
     public String getPassword() { return this.password; }
 
+    public boolean login(DC tentativa){
+        if(!this.username.equalsIgnoreCase(tentativa.username)){
+            return false;
+        }
+        if(!this.password.equalsIgnoreCase(tentativa.password)){
+            return false;
+        }
+        return true;
+    }
+
 }
