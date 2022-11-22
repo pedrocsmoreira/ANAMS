@@ -25,7 +25,7 @@ public class UC8View {
         novoCliente();
         inserirDados();
         apresentaDados();
-        if(validaDados()){
+        if(validaDados()) {
             registarCliente();
         }else {
             System.out.println("Cliente não registado!!!");
