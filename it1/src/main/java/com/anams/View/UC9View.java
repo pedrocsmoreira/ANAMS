@@ -9,6 +9,8 @@ public class UC9View {
     private Clinica clinica;
     private UC9Controller controller;
 
+    //Registo de Calendário
+
     /**
      * Construtor
      * 

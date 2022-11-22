@@ -22,7 +22,7 @@ public class UC13View {
     }
 
     public void run(){
-        
+        System.out.println("---------- Consultar Vagas para consulta de uma Especialidade ----------");
     }
 
 }

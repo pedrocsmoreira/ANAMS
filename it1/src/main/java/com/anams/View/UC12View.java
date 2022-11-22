@@ -4,6 +4,8 @@ import java.io.Console;
 import com.anams.Model.Clinica;
 import com.anams.Controller.UC12Controller;
 
+//Consultar Marcações
+
 public class UC12View {
     private Console console = System.console();
     private Clinica clinica;

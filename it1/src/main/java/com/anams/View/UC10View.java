@@ -9,6 +9,8 @@ public class UC10View {
     private Clinica clinica;
     private UC10Controller controller;
 
+    //Consultar Calendário de Marcações
+
     /**
      * Construtor
      * 

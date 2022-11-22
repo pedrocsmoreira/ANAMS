@@ -2,6 +2,8 @@ package com.anams.Controller;
 
 import com.anams.Model.Clinica;
 
+//Consultar Vagas para consulta de uma especialidade
+
 public class UC13Controller {
     private Clinica clinica;
 
