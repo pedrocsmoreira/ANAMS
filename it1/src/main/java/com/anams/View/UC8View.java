@@ -3,6 +3,7 @@ package com.anams.View;
 import java.io.Console;
 
 import com.anams.Controller.UC8Controller;
+import com.anams.Exception.ExceptionCliente.ExceptionClienteExiste;
 import com.anams.Model.Cliente;
 import com.anams.Model.Clinica;
 import com.anams.Utils.Data;
