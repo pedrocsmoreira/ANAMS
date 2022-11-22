@@ -18,7 +18,7 @@ public class UC7View {
 
     /**
      * Construtor
-     * 
+     *
      * @param c
      */
     public UC7View(Clinica c){
