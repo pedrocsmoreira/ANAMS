@@ -5,6 +5,7 @@ import com.anams.Utils.Data;
 public class Marcacao {
     private int id;
     private Medico medico;
+    private Especialidade especialidade;
     private Cliente cliente;
     private Data dia;
 
@@ -13,13 +14,15 @@ public class Marcacao {
     public Marcacao(){
         setId(++contador);
         setMedico(new Medico());
+        setEspecialidade(new Especialidade());
         setCliente(new Cliente());
         setDia(new Data());
     }
 
-    public Marcacao(Medico med, Cliente cl, Data dia){
+    public Marcacao(Medico med, Cliente cl, Especialidade esp, Data dia){
         setId(++contador);
         setMedico(med);
+        setEspecialidade(esp);
         setCliente(cl);
         setDia(dia);
     }
@@ -31,6 +34,10 @@ public class Marcacao {
     public void setMedico(Medico med) { this.medico = med; }
 
     public Medico getMedico() { return this.medico; }
+
+    public void setEspecialidade(Especialidade esp) { this.especialidade = esp; }
+
+    public Especialidade getEspecialidade() { return this.especialidade; }
     
     public void setCliente(Cliente cl) { this.cliente = cl; }
 
