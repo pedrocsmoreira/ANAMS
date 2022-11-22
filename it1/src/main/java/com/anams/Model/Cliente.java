@@ -11,6 +11,10 @@ public class Cliente {
     private int contacto;
     private String email;
 
+    private String password;
+
+    private Calendario calendario;
+
     private static int contador = 0;
 
     private static final String STR_DEFAULT = "";
@@ -24,6 +28,10 @@ public class Cliente {
         setDataNascimento(new Data());
         setContacto(INT_DEFAULT);
         setEmail(STR_DEFAULT);
+
+        setPassword(STR_DEFAULT);
+
+        setCalendario(new Calendario());
     }
 
     public Cliente(String nome, String endereco, int nif, Data dataNascimento, int contacto, String email) {
@@ -64,6 +72,12 @@ public class Cliente {
 
     public String getEmail() { return this.email; }
 
+    public void setPassword(String password) { this.password = password; }
+
+    public void setCalendario(Calendario cal) { this.calendario = cal; }
+
+    public Calendario getCalendario() { return this.calendario; }
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
@@ -74,12 +88,14 @@ public class Cliente {
         sb.append(this.endereco);
         sb.append("\n\tNIF -> ");
         sb.append(this.nif);
-        sb.append("\n\tData de Contratação -> ");
+        sb.append("\n\tData de Nascimento -> ");
         sb.append(this.dataNascimento);
         sb.append("\n\tContacto -> ");
         sb.append(this.contacto);
         sb.append("\n\tEmail -> ");
         sb.append(this.email);
+        sb.append("\n\tCalendário -> ");
+        sb.append(this.calendario.toString());
         return sb.toString();
     }
 

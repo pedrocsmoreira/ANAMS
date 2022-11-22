@@ -9,8 +9,6 @@ public class UC9View {
     private Clinica clinica;
     private UC9Controller controller;
 
-    //Registo de Calendário
-
     /**
      * Construtor
      * 
@@ -22,6 +20,7 @@ public class UC9View {
     }
 
     public void run(){
+        System.out.println("---------- Registo de Calendário ----------");
         
     }
 

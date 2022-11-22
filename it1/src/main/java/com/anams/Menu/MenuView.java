@@ -3,7 +3,7 @@ package com.anams.Menu;
 import java.io.Console;
 
 import com.anams.Model.Clinica;
-import com.anams.View.UC7View;
+import com.anams.View.UC8View;
 
 public class MenuView {
     private Console console = System.console();
@@ -49,7 +49,7 @@ public class MenuView {
                     aa.run();
                     break;
                 case "4":
-                    UC7View registo = new UC8View(this.clinica);
+                    UC8View registo = new UC8View(this.clinica);
                     registo.run();
                     break;
                 case "5":

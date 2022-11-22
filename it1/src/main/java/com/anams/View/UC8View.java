@@ -12,8 +12,6 @@ public class UC8View {
     private Console console = System.console();
     private Clinica clinica;
     private UC8Controller controller;
-    
-    //Registar Cliente
 
     public UC8View(Clinica c){
         this.clinica = c;

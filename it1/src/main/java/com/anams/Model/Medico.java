@@ -15,6 +15,8 @@ public class Medico {
     private String email;
     private int contacto;
 
+    private Calendario calendario;
+
     private static final String STR_DEFAULT = "";
     private static final int INT_DEFAULT = 0;
 

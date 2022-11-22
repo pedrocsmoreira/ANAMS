@@ -21,6 +21,8 @@ public class Clinica {
     private int contacto;
     private String website;
 
+    private static byte[] salt = new byte[16];
+
     private DC diretorClinico = new DC("root", "root");
     private DG diretorGeral = new DG("root", "root");
     private AA assistenteAdministrativa = new AA("root", "root");

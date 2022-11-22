@@ -9,8 +9,6 @@ public class UC10View {
     private Clinica clinica;
     private UC10Controller controller;
 
-    //Consultar Calendário de Marcações
-
     /**
      * Construtor
      * 
@@ -22,7 +20,7 @@ public class UC10View {
     }
 
     public void run(){
-
+        System.out.println("---------- Consultar Calendário de Marcações ----------");
     }
 
 }
