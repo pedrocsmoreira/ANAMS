@@ -26,6 +26,7 @@ public class Clinica {
     private DC diretorClinico = new DC("root", "root");
     private DG diretorGeral = new DG("root", "root");
     private AA assistenteAdministrativa = new AA("root", "root");
+    private CL cliente = new CL("root", "root");
 
     private ArrayList<Especialidade> listaEspecialidades;
     private ArrayList<Medico> listaMedicos;
@@ -39,7 +40,7 @@ public class Clinica {
 
     /**
      * Construtor vazio
-     * 
+     *
      */
     public Clinica() {
         setNome(STR_DEFAULT);
@@ -52,11 +53,12 @@ public class Clinica {
         this.listaTipoServico = new ArrayList<TipoServico>();
         this.listaServicos = new ArrayList<Servico>();
         this.listaConvencoes =  new ArrayList<Convencao>();
+        this.listaClientes = new ArrayList<Cliente>();
     }
 
     /**
      * Construtor com parâmetros
-     * 
+     *
      * @param nome
      * @param endereco
      * @param nif
@@ -74,74 +76,75 @@ public class Clinica {
         this.listaTipoServico = new ArrayList<TipoServico>();
         this.listaServicos = new ArrayList<Servico>();
         this.listaConvencoes =  new ArrayList<Convencao>();
+        this.listaClientes =  new ArrayList<Cliente>();
     }
 
     /**
      * Define Nome da Clinica
-     * 
+     *
      * @param nome
      */
     public void setNome(String nome) { this.nome = nome; }
 
     /**
      * Devolve Nome da Clinica
-     * 
+     *
      * @return nome
      */
     public String getNome() { return this.nome; }
 
     /**
      * Define Endereco da Clinica
-     * 
+     *
      * @param endereco
      */
     public void setEndereco(String endereco) { this.endereco = endereco; }
 
     /**
      * Devolve Endereco da Clinica
-     * 
+     *
      * @return endereco
      */
     public String getEndereco() { return this.endereco; }
 
     /**
      * Define o NIF da Clinica
-     * 
+     *
      * @param nif
      */
     public void setNif(int nif) { this.nif = nif; }
 
     /**
      * Devolve o NIF da Clinica
-     * 
+     *
      * @return nif
      */
     public int getNif() { return this.nif; }
 
     /**
      * Define Contacto da Clinica
-     * 
+     *
      * @param contacto
      */
     public void setContacto(int contacto) { this.contacto = contacto; }
 
     /**
      * Devolve Contacto da Clinica
-     * 
+     *
      * @return contacto
      */
     public int getContacto() { return this.contacto; }
 
     /**
      * Define Website da Clinica
-     * 
+     *
      * @param website
      */
     public void setWebsite(String website) { this.website = website; }
 
     /**
      * Devolve Website da Clinica
-     * 
+     *
      * @return website
      */
     public String getWebsite() { return this.website; }
@@ -149,119 +152,125 @@ public class Clinica {
 
 
     /**
-     * 
-     * 
+     *
+     *
      * @param assistenteAdministrativa
      */
     public void setAssistenteAdministrativa(AA assistenteAdministrativa) { this.assistenteAdministrativa = assistenteAdministrativa; }
 
     /**
-     * 
-     * 
+     *
+     *
      * @return assistenteAdministrativa
      */
     public AA getAssistenteAdministrativa() { return this.assistenteAdministrativa; }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param diretorClinico
      */
     public void setDiretorClinico(DC diretorClinico) { this.diretorClinico = diretorClinico; }
 
     /**
-     * 
-     * 
+     *
+     *
      * @return diretorClinico
      */
     public DC getDiretorClinico() { return this.diretorClinico; }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param diretorGeral
      */
     public void setDiretorGeral(DG diretorGeral) { this.diretorGeral = diretorGeral; }
 
     /**
-     * 
-     * 
+     *
+     *
      * @return diretorGeral
      */
     public DG getDiretorGeral() { return this.diretorGeral; }
 
+    public void setCliente(CL cliente) { this.cliente = cliente; }
+
+    public CL getCliente() { return this.cliente; }
+
 
     /**
      * Define Lista de Especialidades registadas na Clínica
-     * 
+     *
      * @param listaEspecialidades
      */
     public void setListaEspecialidades(ArrayList<Especialidade> listaEspecialidades) { this.listaEspecialidades = listaEspecialidades; }
 
     /**
      * Devolve Lista de Especialidades registadas na Clínica
-     * 
+     *
      * @return
      */
     public ArrayList<Especialidade> getListaEspecialidades() { return this.listaEspecialidades; }
 
     /**
      * Define Lista de Médicos registadas na Clínica
-     * 
+     *
      * @param listaMedicos
      */
     public void setListaMedicos(ArrayList<Medico> listaMedicos) { this.listaMedicos = listaMedicos; }
 
     /**
      * Devolve Lista de Médicos registadas na Clínica
-     * 
+     *
      * @return listaMedicos
      */
     public ArrayList<Medico> getListaMedicos() { return this.listaMedicos; }
 
     /**
      * Define Lista de Tipos de Serviços registadas na Clínica
-     * 
+     *
      * @param listaTipoServicos
      */
     public void setListaTipoServicos(ArrayList<TipoServico> listaTipoServicos) { this.listaTipoServico = listaTipoServicos; }
 
     /**
      * Devolve Lista de Tipos de Serviços registadas na Clínica
-     * 
+     *
      * @return listaTipoServicos
      */
     public ArrayList<TipoServico> getListaTipoServicos() { return this.listaTipoServico; }
 
     /**
      * Define Lista de Serviços registadas na Clínica
-     * 
+     *
      * @param listaServicos
      */
     public void setListaServicos(ArrayList<Servico> listaServicos) { this.listaServicos = listaServicos; }
 
     /**
      * Devolve Lista de Serviços registadas na Clínica
-     * 
+     *
      * @return listaServicos
      */
     public ArrayList<Servico> getListaServicos() { return this.listaServicos; }
 
     /**
      * Define Lista de Convenções registadas na Clínica
-     * 
+     *
      * @param listaConvencoes
      */
     public void setListaConvencoes(ArrayList<Convencao> listaConvencoes) { this.listaConvencoes = listaConvencoes; }
 
     /**
      * Devolve Lista de Convenções registadas na Clínica
-     * 
+     *
      * @return listaConvencoes
      */
     public ArrayList<Convencao> getListaConvencoes() { return this.listaConvencoes; }
 
+    public void setListaConvencoes(ArrayList<Cliente> listaClientes) { this.listaClientes = listaClientes; }
 
+    public ArrayList<Cliente> getListaClientes() { return this.listaClientes; }
 
     public boolean loginAA(AA aa) {
         if(assistenteAdministrativa.equals(aa)){
@@ -288,15 +297,15 @@ public class Clinica {
 
 
     /**
-     * 
-     * 
+     *
+     *
      * @return new Especialidade()
      */
     public Especialidade novaEspecialidade() { return new Especialidade(); }
 
     /**
      * Método de registo de Especialidades, com verificação da existência do código inserido
-     * 
+     *
      * @param e
      * @throws ExceptionEspecialidadeExiste
      */
@@ -307,7 +316,7 @@ public class Clinica {
 
     /**
      * Método de verificação da existência do código inserido
-     * 
+     *
      * @param codigo
      * @return
      * @throws ExceptionEspecialidadeExiste
@@ -319,7 +328,7 @@ public class Clinica {
 
     /**
      * Regista Especialidades passadas por parâmetro
-     * 
+     *
      * @param e
      */
     private void inserirEspecialidade(Especialidade e) { this.listaEspecialidades.add(e); }
@@ -327,15 +336,15 @@ public class Clinica {
 
 
     /**
-     * 
-     * 
+     *
+     *
      * @return new Medico()
      */
     public Medico novoMedico() { return new Medico();}
 
     /**
      * Método de registo de Médicos, com verificação da existência do código inserido
-     * 
+     *
      * @param m
      * @throws ExceptionMedicoExiste
      */
@@ -346,7 +355,7 @@ public class Clinica {
 
     /**
      * Método de verificação da existência do código inserido
-     * 
+     *
      * @param m
      * @return
      * @throws ExceptionMedicoExiste
@@ -358,7 +367,7 @@ public class Clinica {
 
     /**
      * Regista Médicos passados por parâmetro
-     * 
+     *
      * @param m
      */
     private void inserirMedico(Medico m) { this.listaMedicos.add(m); }
@@ -369,7 +378,7 @@ public class Clinica {
 
     /**
      * Método de registo de Serviços, com verificação da existência do código inserido
-     * 
+     *
      * @param s
      * @throws ExceptionServicoExiste
      */
@@ -380,7 +389,7 @@ public class Clinica {
 
     /**
      * Método de verificação da existência do código inserido
-     * 
+     *
      * @param s
      * @return
      * @throws ExceptionServicoExiste
@@ -392,7 +401,7 @@ public class Clinica {
 
     /**
      * Regista Serviços passados por parâmetro
-     * 
+     *
      * @param s
      */
     private void inserirServico(Servico s) {this.listaServicos.add(s); }
@@ -400,15 +409,15 @@ public class Clinica {
 
 
     /**
-     * 
-     * 
+     *
+     *
      * @return new TipoServico()
      */
     public TipoServico novoTipoServico() { return new TipoServico(); }
 
     /**
      * Método de registo de Tipos de Serviço, com verificação da existência do código inserido
-     * 
+     *
      * @param ts
      * @throws ExceptionTipoServicoExiste
      */
@@ -423,7 +432,7 @@ public class Clinica {
 
     /**
      * Método de verificação da existência do código inserido
-     * 
+     *
      * @param ts
      * @return
      * @throws ExceptionTipoServicoNaoExiste
@@ -435,7 +444,7 @@ public class Clinica {
 
     /**
      * Regista Tipos de Serviço passado por parâmetro
-     * 
+     *
      * @param ts
      */
     private void inserirTipoServico(TipoServico ts) { this.listaTipoServico.add(ts); }
@@ -443,15 +452,15 @@ public class Clinica {
 
 
     /**
-     * 
-     * 
+     *
+     *
      * @return new Convencao()
      */
     public Convencao novaConvencao() { return new Convencao(); }
-    
+
     /**
      * Método de registo de Convenções, com verificação da existência do código inserido
-     * 
+     *
      * @param c
      * @throws ExceptionConvencaoExiste
      */
@@ -466,7 +475,7 @@ public class Clinica {
 
     /**
      * Método de verificação da existência do código inserido
-     * 
+     *
      * @param c
      * @return
      * @throws ExceptionConvencaoNaoExiste
@@ -478,21 +487,41 @@ public class Clinica {
 
     /**
      * Regista Convenção passada por parâmetro
-     * 
+     *
      * @param c
      */
     private void inserirConvencao(Convencao c) { this.listaConvencoes.add(c); }
-   
 
-    
+/**
+ *  Cliente
+ */
 
-    
+    public Cliente novoCliente() { return new Cliente(); }
 
-    
+    public void registarCliente(Cliente cl) throws ExceptionClienteExiste {
+        try{
+            encontrarCliente(cl);
+            throw new ExceptionClienteExiste("Cliente já existe!!!");
+        }catch (ExceptionClienteNaoExiste e){
+            inserirCliente(cl);
+        }
+    }
+
+    private Cliente encontrarCliente(Cliente cl) throws ExceptionClienteNaoExiste {
+        Optional<Cliente> optionalVariable = listaClientes.stream().filter(element -> element.getCodigo() == c.getCodigo()).findFirst();
+        return optionalVariable.orElseThrow(() -> new ExceptionClienteNaoExiste("Cliente não encontrado!!!"));
+    }
+
+    private void inserirCliente(Cliente cl) { this.listaClientes.add(cl); }
+
+
+
+
+
 
     /**
      * Método de procura de Médico pelo código
-     * 
+     *
      * @param codigo
      * @return
      */
@@ -504,7 +533,7 @@ public class Clinica {
 
     /**
      * Método de procura de Médico pelo Nome
-     * 
+     *
      * @param nome
      * @return
      */
@@ -516,7 +545,7 @@ public class Clinica {
 
     /**
      * Método de procura de Médico pela Cédula Profissional
-     * 
+     *
      * @param cedula
      * @return
      */
@@ -528,7 +557,7 @@ public class Clinica {
 
     /**
      * Método de procura de Médico pelo NIF
-     * 
+     *
      * @param nif
      * @return
      */
@@ -540,7 +569,7 @@ public class Clinica {
 
 
 
-    
+
 
 
 
@@ -549,7 +578,7 @@ public class Clinica {
 
     /**
      * Método de consulta de Médicos
-     * 
+     *
      * @return
      * @throws ExceptionMedicoNaoExiste
      */
@@ -565,7 +594,7 @@ public class Clinica {
 
     /**
      * Método principal de consulta de Médicos pela Especialidade, com verificação da Especialidade
-     * 
+     *
      * @param codigo
      * @return
      * @throws ExceptionEspecialidadeNaoExiste
@@ -585,7 +614,7 @@ public class Clinica {
 
     /**
      * Método de consulta de Médicos pela Especialidade
-     * 
+     *
      * @param e
      * @return
      * @throws ExceptionMedicoNaoExiste
@@ -611,7 +640,7 @@ public class Clinica {
 
     /**
      * Método principal de consulta de Médicos pelo ID, com verificação do Id
-     * 
+     *
      * @param id
      * @return
      * @throws ExceptionMedicoNaoExiste
@@ -632,7 +661,7 @@ public class Clinica {
 
     /**
      * Método principal de consulta de Médicos, com verificação do Nome
-     * 
+     *
      * @param nome
      * @return
      * @throws ExceptionMedicoNaoExiste
@@ -653,7 +682,7 @@ public class Clinica {
 
     /**
      * Método principal de consulta de Médicos, com verificação da Cédula Profissional
-     * 
+     *
      * @param cedula
      * @return
      * @throws ExceptionMedicoNaoExiste
@@ -674,7 +703,7 @@ public class Clinica {
 
     /**
      * Método principal de consulta de Médicos, com verificação de Contacto
-     * 
+     *
      * @param contacto
      * @return
      * @throws ExceptionMedicoNaoExiste
@@ -695,7 +724,7 @@ public class Clinica {
 
     /**
      * Método principal de consulta de Médicos, com verificação de Email
-     * 
+     *
      * @param email
      * @return
      * @throws ExceptionMedicoNaoExiste
@@ -713,10 +742,10 @@ public class Clinica {
         if(count == 0){ throw new ExceptionMedicoNaoExiste("Médico não encontrado!!!"); }
         return lst.toString();
     }
-    
+
     /**
      * Método principal de consulta de Serviços
-     * 
+     *
      * @return
      * @throws ExceptionServicoNaoExiste
      */
@@ -732,7 +761,7 @@ public class Clinica {
 
     /**
      * Método principal de consulta de Serviços, com verificação do Tipo de Serviço
-     * 
+     *
      * @param codigo
      * @return
      * @throws ExceptionTipoServicoNaoExiste
@@ -747,7 +776,7 @@ public class Clinica {
 
     /**
      * Método principal de consulta de Tipo de Serviço
-     * 
+     *
      * @param codigo
      * @return
      * @throws ExceptionTipoServicoNaoExiste
@@ -758,8 +787,8 @@ public class Clinica {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param ts
      * @return
      * @throws ExceptionServicoNaoExiste
@@ -781,8 +810,8 @@ public class Clinica {
 
 
     /**
-     * 
-     * 
+     *
+     *
      * @return
      * @throws ExceptionEspecialidadeNaoExiste
      */
@@ -795,10 +824,10 @@ public class Clinica {
         }
         return lst.toString();
     }
-    
+
     /**
-     * 
-     * 
+     *
+     *
      * @return
      * @throws ExceptionTipoServicoNaoExiste
      */
@@ -813,8 +842,8 @@ public class Clinica {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @return
      * @throws ExceptionConvencaoNaoExiste
      */
@@ -833,8 +862,8 @@ public class Clinica {
 
 
     /**
-     * 
-     * 
+     *
+     *
      * @param codigo
      */
     public void removerEspecialidadeCodigo(int codigo) {
@@ -844,8 +873,8 @@ public class Clinica {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param designacao
      */
     public void removerEspecialidadeDesignacao(String designacao) {
@@ -855,8 +884,8 @@ public class Clinica {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param acronimo
      */
     public void removerEspecialidadeAcronimo(String acronimo) {
@@ -875,8 +904,8 @@ public class Clinica {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param e
      * @return
      * @throws ExceptionMedicoNaoExiste

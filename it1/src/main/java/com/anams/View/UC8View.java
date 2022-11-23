@@ -10,12 +10,13 @@ import com.anams.Utils.Data;
 
 public class UC8View {
     private Console console = System.console();
+
     private Clinica clinica;
     private UC8Controller controller;
 
     public UC8View(Clinica c){
         this.clinica = c;
-        this.controller = new UC8Controller(clinica);
+        this.controller = new UC8Controller(c);
     }
 
     public void run(){
@@ -23,7 +24,7 @@ public class UC8View {
         novoCliente();
         inserirDados();
         apresentaDados();
-        if(validaDados()) {
+        if(console.readLine("Pretende registar este cliente? (Y/N)").equals("Y")) {
             registarCliente();
         }else {
             System.out.println("Cliente não registado!!!");
@@ -41,9 +42,10 @@ public class UC8View {
         controller.setEmail(getEmail());
     }
 
-    private void apresentaDados() { System.out.println(controller.getCliente()); }
-
-    private boolean validaDados() { return console.readLine("Pretende registar este cliente? (Y/N)").equals("Y")  ? true : false;  }
+    private void apresentaDados() {
+        System.out.println("Cliente: ");
+        System.out.println(controller.getCliente().toString());
+    }
 
     private String getNome() { return console.readLine("Insira o nome do Cliente: "); }
 

@@ -7,38 +7,30 @@ import com.anams.Utils.Data;
 
 public class UC8Controller {
     private Clinica clinica;
+    private Cliente cl;
 
     public UC8Controller(Clinica c){
         this.clinica = c;
     }
 
-    public void novoCliente() {
-    }
+    public void novoCliente() { setCliente();}
 
-    public void setNome(String nome) {
-    }
+    private void setCliente() { this.cl = clinica.novoCliente(); }
 
-    public void setEndereco(String endereco) {
-    }
+    public void setNome(String nome) { this.cl.setNome(nome); }
 
-    public void setNif(int nif) {
-    }
+    public void setEndereco(String endereco) { this.cl.setEndereco(endereco); }
 
-    public void setDataNascimento(Data dataNascimento) {
-    }
+    public void setNif(int nif) { this.cl.setNif(nif); }
 
-    public void setContacto(int contacto) {
-    }
+    public void setDataNascimento(Data dataNascimento) { this.cl.setDataNascimento(dataNascimento); }
 
-    public void setEmail(String email) {
-    }
+    public void setContacto(int contacto) { this.cl.setContacto(contacto); }
 
-    public Cliente getCliente() {
-        return null;
-    }
+    public void setEmail(String email) { this.cl.setEmail(email); }
 
-    public void registarCliente() throws ExceptionClienteExiste{
-    }
+    public Cliente getCliente() { return this.cl.toString(); }
 
-    
+    public void registarCliente() throws ExceptionClienteExiste{ clinica.registarCliente(cl); }
+
 }
