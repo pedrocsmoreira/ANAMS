@@ -1,6 +1,8 @@
 package com.anams.View;
 
 import java.io.Console;
+
+import com.anams.Model.Cliente;
 import com.anams.Model.Clinica;
 import com.anams.Controller.UC11Controller;
 import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeNaoExiste;
@@ -10,19 +12,20 @@ public class UC11View {
     private Clinica clinica;
     private UC11Controller controller;
 
-    //Efetuar Marcação
+    private Cliente cliente;
 
     /**
      * Construtor
      * 
      * @param c
      */
-    public UC11View(Clinica c){
-        this.clinica = c;
+    public UC11View(Clinica clinica){
+        this.clinica = clinica;
         this.controller = new UC11Controller(clinica);
     }
 
-    public void run(Cliente cli){
+    public void run(Cliente cliente){
+        this.cliente = cliente;
         System.out.println("---------- Efetuar Marcação ----------");
         novaMarcacao();
         inserirDados();

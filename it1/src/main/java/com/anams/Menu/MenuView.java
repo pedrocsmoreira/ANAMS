@@ -53,8 +53,11 @@ public class MenuView {
                     registo.run();
                     break;
                 case "5":
-                    MenuCliente cl = new MenuCliente(this.clinica);
+                    MenuCL cl = new MenuCL(this.clinica);
                     cl.run();
+                    break;
+                default:
+                    System.out.println("Opção Inválida!!!!");
                     break;
             }
         }while (!opcao.equals("0") );

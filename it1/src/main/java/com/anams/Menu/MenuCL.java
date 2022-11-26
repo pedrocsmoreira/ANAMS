@@ -9,14 +9,16 @@ import com.anams.View.UC11View;
 import com.anams.View.UC12View;
 import com.anams.View.UC13View;
 
-public class MenuCliente {
+public class MenuCL {
     Console console = System.console();
     private Clinica clinica;
     private String opcao;
 
+    private Cliente cliente;
+
     private static final String STR_DEFAULT = "";
 
-    public MenuCliente(Clinica c){
+    public MenuCL(Clinica c){
         this.clinica = c;
         this.opcao = STR_DEFAULT;
     }
@@ -31,7 +33,6 @@ public class MenuCliente {
 
     private boolean verificarClientes() {
         if(!clinica.verificarClientes()) {
-            //erro normal
             return false;
         }
         return true;
@@ -40,8 +41,12 @@ public class MenuCliente {
     private boolean login(){
         String username = console.readLine();
         String password = console.readLine();
-        //cliente login
-        return false;
+        Cliente tentativa = new Cliente();
+        if(!cliente-login(tentativa)){
+            return false;
+        }
+        cliente = tentativa;
+        return true;
     }
 
     private void menu(){
@@ -58,15 +63,15 @@ public class MenuCliente {
 
             switch(opcao){
                 case "1":
-                    UC11View ui11 = new UC11View(this.clinica);
-                    ui11.run();
+                    UC11View ui11 = new UC11View(this.clinica, cliente);
+                    ui11.run(cliente);
                     break;
                 case "2":
-                    UC12View ui12 = new UC12View(this.clinica);
+                    UC12View ui12 = new UC12View(this.clinica, cliente);
                     ui12.run();
                     break;
                 case "3":
-                    UC13View ui13 = new UC13View(this.clinica);
+                    UC13View ui13 = new UC13View(this.clinica, cliente);
                     ui13.run();
                     break;
                 default:

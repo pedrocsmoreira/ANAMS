@@ -26,7 +26,6 @@ public class Clinica {
     private DC diretorClinico = new DC("root", "root");
     private DG diretorGeral = new DG("root", "root");
     private AA assistenteAdministrativa = new AA("root", "root");
-    private CL cliente = new CL("root", "root");
 
     private ArrayList<Especialidade> listaEspecialidades;
     private ArrayList<Medico> listaMedicos;
@@ -193,10 +192,6 @@ public class Clinica {
      */
     public DG getDiretorGeral() { return this.diretorGeral; }
 
-    public void setCliente(CL cliente) { this.cliente = cliente; }
-
-    public CL getCliente() { return this.cliente; }
-
 
     /**
      * Define Lista de Especialidades registadas na Clínica
@@ -267,8 +262,6 @@ public class Clinica {
      * @return listaConvencoes
      */
     public ArrayList<Convencao> getListaConvencoes() { return this.listaConvencoes; }
-
-    public void setListaConvencoes(ArrayList<Cliente> listaClientes) { this.listaClientes = listaClientes; }
 
     public ArrayList<Cliente> getListaClientes() { return this.listaClientes; }
 
