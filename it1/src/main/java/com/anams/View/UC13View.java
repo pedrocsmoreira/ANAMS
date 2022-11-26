@@ -11,8 +11,6 @@ public class UC13View {
     private Clinica clinica;
     private UC13Controller controller;
 
-    private Cliente cliente;
-
     /**
      * Construtor
      * 
@@ -23,8 +21,7 @@ public class UC13View {
         this.controller = new UC13Controller(clinica);
     }
 
-    public void run(Cliente cliente){
-        this.cliente = cliente;
+    public void run(){
         System.out.println("---------- Consultar Vagas para consulta de uma Especialidade ----------");
     }
 

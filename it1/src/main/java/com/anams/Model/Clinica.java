@@ -9,6 +9,7 @@ import com.anams.Exception.ExceptionServico.ExceptionServicoExiste;
 import com.anams.Exception.ExceptionServico.ExceptionServicoNaoExiste;
 import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoExiste;
 import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoNaoExiste;
+import com.anams.Exception.ExceptionCliente.ExceptionClienteExiste;
 import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoExiste;
 import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoNaoExiste;
 import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeExiste;
@@ -485,9 +486,6 @@ public class Clinica {
      */
     private void inserirConvencao(Convencao c) { this.listaConvencoes.add(c); }
 
-/**
- *  Cliente
- */
 
     public Cliente novoCliente() { return new Cliente(); }
 

@@ -42,6 +42,10 @@ public class Cliente {
         setDataNascimento(dataNascimento);
         setContacto(contacto);
         setEmail(email);
+
+        setPassword(STR_DEFAULT);
+
+        setCalendario(new Calendario());
     }
 
     private void setCodigo(int codigo) { this.codigo = codigo; }

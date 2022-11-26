@@ -7,7 +7,7 @@ import com.anams.Utils.Data;
 
 public class UC8Controller {
     private Clinica clinica;
-    private Cliente cl;
+    private Cliente cliente;
 
     public UC8Controller(Clinica c){
         this.clinica = c;
@@ -15,22 +15,22 @@ public class UC8Controller {
 
     public void novoCliente() { setCliente();}
 
-    private void setCliente() { this.cl = clinica.novoCliente(); }
+    private void setCliente() { this.cliente = clinica.novoCliente(); }
 
-    public void setNome(String nome) { this.cl.setNome(nome); }
+    public void setNome(String nome) { this.cliente.setNome(nome); }
 
-    public void setEndereco(String endereco) { this.cl.setEndereco(endereco); }
+    public void setEndereco(String endereco) { this.cliente.setEndereco(endereco); }
 
-    public void setNif(int nif) { this.cl.setNif(nif); }
+    public void setNif(int nif) { this.cliente.setNif(nif); }
 
-    public void setDataNascimento(Data dataNascimento) { this.cl.setDataNascimento(dataNascimento); }
+    public void setDataNascimento(Data dataNascimento) { this.cliente.setDataNascimento(dataNascimento); }
 
-    public void setContacto(int contacto) { this.cl.setContacto(contacto); }
+    public void setContacto(int contacto) { this.cliente.setContacto(contacto); }
 
-    public void setEmail(String email) { this.cl.setEmail(email); }
+    public void setEmail(String email) { this.cliente.setEmail(email); }
 
-    public Cliente getCliente() { return this.cl.toString(); }
+    public String getCliente() { return this.cliente.toString(); }
 
-    public void registarCliente() throws ExceptionClienteExiste{ clinica.registarCliente(cl); }
+    public void registarCliente() throws ExceptionClienteExiste{ clinica.registarCliente(cliente); }
 
 }
