@@ -32,7 +32,7 @@ public class MenuCL {
     }
 
     private boolean verificarClientes() {
-        if(!clinica.verificarClientes()) {
+        if(!controller.verificarClientes()) {
             return false;
         }
         return true;
