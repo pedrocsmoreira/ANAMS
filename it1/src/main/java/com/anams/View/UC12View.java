@@ -27,6 +27,15 @@ public class UC12View {
     public void run(Cliente cliente){
         this.cliente = cliente;
         System.out.println("---------- Consultar Marcações ----------");
+        procurarMarcacoes();
+        
     }
+
+    private void procurarMarcacoes(){
+
+    }
+
+
+
 
 }

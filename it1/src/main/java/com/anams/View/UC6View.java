@@ -30,15 +30,15 @@ public class UC6View {
             mostrarEspecialidades();
             int codigo = Integer.parseInt(console.readLine("Insira o código da especialidade a procurar: "));
             try{
-                Especialidade e = procurarEspecialidade(codigo);
-                procurarMedicos(e);
-            }catch (ExceptionEspecialidadeNaoExiste e){
-                e.printStackTrace();
-            }catch (ExceptionMedicoNaoExiste e){
-                e.printStackTrace();
+                procurarEspecialidade(codigo);
+                procurarMedicos();
+            }catch (ExceptionEspecialidadeNaoExiste err){
+                err.printStackTrace();
+            }catch (ExceptionMedicoNaoExiste err){
+                err.printStackTrace();
             }
-        }catch (ExceptionEspecialidadeNaoExiste e){
-            e.printStackTrace();
+        }catch (ExceptionEspecialidadeNaoExiste err){
+            err.printStackTrace();
         }
     }
 
@@ -46,12 +46,12 @@ public class UC6View {
         System.out.println(controller.verEspecialidades());
     }
 
-    private Especialidade procurarEspecialidade(int codigo) throws ExceptionEspecialidadeNaoExiste{
-        return this.controller.verificarCodigo(codigo);
+    private void procurarEspecialidade(int codigo) throws ExceptionEspecialidadeNaoExiste{
+        this.controller.verificarCodigo(codigo);
     }
 
-    private void procurarMedicos(Especialidade e) throws ExceptionMedicoNaoExiste{
-        System.out.println(controller.procurarMedicos(e));
+    private void procurarMedicos() throws ExceptionMedicoNaoExiste{
+        System.out.println(controller.procurarMedicos());
     }
 
 

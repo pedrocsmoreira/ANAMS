@@ -2,6 +2,7 @@ package com.anams.Menu;
 
 import java.io.Console;
 
+import com.anams.Controller.MenuCLController;
 import com.anams.Model.Cliente;
 import com.anams.Model.Clinica;
 import com.anams.Utils.Data;
@@ -12,6 +13,7 @@ import com.anams.View.UC13View;
 public class MenuCL {
     Console console = System.console();
     private Clinica clinica;
+    private MenuCLController controller;
     private String opcao;
 
     private Cliente cliente;
@@ -20,18 +22,25 @@ public class MenuCL {
 
     public MenuCL(Clinica c){
         this.clinica = c;
+        this.controller = new MenuCLController(c);
         this.opcao = STR_DEFAULT;
     }
 
     public void run(){
-        if(verificarClientes()){
-            if(login()){
-                menu();
-            }
+        if(!verificarClientes()){
+            System.out.println("Não existem clientes registados!!!");
+            return;
         }
+
+        if(!login()){
+            System.out.println("Dados de Login errados!!!");
+            return;
+        }
+
+        menu();
     }
 
-    private boolean verificarClientes() {
+    private boolean verificarClientes() { 
         if(!controller.verificarClientes()) {
             return false;
         }
@@ -42,7 +51,7 @@ public class MenuCL {
         String username = console.readLine();
         String password = console.readLine();
         Cliente tentativa = new Cliente();
-        if(!cliente-login(tentativa)){
+        if(!clinica.loginCliente(tentativa)){
             return false;
         }
         cliente = tentativa;
@@ -63,15 +72,15 @@ public class MenuCL {
 
             switch(opcao){
                 case "1":
-                    UC11View ui11 = new UC11View(this.clinica, cliente);
+                    UC11View ui11 = new UC11View(this.clinica);
                     ui11.run(cliente);
                     break;
                 case "2":
-                    UC12View ui12 = new UC12View(this.clinica, cliente);
-                    ui12.run();
+                    UC12View ui12 = new UC12View(this.clinica);
+                    ui12.run(cliente);
                     break;
                 case "3":
-                    UC13View ui13 = new UC13View(this.clinica, cliente);
+                    UC13View ui13 = new UC13View(this.clinica);
                     ui13.run();
                     break;
                 default:

@@ -10,6 +10,7 @@ import com.anams.Exception.ExceptionServico.ExceptionServicoNaoExiste;
 import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoExiste;
 import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoNaoExiste;
 import com.anams.Exception.ExceptionCliente.ExceptionClienteExiste;
+import com.anams.Exception.ExceptionCliente.ExceptionClienteNaoExiste;
 import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoExiste;
 import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoNaoExiste;
 import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeExiste;
@@ -499,7 +500,7 @@ public class Clinica {
     }
 
     private Cliente encontrarCliente(Cliente cl) throws ExceptionClienteNaoExiste {
-        Optional<Cliente> optionalVariable = listaClientes.stream().filter(element -> element.getCodigo() == c.getCodigo()).findFirst();
+        Optional<Cliente> optionalVariable = listaClientes.stream().filter(element -> element.getCodigo() == cl.getCodigo()).findFirst();
         return optionalVariable.orElseThrow(() -> new ExceptionClienteNaoExiste("Cliente não encontrado!!!"));
     }
 
@@ -518,42 +519,6 @@ public class Clinica {
      */
     public Medico procurarMedicoCodigo(int codigo) {
         Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getCodigo() == codigo)).findFirst();
-        Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
-        return med;
-    }
-
-    /**
-     * Método de procura de Médico pelo Nome
-     *
-     * @param nome
-     * @return
-     */
-    public Medico procurarMedicoNome(String nome) {
-        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getNome().equalsIgnoreCase(nome))).findFirst();
-        Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
-        return med;
-    }
-
-    /**
-     * Método de procura de Médico pela Cédula Profissional
-     *
-     * @param cedula
-     * @return
-     */
-    public Medico procurarMedicoCedula(int cedula) {
-        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getCedula() == cedula)).findFirst();
-        Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
-        return med;
-    }
-
-    /**
-     * Método de procura de Médico pelo NIF
-     *
-     * @param nif
-     * @return
-     */
-    public Medico procurarMedicoNif(int nif) {
-        Optional<Medico> optionalVariable = listaMedicos.stream().filter(element -> (element.getNif() == nif)).findFirst();
         Medico med = optionalVariable.orElseThrow(() -> new NullPointerException());
         return med;
     }
@@ -592,7 +557,7 @@ public class Clinica {
      * @throws ExceptionMedicoNaoExiste
      */
     public String consultarMedicosEspecialidade(int codigo) throws ExceptionEspecialidadeNaoExiste, ExceptionMedicoNaoExiste {
-        StringBuilder lst = new StringBuilder();
+        String lst;
         Especialidade e = new Especialidade();
         try{
             e = encontrarEspecialidadeCodigo(codigo);
@@ -610,7 +575,7 @@ public class Clinica {
      * @return
      * @throws ExceptionMedicoNaoExiste
      */
-    private StringBuilder MedicosEspecialidade(Especialidade e) throws ExceptionMedicoNaoExiste {
+    public String MedicosEspecialidade(Especialidade e) throws ExceptionMedicoNaoExiste {
         StringBuilder lst = new StringBuilder();
         int count = 0;
         for(Medico m : listaMedicos) {
@@ -624,7 +589,7 @@ public class Clinica {
             }
         }
         if(count == 0) { throw new ExceptionMedicoNaoExiste(); }
-        return lst;
+        return lst.toString();
     }
 
 
@@ -885,7 +850,7 @@ public class Clinica {
         listaEspecialidades.remove(esp);
     }
 
-    public Especialidade verificarCodigo(int codigo) throws ExceptionEspecialidadeNaoExiste {
+    public Especialidade verificarEspecialidadeCodigo(int codigo) throws ExceptionEspecialidadeNaoExiste {
         for(Especialidade e : listaEspecialidades){
             if(e.getCodigo() == codigo){
                 return e;

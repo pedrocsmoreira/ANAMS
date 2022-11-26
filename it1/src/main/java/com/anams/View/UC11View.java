@@ -4,8 +4,10 @@ import java.io.Console;
 
 import com.anams.Model.Cliente;
 import com.anams.Model.Clinica;
+import com.anams.Model.Especialidade;
 import com.anams.Controller.UC11Controller;
 import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeNaoExiste;
+import com.anams.Exception.ExceptionMedico.ExceptionMedicoNaoExiste;
 
 public class UC11View {
     private Console console = System.console();
@@ -27,7 +29,6 @@ public class UC11View {
     public void run(Cliente cliente){
         this.cliente = cliente;
         System.out.println("---------- Efetuar Marcação ----------");
-        novaMarcacao();
         inserirDados();
     }
 
@@ -36,31 +37,34 @@ public class UC11View {
     }
 
     private void inserirDados(){
-        inserirEspecialidade();
-        inserirMedicos();
+        try{
+            mostrarEspecialidades();
+            int codigo = Integer.parseInt(console.readLine("Insira o código da especialidade a procurar: "));
+            try{
+                procurarEspecialidade(codigo);
+            }catch (ExceptionEspecialidadeNaoExiste e){
+                e.printStackTrace();
+            }
+            try{
+                procurarMedicos();
+            }catch (ExceptionMedicoNaoExiste e){
+                e.printStackTrace();
+            }
+        }catch (ExceptionEspecialidadeNaoExiste e){
+            e.printStackTrace();
+        }
     }
 
-    private void inserirEspecialidade(){
-        if(!controller.verificarEspecialidade()){
-            throw new ExceptionEspecialidadeNaoExiste("Não existem especialidades para poder marcar consulta!");
-        }
-        do{
-            System.out.println(controller.verEspecialidades());
-            int codigo = Integer.parseInt(console.readLine("Insira o número da especialidade a inserir"));
-            controller.getEspecialidade(codigo);
-        }while();
+    private void mostrarEspecialidades() throws ExceptionEspecialidadeNaoExiste{
+        System.out.println(controller.verEspecialidades());
     }
 
-    private void inserirMedicos(){
-        if(!controller.verificarMedicos()){
-            throw new ExceptionNaoExistemMedicos("Não existem médicos para poder marcar consulta!");
-        }
-        do{
-            System.out.println(controller.verMedicos());
-            int codigo = Integer.parseInt(console.readLine("Insira o número do médico a inserir"));
-            controller.getMedico(codigo);
+    private void procurarEspecialidade(int codigo) throws ExceptionEspecialidadeNaoExiste{
+        this.controller.verificarEspecialidade(codigo);
+    }
 
-        }while();
+    private void procurarMedicos() throws ExceptionMedicoNaoExiste{
+        System.out.println(controller.procurarMedicos());
     }
 
 }

@@ -9,6 +9,7 @@ import com.anams.Exception.ExceptionMedico.ExceptionMedicoNaoExiste;
 
 public class UC6Controller {
     private Clinica clinica;
+    private Especialidade e;
 
     public UC6Controller(Clinica c){
         this.clinica = c;
@@ -25,11 +26,11 @@ public class UC6Controller {
         return str.toString();
     }
 
-    public Especialidade verificarCodigo(int codigo) throws ExceptionEspecialidadeNaoExiste{
-        return this.clinica.verificarCodigo(codigo);
+    public void verificarCodigo(int codigo) throws ExceptionEspecialidadeNaoExiste{
+        e = this.clinica.verificarCodigo(codigo);
     }
 
-    public String procurarMedicos(Especialidade e) throws ExceptionMedicoNaoExiste{
+    public String procurarMedicos() throws ExceptionMedicoNaoExiste{
         return clinica.procurarMedicos(e);
     }
 
