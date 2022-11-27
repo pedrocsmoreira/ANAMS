@@ -6,8 +6,8 @@ import com.anams.Model.Cliente;
 import com.anams.Model.Clinica;
 import com.anams.Model.Especialidade;
 import com.anams.Controller.UC11Controller;
-import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeNaoExiste;
-import com.anams.Exception.ExceptionMedico.ExceptionMedicoNaoExiste;
+import com.anams.Exception.ExceptionEspecialidade;
+import com.anams.Exception.ExceptionMedico;
 
 public class UC11View {
     private Console console = System.console();
@@ -40,30 +40,22 @@ public class UC11View {
         try{
             mostrarEspecialidades();
             int codigo = Integer.parseInt(console.readLine("Insira o código da especialidade a procurar: "));
-            try{
-                procurarEspecialidade(codigo);
-            }catch (ExceptionEspecialidadeNaoExiste e){
-                e.printStackTrace();
-            }
-            try{
-                procurarMedicos();
-            }catch (ExceptionMedicoNaoExiste e){
-                e.printStackTrace();
-            }
-        }catch (ExceptionEspecialidadeNaoExiste e){
+            procurarEspecialidade(codigo);
+            procurarMedicos();
+        }catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    private void mostrarEspecialidades() throws ExceptionEspecialidadeNaoExiste{
+    private void mostrarEspecialidades() throws ExceptionEspecialidade{
         System.out.println(controller.verEspecialidades());
     }
 
-    private void procurarEspecialidade(int codigo) throws ExceptionEspecialidadeNaoExiste{
+    private void procurarEspecialidade(int codigo) throws ExceptionEspecialidade{
         this.controller.verificarEspecialidade(codigo);
     }
 
-    private void procurarMedicos() throws ExceptionMedicoNaoExiste{
+    private void procurarMedicos() throws ExceptionMedico{
         System.out.println(controller.procurarMedicos());
     }
 

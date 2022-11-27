@@ -8,8 +8,6 @@ import com.anams.Model.Especialidade;
 public class UC7Controller {
     private Clinica clinica;
 
-    //Adcicionar Especialidade a um Médico
-
     public UC7Controller(Clinica c){
         this.clinica = c;
     }

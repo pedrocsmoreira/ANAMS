@@ -2,14 +2,19 @@ package com.anams.Menu;
 
 import java.io.Console;
 
+import com.anams.Controller.MenuMCController;
+import com.anams.Exception.ExceptionMedico;
 import com.anams.Model.AA;
 import com.anams.Model.Clinica;
+import com.anams.Model.Medico;
 import com.anams.View.UC9View;
 import com.anams.View.UC10View;
 
 public class MenuMC {
     Console console = System.console();
     private Clinica clinica;
+    private MenuMCController controller;
+    private Medico medico;
     private String opcao;
 
     private static final String STR_DEFAULT = "";
@@ -20,16 +25,29 @@ public class MenuMC {
     }
 
     public void run() {
-        if(login()){
+        try{
+            controller.verificarMedicos();
+
+            if(!login()){
+                System.out.println("Dados de Login errados!!!");
+                return;
+            }
+    
             menu();
+        }catch (ExceptionMedico e){
+
         }
     }
 
     private boolean login(){
         String username = console.readLine("Insira o username: ");
         String password = console.readLine("Insira a password: ");
-        AA assistenteAdministrativa = new AA(username, password);
-        return clinica.loginAA(assistenteAdministrativa);
+        Medico tentativa = new Medico(username, password);
+        if(!clinica.loginMedico(tentativa)){
+            return false;
+        }
+        medico = tentativa;
+        return true;
     }
 
     private void menu() {
@@ -50,7 +68,7 @@ public class MenuMC {
                     break;
                 case "2":
                     UC10View ui10 = new UC10View(this.clinica);
-                    ui10.run();
+                    ui10.run(medico);
                     break;
             }
         }while (!opcao.equals("0") );

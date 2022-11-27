@@ -1,5 +1,6 @@
 package com.anams.Controller;
 
+import com.anams.Exception.ExceptionCliente;
 import com.anams.Model.Clinica;
 
 public class MenuCLController {
@@ -9,11 +10,7 @@ public class MenuCLController {
         this.clinica = c;
     }
 
-    private boolean verificarClientes(){
-        if(!clinica.verificarClientes()){
-            return false;
-        }
-
-        return true;
+    public void verificarClientes() throws ExceptionCliente{
+        clinica.consultarClientes();
     }
 }

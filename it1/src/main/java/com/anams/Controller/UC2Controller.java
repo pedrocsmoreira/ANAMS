@@ -2,7 +2,7 @@ package com.anams.Controller;
 
 import java.util.ArrayList;
 
-import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoExiste;
+import com.anams.Exception.ExceptionTipoServico;
 import com.anams.Model.Clinica;
 import com.anams.Model.TipoServico;
 
@@ -27,7 +27,7 @@ public class UC2Controller {
 
     public TipoServico apresentarDados() { return this.tipoServico; }
 
-    public void registaTipoServico() throws ExceptionTipoServicoExiste { clinica.registarTipoServico(tipoServico); }
+    public void registaTipoServico() throws ExceptionTipoServico { clinica.registarTipoServico(tipoServico); }
 
 
 }

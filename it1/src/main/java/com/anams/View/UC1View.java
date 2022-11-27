@@ -3,7 +3,7 @@ package com.anams.View;
 import java.io.Console;
 
 import com.anams.Controller.UC1Controller;
-import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeExiste;
+import com.anams.Exception.ExceptionEspecialidade;
 import com.anams.Model.Clinica;
 import com.anams.Utils.Data;
 
@@ -93,7 +93,7 @@ public class UC1View {
     private void registaEspecialidade(){
         try{
             controller.registarEspecialidade();
-        }catch (ExceptionEspecialidadeExiste err){
+        }catch (ExceptionEspecialidade err){
             err.printStackTrace();
         }
     }

@@ -2,7 +2,7 @@ package com.anams.Model;
 
 public class Calendario {
     private int id;
-    private Marcacao[][] marcacoes;
+    private Marcacao[] marcacoes;
 
     private static int contador = 0;
 
@@ -11,7 +11,7 @@ public class Calendario {
         setMarcacoes(null);
     }
 
-    public Calendario(Marcacao[][] marcacoes){
+    public Calendario(Marcacao[] marcacoes){
         setId(++contador);
         setMarcacoes(marcacoes);
     }
@@ -20,16 +20,19 @@ public class Calendario {
 
     public int getId() { return this.id; }
 
-    public void setMarcacoes(Marcacao[][] marcacoes) { this.marcacoes = marcacoes; }
+    public void setMarcacoes(Marcacao[] marcacoes) { this.marcacoes = marcacoes; }
 
-    public Marcacao[][] getMarcacoes() { return this.marcacoes; }
+    public Marcacao[] getMarcacoes() { return this.marcacoes; }
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
         sb.append(this.id);
         sb.append("\n\tMarcações -> ");
-        sb.append(this.marcacoes);
+        for(Marcacao m : marcacoes){
+            sb.append(this.marcacoes);
+            sb.append("\n");
+        }
         return sb.toString();
     }
 

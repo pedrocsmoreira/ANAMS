@@ -20,22 +20,18 @@ public class UC12View {
      */
     public UC12View(Clinica clinica){
         this.clinica = clinica;
-        this.cliente = cliente;
         this.controller = new UC12Controller(clinica);
     }
 
     public void run(Cliente cliente){
         this.cliente = cliente;
         System.out.println("---------- Consultar Marcações ----------");
-        procurarMarcacoes();
-        
+        String marcacoes = procurarMarcacoes();
+        System.out.println(marcacoes);
     }
 
-    private void procurarMarcacoes(){
-
+    private String procurarMarcacoes(){
+        return this.controller.procurarMarcacoes(cliente);
     }
-
-
-
 
 }

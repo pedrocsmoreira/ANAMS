@@ -3,6 +3,7 @@ package com.anams.Menu;
 import java.io.Console;
 
 import com.anams.Controller.MenuCLController;
+import com.anams.Exception.ExceptionCliente;
 import com.anams.Model.Cliente;
 import com.anams.Model.Clinica;
 import com.anams.Utils.Data;
@@ -27,30 +28,24 @@ public class MenuCL {
     }
 
     public void run(){
-        if(!verificarClientes()){
-            System.out.println("Não existem clientes registados!!!");
-            return;
-        }
+        try{
+            controller.verificarClientes();
 
-        if(!login()){
-            System.out.println("Dados de Login errados!!!");
-            return;
-        }
+            if(!login()){
+                System.out.println("Dados de Login errados!!!");
+                return;
+            }
+    
+            menu();
+        }catch (ExceptionCliente e){
 
-        menu();
-    }
-
-    private boolean verificarClientes() { 
-        if(!controller.verificarClientes()) {
-            return false;
         }
-        return true;
     }
 
     private boolean login(){
         String username = console.readLine();
         String password = console.readLine();
-        Cliente tentativa = new Cliente();
+        Cliente tentativa = new Cliente(username, password);
         if(!clinica.loginCliente(tentativa)){
             return false;
         }

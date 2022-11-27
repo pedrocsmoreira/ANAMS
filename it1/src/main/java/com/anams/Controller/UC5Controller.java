@@ -1,6 +1,6 @@
 package com.anams.Controller;
 
-import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoExiste;
+import com.anams.Exception.ExceptionConvencao;
 import com.anams.Model.Clinica;
 import com.anams.Model.Convencao;
 import com.anams.Utils.Data;
@@ -66,7 +66,7 @@ public class UC5Controller {
     /**
      * Registar convenção na clínica
      * 
-     * @throws ExceptionConvencaoExiste
+     * @throws ExceptionConvencao
      */
-    public void registarConvencao() throws ExceptionConvencaoExiste { clinica.registarConvencao(c); }
+    public void registarConvencao() throws ExceptionConvencao { clinica.registarConvencao(c); }
 }

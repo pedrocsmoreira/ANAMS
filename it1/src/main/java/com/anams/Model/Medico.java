@@ -15,6 +15,8 @@ public class Medico {
     private String email;
     private int contacto;
 
+    private String password;
+
     private Calendario calendario;
 
     private static final String STR_DEFAULT = "";
@@ -30,9 +32,14 @@ public class Medico {
         setDataContratacao(new Data());
         setNif(INT_DEFAULT);
         setCedula(INT_DEFAULT);
+        setNumEspecialidades(2);
         setEspecialidades(new ArrayList<Especialidade>());
         setEmail(STR_DEFAULT);
         setContacto(INT_DEFAULT);
+        
+        setPassword(STR_DEFAULT);
+
+        setCalendario(new Calendario());
     }
 
     /**
@@ -47,15 +54,36 @@ public class Medico {
      * @param email
      * @param contacto
      */
-    public Medico(int codigo, String nome, Data data, int nif, int cedula, ArrayList<Especialidade> lista , String email, int contacto) {
+    public Medico(int codigo, String nome, Data data, int nif, int cedula, int numEspecialidades, ArrayList<Especialidade> lista , String email, int contacto, String password) {
         setCodigo(codigo);
         setNome(nome);
         setDataContratacao(data);
         setNif(nif);
         setCedula(cedula);
+        setNumEspecialidades(numEspecialidades);
         setEspecialidades(lista);
         setEmail(email);
         setContacto(contacto);
+
+        setPassword(password);
+
+        setCalendario(new Calendario());
+    }
+
+    public Medico(String nome, String password) {
+        setCodigo(INT_DEFAULT);
+        setNome(nome);
+        setDataContratacao(new Data());
+        setNif(INT_DEFAULT);
+        setCedula(INT_DEFAULT);
+        setNumEspecialidades(2);
+        setEspecialidades(new ArrayList<Especialidade>());
+        setEmail(STR_DEFAULT);
+        setContacto(INT_DEFAULT);
+        
+        setPassword(password);
+
+        setCalendario(new Calendario());
     }
 
     /**
@@ -72,6 +100,8 @@ public class Medico {
         setEspecialidades(m.especialidades);
         setEmail(m.email);
         setContacto(m.contacto);
+        setPassword(m.password);
+        setCalendario(m.calendario);
     }
 
     /**
@@ -200,6 +230,14 @@ public class Medico {
      */
     public int getContacto() { return this.contacto; }
 
+    public void setPassword(String password) { this.password = password;}
+
+    public String getPassword() { return this.password;}
+
+    public void setCalendario(Calendario calendario) { this.calendario = calendario;}
+
+    public Calendario getCalendario() { return this.calendario;}
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
@@ -244,6 +282,16 @@ public class Medico {
                 && this.especialidades.equals(obj.especialidades)
                 && this.email.equalsIgnoreCase(obj.email)
                 && this.contacto == obj.contacto;
+    }
+
+    public boolean login(Medico m) {
+        if(!this.nome.equals(m.nome)){
+            return false;
+        }
+        if(!this.password.equals(m.password)){
+            return false;
+        }
+        return true;
     }
 
 }

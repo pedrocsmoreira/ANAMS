@@ -6,8 +6,8 @@ import com.anams.Controller.UC6Controller;
 import com.anams.Model.Clinica;
 import com.anams.Model.Especialidade;
 
-import com.anams.Exception.ExceptionMedico.ExceptionMedicoNaoExiste;
-import com.anams.Exception.ExceptionEspecialidade.ExceptionEspecialidadeNaoExiste;
+import com.anams.Exception.ExceptionMedico;
+import com.anams.Exception.ExceptionEspecialidade;
 
 public class UC6View {
     private Console console = System.console();
@@ -29,28 +29,22 @@ public class UC6View {
         try{
             mostrarEspecialidades();
             int codigo = Integer.parseInt(console.readLine("Insira o código da especialidade a procurar: "));
-            try{
-                procurarEspecialidade(codigo);
-                procurarMedicos();
-            }catch (ExceptionEspecialidadeNaoExiste err){
-                err.printStackTrace();
-            }catch (ExceptionMedicoNaoExiste err){
-                err.printStackTrace();
-            }
-        }catch (ExceptionEspecialidadeNaoExiste err){
+            procurarEspecialidade(codigo);
+            procurarMedicos();
+        }catch (Exception err){
             err.printStackTrace();
         }
     }
 
-    private void mostrarEspecialidades() throws ExceptionEspecialidadeNaoExiste{
+    private void mostrarEspecialidades() throws ExceptionEspecialidade{
         System.out.println(controller.verEspecialidades());
     }
 
-    private void procurarEspecialidade(int codigo) throws ExceptionEspecialidadeNaoExiste{
+    private void procurarEspecialidade(int codigo) throws ExceptionEspecialidade{
         this.controller.verificarCodigo(codigo);
     }
 
-    private void procurarMedicos() throws ExceptionMedicoNaoExiste{
+    private void procurarMedicos() throws ExceptionMedico{
         System.out.println(controller.procurarMedicos());
     }
 

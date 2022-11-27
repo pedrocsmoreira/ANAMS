@@ -1,6 +1,6 @@
 package com.anams.Controller;
 
-import com.anams.Exception.ExceptionCliente.ExceptionClienteExiste;
+import com.anams.Exception.ExceptionCliente;
 import com.anams.Model.Cliente;
 import com.anams.Model.Clinica;
 import com.anams.Utils.Data;
@@ -31,6 +31,6 @@ public class UC8Controller {
 
     public String getCliente() { return this.cliente.toString(); }
 
-    public void registarCliente() throws ExceptionClienteExiste{ clinica.registarCliente(cliente); }
+    public void registarCliente() throws ExceptionCliente{ clinica.registarCliente(cliente); }
 
 }

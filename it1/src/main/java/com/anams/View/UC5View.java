@@ -3,7 +3,7 @@ package com.anams.View;
 import java.io.Console;
 
 import com.anams.Controller.UC5Controller;
-import com.anams.Exception.ExceptionConvencao.ExceptionConvencaoExiste;
+import com.anams.Exception.ExceptionConvencao;
 import com.anams.Model.Clinica;
 import com.anams.Utils.Data;
 
@@ -105,7 +105,7 @@ public class UC5View {
     private void registarConvencao(){
         try{
             controller.registarConvencao();
-        }catch (ExceptionConvencaoExiste err) {
+        }catch (ExceptionConvencao err) {
             err.printStackTrace();
         }
     }

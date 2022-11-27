@@ -3,7 +3,7 @@ package com.anams.View;
 import java.io.Console;
 
 import com.anams.Controller.UC2Controller;
-import com.anams.Exception.ExceptionTipoServico.ExceptionTipoServicoExiste;
+import com.anams.Exception.ExceptionTipoServico;
 import com.anams.Model.Clinica;
 
 public class UC2View {
@@ -69,7 +69,7 @@ public class UC2View {
     private void registaTipoServico() {
         try{
             controller.registaTipoServico();
-        }catch (ExceptionTipoServicoExiste err) {
+        }catch (ExceptionTipoServico err) {
             err.printStackTrace();
         }
     }

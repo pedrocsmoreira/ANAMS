@@ -3,7 +3,7 @@ package com.anams.View;
 import java.io.Console;
 
 import com.anams.Controller.UC8Controller;
-import com.anams.Exception.ExceptionCliente.ExceptionClienteExiste;
+import com.anams.Exception.ExceptionCliente;
 import com.anams.Model.Cliente;
 import com.anams.Model.Clinica;
 import com.anams.Utils.Data;
@@ -24,7 +24,7 @@ public class UC8View {
         novoCliente();
         inserirDados();
         apresentaDados();
-        if(console.readLine("Pretende registar este cliente? (Y/N)").equals("Y")) {
+        if(console.readLine("Pretende registar este cliente? (Y/N)").equalsIgnoreCase("Y")) {
             registarCliente();
         }else {
             System.out.println("Cliente não registado!!!");
@@ -69,7 +69,7 @@ public class UC8View {
     private void registarCliente(){
         try{
             controller.registarCliente();
-        }catch (ExceptionClienteExiste err){
+        }catch (ExceptionCliente err){
             err.printStackTrace();
         }
     }

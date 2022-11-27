@@ -1,13 +1,12 @@
 package com.anams.Controller;
 
+import com.anams.Exception.ExceptionServico;
 import com.anams.Model.Clinica;
 import com.anams.Model.Servico;
 import com.anams.Model.TipoServico;
 
 import java.util.ArrayList;
 import java.util.Optional;
-
-import com.anams.Exception.ExceptionServico.ExceptionServicoExiste;
 
 public class UC4Controller {
     private Clinica clinica;
@@ -77,8 +76,8 @@ public class UC4Controller {
     /**
      * 
      * 
-     * @throws ExceptionServicoExiste
+     * @throws ExceptionServico
      */
-    public void registarServico() throws ExceptionServicoExiste { clinica.registarServico(s); }
+    public void registarServico() throws ExceptionServico { clinica.registarServico(s); }
 
 }

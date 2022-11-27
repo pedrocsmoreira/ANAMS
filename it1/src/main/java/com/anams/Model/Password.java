@@ -9,11 +9,7 @@ public class Password {
     MessageDigest md;
     private static byte[] salt = new byte[16];
 
-    
-    
-    
     private String password;
-    
 
     public String hash(String pass){
         byte[] hash = md.digest(pass.getBytes());

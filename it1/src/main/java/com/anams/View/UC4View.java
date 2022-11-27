@@ -3,7 +3,7 @@ package com.anams.View;
 import java.io.Console;
 
 import com.anams.Controller.UC4Controller;
-import com.anams.Exception.ExceptionServico.ExceptionServicoExiste;
+import com.anams.Exception.ExceptionServico;
 import com.anams.Model.Clinica;
 import com.anams.Model.TipoServico;
 
@@ -79,7 +79,7 @@ public class UC4View {
     private void registarServico(){
         try{
             controller.registarServico();
-        }catch (ExceptionServicoExiste err) {
+        }catch (ExceptionServico err) {
             err.printStackTrace();
         }
     }

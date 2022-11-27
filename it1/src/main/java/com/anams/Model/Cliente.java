@@ -1,5 +1,7 @@
 package com.anams.Model;
 
+import java.util.ArrayList;
+
 import com.anams.Utils.Data;
 
 public class Cliente {
@@ -10,7 +12,6 @@ public class Cliente {
     private Data dataNascimento;
     private int contacto;
     private String email;
-
     private String password;
 
     private Calendario calendario;
@@ -48,6 +49,11 @@ public class Cliente {
         setCalendario(new Calendario());
     }
 
+    public Cliente(String nome, String password){
+        setNome(nome);
+        setPassword(password);
+    }
+
     private void setCodigo(int codigo) { this.codigo = codigo; }
 
     public int getCodigo() { return this.codigo; }
@@ -77,6 +83,8 @@ public class Cliente {
     public String getEmail() { return this.email; }
 
     public void setPassword(String password) { this.password = password; }
+
+    public String getPassword() { return this.password; }
 
     public void setCalendario(Calendario cal) { this.calendario = cal; }
 
@@ -119,6 +127,16 @@ public class Cliente {
                 && this.dataNascimento.equals(obj.dataNascimento)
                 && this.contacto == obj.contacto
                 && this.email.equalsIgnoreCase(obj.email);
+    }
+
+    public boolean login(Cliente cl){
+        if(!this.nome.equals(cl.nome)){
+            return false;
+        }
+        if(!this.password.equals(cl.password)){
+            return false;
+        }
+        return true;
     }
 
 }
