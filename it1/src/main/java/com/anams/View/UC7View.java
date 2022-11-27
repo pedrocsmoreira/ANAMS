@@ -4,23 +4,15 @@ import java.io.Console;
 import java.util.ArrayList;
 
 import com.anams.Controller.UC7Controller;
-import com.anams.Model.Cliente;
+import com.anams.Exception.ExceptionMedico;
 import com.anams.Model.Clinica;
 import com.anams.Model.Especialidade;
-import com.anams.Utils.Data;
 
 public class UC7View {
     private Console console = System.console();
     private Clinica clinica;
     private UC7Controller controller;
 
-    //Adcicionar Especialidade a um Médico
-
-    /**
-     * Construtor
-     *
-     * @param c
-     */
     public UC7View(Clinica c){
         this.clinica = c;
         this.controller = new UC7Controller(clinica);
@@ -28,7 +20,26 @@ public class UC7View {
 
     public void run(){
         System.out.println("---------- Adicionar Especialidade a um Médico ----------");
-        getEspecialidades();
+        try {
+            inserirMedicos();
+            controller.adicionarEspecialidades(getEspecialidades());
+            System.out.println(controller.verNovasEspecialidades());
+            String opcao = console.readLine("Pretende registar as novas especialidades (Y/N): ");
+            if(opcao.equalsIgnoreCase("y")){
+                controller.registarEspecialidades();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void inserirMedicos() throws ExceptionMedico{
+        System.out.println(controller.procurarMedicos());
+        int codigoMedico = 0;
+        do{
+            codigoMedico = Integer.parseInt(console.readLine("Insira o código do médico a marcar: "));
+        }while(codigoMedico <= 0);
+        this.controller.verificarMedico(codigoMedico);
     }
 
     private ArrayList<Especialidade> getEspecialidades() {
@@ -42,12 +53,8 @@ public class UC7View {
                 opcao = console.readLine("Insira o número da especialidade a inserir (ou 0 para sair)");
                 if(opcao.equalsIgnoreCase("0")){
                     break;
-                }else if(list.size() < 2) {
+                }else{
                     list.add(controller.getEspecialidade(Integer.parseInt(opcao)));
-                    break;
-                }else {
-                    System.out.println("Não pode inserir mais especialidades neste médico!!!!");
-                    break;
                 }
             }while(!opcao.equalsIgnoreCase("0"));
         }
