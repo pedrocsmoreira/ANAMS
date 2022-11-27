@@ -2,6 +2,7 @@ package com.anams.Model;
 
 import java.util.ArrayList;
 
+import com.anams.Exception.ExceptionSlot;
 import com.anams.Utils.Data;
 
 public class Medico {
@@ -292,6 +293,60 @@ public class Medico {
             return false;
         }
         return true;
+    }
+
+    public Slot novoSlot() { return new Slot(); }
+
+    public void registarSlot(Slot s) {
+        inserirMarcacao(s);
+    }
+
+    public Slot encontrarSlot(Slot slot) throws ExceptionSlot {
+        for(Slot s : calendario.getSlots()){
+            if(s.equals(slot)){
+                return s;
+            }
+        }
+        throw new ExceptionSlot("Marcação não existe!");
+    }
+
+    public Slot encontrarSlot(int codigo) throws ExceptionSlot {
+        for(Slot s : calendario.getSlots()){
+            if(s.getId() == codigo){
+                return s;
+            }
+        }
+        throw new ExceptionSlot("Cliente não existe!");
+    }
+
+    private void inserirMarcacao(Slot slot) {
+        for(Slot s : calendario.getSlots()){
+            if(s.equals(slot)){
+                s = slot;
+            }
+        }
+    }
+
+    public String consultarSlots() throws ExceptionSlot {
+        StringBuilder lst = new StringBuilder();
+        if(calendario.getSlots().size() == 0){ throw new ExceptionSlot("Slot não encontrado!!!"); }
+        for(Slot s : calendario.getSlots()) {
+            lst.append(s.toString());
+            lst.append("\n");
+        }
+        return lst.toString();
+    }
+
+    public String consultarSlotsVagos() throws ExceptionSlot {
+        StringBuilder lst = new StringBuilder();
+        if(calendario.getSlots().size() == 0){ throw new ExceptionSlot("Slot não encontrado!!!"); }
+        for(Slot s : calendario.getSlots()) {
+            if(!s.getStatus()){
+                lst.append(s.toString());
+                lst.append("\n");
+            }
+        }
+        return lst.toString();
     }
 
 }

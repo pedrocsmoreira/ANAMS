@@ -6,7 +6,7 @@ import java.util.Optional;
 import com.anams.Exception.ExceptionCliente;
 import com.anams.Exception.ExceptionConvencao;
 import com.anams.Exception.ExceptionEspecialidade;
-import com.anams.Exception.ExceptionMarcacao;
+import com.anams.Exception.ExceptionSlot;
 import com.anams.Exception.ExceptionMedico;
 import com.anams.Exception.ExceptionServico;
 import com.anams.Exception.ExceptionTipoServico;
@@ -31,8 +31,7 @@ public class Clinica {
     private ArrayList<Convencao> listaConvencoes;
     private ArrayList<Cliente> listaClientes;
 
-    private ArrayList<Marcacao> listaMarcacoes;
-    private ArrayList<Calendario> listaCalendarios;
+    private ArrayList<Slot> listaSlots;
 
     private static final String STR_DEFAULT = "";
     private static final int INT_DEFAULT = 0;
@@ -53,8 +52,7 @@ public class Clinica {
         this.listaServicos = new ArrayList<Servico>();
         this.listaConvencoes =  new ArrayList<Convencao>();
         this.listaClientes = new ArrayList<Cliente>();
-        this.listaMarcacoes = new ArrayList<Marcacao>();
-        this.listaCalendarios = new ArrayList<Calendario>();
+        this.listaSlots = new ArrayList<Slot>();
     }
 
     /**
@@ -78,8 +76,7 @@ public class Clinica {
         this.listaServicos = new ArrayList<Servico>();
         this.listaConvencoes =  new ArrayList<Convencao>();
         this.listaClientes =  new ArrayList<Cliente>();
-        this.listaMarcacoes = new ArrayList<Marcacao>();
-        this.listaCalendarios = new ArrayList<Calendario>();
+        this.listaSlots = new ArrayList<Slot>();
     }
 
     /**
@@ -383,7 +380,7 @@ public class Clinica {
         return lst.toString();
     }
 
-    private void inserirMedico(Medico m) { this.listaMedicos.add(m); }´
+    private void inserirMedico(Medico m) { this.listaMedicos.add(m); }
 
     public boolean loginMedico(Medico medico) {
         for(Medico m : listaMedicos){
@@ -570,46 +567,6 @@ public class Clinica {
     }
 
 
-
-
-
-
-    public Marcacao novaMarcacao() { return new Marcacao(); }
-
-    public void registarMarcacao(Marcacao m) throws ExceptionMarcacao {
-        encontrarMarcacao(m);
-        inserirMarcacao(m);
-    }
-
-    public Marcacao encontrarMarcacao(Marcacao mar) throws ExceptionMarcacao {
-        for(Marcacao m : listaMarcacoes){
-            if(m.equals(mar)){
-                return m;
-            }
-        }
-        throw new ExceptionMarcacao("Marcação não existe!");
-    }
-
-    public Marcacao encontrarMarcacao(int codigo) throws ExceptionMarcacao {
-        for(Marcacao m : listaMarcacoes){
-            if(m.getId() == codigo){
-                return m;
-            }
-        }
-        throw new ExceptionMarcacao("Cliente não existe!");
-    }
-
-    public String consultarMarcacoes() throws ExceptionMarcacao {
-        StringBuilder lst = new StringBuilder();
-        if(listaMarcacoes.size() == 0){ throw new ExceptionMarcacao("Marcação não encontrado!!!"); }
-        for(Marcacao m : listaMarcacoes) {
-            lst.append(m.toString());
-            lst.append("\n");
-        }
-        return lst.toString();
-    }
-
-    private void inserirMarcacao(Marcacao m) { this.listaMarcacoes.add(m); }
 
     
 

@@ -1,51 +1,63 @@
 package com.anams.Controller;
 
-import java.util.ArrayList;
-
 import com.anams.Exception.ExceptionEspecialidade;
-import com.anams.Exception.ExceptionMarcacao;
+import com.anams.Exception.ExceptionSlot;
 import com.anams.Exception.ExceptionMedico;
 import com.anams.Model.Cliente;
 import com.anams.Model.Clinica;
 import com.anams.Model.Especialidade;
-import com.anams.Model.Marcacao;
+import com.anams.Model.Medico;
+import com.anams.Model.Slot;
 import com.anams.Utils.Data;
 
 public class UC11Controller {
     private Clinica clinica;
-    private Marcacao marcacao;
+    private Slot slot;
+
+    private Especialidade e;
+    private Medico m;
 
     public UC11Controller(Clinica c){
         this.clinica = c;
     }
 
-    public void novaMarcacao() { this.marcacao = clinica.novaMarcacao(); }
-
-    public void setCliente(Cliente cliente) { this.marcacao.setCliente(cliente); }
+    public void novoSlot(Cliente cliente) { this.slot = new Slot(); this.slot.setCliente(cliente); this.slot.setStatus(true); }
 
     public String verEspecialidades() throws ExceptionEspecialidade{
         return clinica.consultarEspecialidades();
     }
 
     public void verificarEspecialidade(int codigo) throws ExceptionEspecialidade{
-        marcacao.setEspecialidade(this.clinica.encontrarEspecialidade(codigo));
+        e = this.clinica.encontrarEspecialidade(codigo);
     }
 
     public String procurarMedicos() throws ExceptionMedico{
-        return clinica.consultarMedicos(marcacao.getEspecialidade());
+        return clinica.consultarMedicos(e);
     }
 
     public void verificarMedico(int codigo) throws ExceptionMedico{
-        marcacao.setMedico(this.clinica.encontrarMedico(codigo));
+        m = this.clinica.encontrarMedico(codigo);
     }
 
-    public void setData(Data data) { this.marcacao.setDia(data); }
+    public void setData(Data data) { this.slot.setData(data); }
 
-    public String verMarcacao() { return this.marcacao.toString(); }
+    public String verSlot() { return this.slot.toString(); }
 
-    public void guardarMarcacao() throws ExceptionMarcacao {
-        this.clinica.registarMarcacao(marcacao);
+    public void procurarVagas() throws ExceptionSlot{
+        m.consultarSlotsVagos();
     }
+
+    public void escolherVaga(int codigoVaga) throws ExceptionSlot {
+        Slot s = m.encontrarSlot(codigoVaga);
+        this.slot.setHoraInicio(s.getHoraInicio());
+        this.slot.setHoraFim(s.getHoraFim());
+    }
+
+    public void guardarMarcacao() {
+        this.m.registarSlot(slot);
+    }
+
+    
 
     
 

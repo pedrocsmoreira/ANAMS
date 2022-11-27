@@ -1,36 +1,40 @@
 package com.anams.Model;
 
+import java.util.List;
+
 public class Calendario {
     private int id;
-    private Marcacao[] marcacoes;
+    private List<Slot> slots;
 
     private static int contador = 0;
 
     public Calendario(){
         setId(++contador);
-        setMarcacoes(null);
+        setSlots(null);
     }
 
-    public Calendario(Marcacao[] marcacoes){
+    public Calendario(List<Slot> slots){
         setId(++contador);
-        setMarcacoes(marcacoes);
+        setSlots(slots);
     }
 
     private void setId(int id) { this.id = id; }
 
     public int getId() { return this.id; }
 
-    public void setMarcacoes(Marcacao[] marcacoes) { this.marcacoes = marcacoes; }
+    public void setSlot(Slot slot) { this.slots.add(slot); }
 
-    public Marcacao[] getMarcacoes() { return this.marcacoes; }
+    public void setSlots(List<Slot> slots) { this.slots = slots; }
+
+    public List<Slot> getSlots() { return this.slots; }
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
         sb.append(this.id);
         sb.append("\n\tMarcações -> ");
-        for(Marcacao m : marcacoes){
-            sb.append(this.marcacoes);
+        for(Slot s : slots){
+            sb.append(s);
             sb.append("\n");
         }
         return sb.toString();
@@ -46,7 +50,7 @@ public class Calendario {
         }
         Calendario obj = (Calendario) outro;
         return this.id == obj.id
-                && this.marcacoes.equals(obj.marcacoes);
+                && this.slots.equals(obj.slots);
     }
 
 }

@@ -64,7 +64,7 @@ public class MenuMC {
             switch(opcao){
                 case "1":
                     UC9View ui9 = new UC9View(this.clinica);
-                    ui9.run();
+                    ui9.run(medico);
                     break;
                 case "2":
                     UC10View ui10 = new UC10View(this.clinica);
