@@ -6,6 +6,7 @@ public class Marcacao {
     private int id;
     private Medico medico;
     private Especialidade especialidade;
+    private TipoServico tipoServico;
     private Cliente cliente;
     private Data dia;
 
@@ -15,6 +16,7 @@ public class Marcacao {
         setId(++contador);
         setMedico(new Medico());
         setEspecialidade(new Especialidade());
+        setTipoServico(new TipoServico());
         setCliente(new Cliente());
         setDia(new Data());
     }
@@ -38,6 +40,10 @@ public class Marcacao {
     public void setEspecialidade(Especialidade esp) { this.especialidade = esp; }
 
     public Especialidade getEspecialidade() { return this.especialidade; }
+
+    private void setTipoServico(TipoServico tipoServico) { this.tipoServico = tipoServico; }
+
+    public TipoServico getTipoServico() { return this.tipoServico; }
     
     public void setCliente(Cliente cl) { this.cliente = cl; }
 

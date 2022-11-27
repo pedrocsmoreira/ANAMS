@@ -1,18 +1,22 @@
 package com.anams.Controller;
 
+import java.util.List;
+
 import com.anams.Exception.ExceptionEspecialidade;
 import com.anams.Exception.ExceptionSlot;
 import com.anams.Exception.ExceptionMedico;
 import com.anams.Model.Cliente;
 import com.anams.Model.Clinica;
+import com.anams.Model.Entrada;
 import com.anams.Model.Especialidade;
+import com.anams.Model.Marcacao;
 import com.anams.Model.Medico;
-import com.anams.Model.Slot;
+import com.anams.Model.SlotDiario;
 import com.anams.Utils.Data;
 
 public class UC11Controller {
     private Clinica clinica;
-    private Slot slot;
+    private Marcacao marcacao;
 
     private Especialidade e;
     private Medico m;
@@ -21,7 +25,7 @@ public class UC11Controller {
         this.clinica = c;
     }
 
-    public void novoSlot(Cliente cliente) { this.slot = new Slot(); this.slot.setCliente(cliente); this.slot.setStatus(true); }
+    public void novaMarcacao(Cliente cliente) { this.marcacao = new Marcacao(); this.marcacao.setCliente(cliente); }
 
     public String verEspecialidades() throws ExceptionEspecialidade{
         return clinica.consultarEspecialidades();
@@ -39,26 +43,38 @@ public class UC11Controller {
         m = this.clinica.encontrarMedico(codigo);
     }
 
-    public void setData(Data data) { this.slot.setData(data); }
+    public void setData(Data data) { this.marcacao.setDia(data); }
 
-    public String verSlot() { return this.slot.toString(); }
+    public String verSlot() { return this.marcacao.toString(); }
 
-    public void procurarVagas() throws ExceptionSlot{
-        m.consultarSlotsVagos();
+    public String procurarVagas() throws ExceptionSlot{
+        StringBuilder sb = new StringBuilder();
+        List<SlotDiario> slots = m.getCalendario().getDias();
+        for(SlotDiario slot : slots){
+            List<Entrada> entradas = slot.getEntradas();
+            for(Entrada entrada : entradas){
+                if(!entrada.getEstado()){
+                    sb.append(entrada);
+                }
+            }
+        }
+        return sb.toString();
     }
 
-    public void escolherVaga(int codigoVaga) throws ExceptionSlot {
-        Slot s = m.encontrarSlot(codigoVaga);
-        this.slot.setHoraInicio(s.getHoraInicio());
-        this.slot.setHoraFim(s.getHoraFim());
+    public void escolherVaga(int codigoVaga) {
+        List<SlotDiario> slots = m.getCalendario().getDias();
+        for(SlotDiario slot : slots){
+            List<Entrada> entradas = slot.getEntradas();
+            for(Entrada entrada : entradas){
+                if(entrada.getCodigo() == codigoVaga){
+                    entrada.setEstado(true);
+                }
+            }
+        }
     }
 
     public void guardarMarcacao() {
-        this.m.registarSlot(slot);
+        clinica.guardarMarcacao(marcacao);
     }
-
-    
-
-    
 
 }

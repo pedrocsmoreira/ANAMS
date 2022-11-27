@@ -1,7 +1,5 @@
 package com.anams.Model;
 
-import java.util.ArrayList;
-
 import com.anams.Utils.Data;
 
 public class Cliente {
@@ -13,8 +11,6 @@ public class Cliente {
     private int contacto;
     private String email;
     private String password;
-
-    private Calendario calendario;
 
     private static int contador = 0;
 
@@ -29,13 +25,10 @@ public class Cliente {
         setDataNascimento(new Data());
         setContacto(INT_DEFAULT);
         setEmail(STR_DEFAULT);
-
         setPassword(STR_DEFAULT);
-
-        setCalendario(new Calendario());
     }
 
-    public Cliente(String nome, String endereco, int nif, Data dataNascimento, int contacto, String email) {
+    public Cliente(String nome, String endereco, int nif, Data dataNascimento, int contacto, String email, String password) {
         setCodigo(++contador);
         setNome(nome);
         setEndereco(endereco);
@@ -43,10 +36,7 @@ public class Cliente {
         setDataNascimento(dataNascimento);
         setContacto(contacto);
         setEmail(email);
-
-        setPassword(STR_DEFAULT);
-
-        setCalendario(new Calendario());
+        setPassword(password);
     }
 
     public Cliente(String nome, String password){
@@ -86,10 +76,6 @@ public class Cliente {
 
     public String getPassword() { return this.password; }
 
-    public void setCalendario(Calendario cal) { this.calendario = cal; }
-
-    public Calendario getCalendario() { return this.calendario; }
-
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n\tCódigo -> ");
@@ -106,8 +92,6 @@ public class Cliente {
         sb.append(this.contacto);
         sb.append("\n\tEmail -> ");
         sb.append(this.email);
-        sb.append("\n\tCalendário -> ");
-        sb.append(this.calendario.toString());
         return sb.toString();
     }
 

@@ -15,7 +15,7 @@ public class UC12Controller {
 
     public String procurarMarcacoes(Cliente cliente){
         this.cliente = cliente;
-        return this.cliente.getCalendario().toString();
+        return clinica.getMarcacoes(cliente);
     }
 
 }

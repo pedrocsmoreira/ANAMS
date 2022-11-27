@@ -29,66 +29,52 @@ public class UC11View {
     public void run(Cliente cliente){
         this.cliente = cliente;
         System.out.println("---------- Efetuar Marcação ----------");
-        novoSlot();
-        inserirDados();
-        controller.verSlot();
+        controller.novaMarcacao(cliente);
+        int vaga = inserirDados();
         String opcao = console.readLine("Pretende fazer esta marcação? (Y/N): ");
         if(opcao.equalsIgnoreCase("Y")){
             controller.guardarMarcacao();
+            controller.escolherVaga(vaga);
         }
     }
 
-    private void novoSlot(){
-        controller.novoSlot(cliente);
-    }
-
-    private void inserirDados(){
+    private int inserirDados(){
+        int vaga = 0;
         try{
-            mostrarEspecialidades();
-            int codigoEspecialidade = 0;
-            do{
-                codigoEspecialidade = Integer.parseInt(console.readLine("Insira o código da especialidade a procurar: "));
-            }while(codigoEspecialidade <= 0);
-            procurarEspecialidade(codigoEspecialidade);
-            procurarMedicos();
-            int codigoMedico = 0;
-            do{
-                codigoMedico = Integer.parseInt(console.readLine("Insira o código do médico a marcar: "));
-            }while(codigoMedico <= 0);
-            procurarMedico(codigoMedico);
-            procurarVagas();
-            int codigoVaga = 0;
-            do{
-                codigoVaga = Integer.parseInt(console.readLine("Insira o código da vaga a preencher: "));
-            }while(codigoVaga <= 0);
-            escolherVaga(codigoVaga);
+            inserirEspecialidades();
+            inserirMedicos();
+            vaga = inserirVagas();
         }catch (Exception e){
             e.printStackTrace();
         }
+        return vaga;
     }
 
-    private void mostrarEspecialidades() throws ExceptionEspecialidade{
+    private void inserirEspecialidades() throws ExceptionEspecialidade{
         System.out.println(controller.verEspecialidades());
+        int codigoEspecialidade = 0;
+        do{
+            codigoEspecialidade = Integer.parseInt(console.readLine("Insira o código da especialidade a procurar: "));
+        }while(codigoEspecialidade <= 0);
+        this.controller.verificarEspecialidade(codigoEspecialidade);
     }
 
-    private void procurarEspecialidade(int codigo) throws ExceptionEspecialidade{
-        this.controller.verificarEspecialidade(codigo);
-    }
-
-    private void procurarMedicos() throws ExceptionMedico{
+    private void inserirMedicos() throws ExceptionMedico{
         System.out.println(controller.procurarMedicos());
+        int codigoMedico = 0;
+        do{
+            codigoMedico = Integer.parseInt(console.readLine("Insira o código do médico a marcar: "));
+        }while(codigoMedico <= 0);
+        this.controller.verificarMedico(codigoMedico);
     }
 
-    private void procurarMedico(int codigo) throws ExceptionMedico{
-        this.controller.verificarMedico(codigo);
-    }
-
-    private void procurarVagas() throws ExceptionSlot{
-        this.controller.procurarVagas();
-    }
-
-    private void escolherVaga(int codigoVaga) throws ExceptionSlot{
-        this.controller.escolherVaga(codigoVaga);
+    private int inserirVagas() throws ExceptionSlot{
+        System.out.println(this.controller.procurarVagas());
+        int codigoVaga = 0;
+        do{
+            codigoVaga = Integer.parseInt(console.readLine("Insira o código da vaga a preencher: "));
+        }while(codigoVaga <= 0);
+        return codigoVaga;
     }
 
 }

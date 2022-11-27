@@ -1,6 +1,7 @@
 package com.anams.Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.anams.Exception.ExceptionSlot;
 import com.anams.Utils.Data;
@@ -18,7 +19,7 @@ public class Medico {
 
     private String password;
 
-    private Calendario calendario;
+    private CalendarioMensal calendario;
 
     private static final String STR_DEFAULT = "";
     private static final int INT_DEFAULT = 0;
@@ -40,7 +41,7 @@ public class Medico {
         
         setPassword(STR_DEFAULT);
 
-        setCalendario(new Calendario());
+        setCalendario(null);
     }
 
     /**
@@ -68,7 +69,7 @@ public class Medico {
 
         setPassword(password);
 
-        setCalendario(new Calendario());
+        setCalendario(null);
     }
 
     public Medico(String nome, String password) {
@@ -84,7 +85,7 @@ public class Medico {
         
         setPassword(password);
 
-        setCalendario(new Calendario());
+        setCalendario(null);
     }
 
     /**
@@ -235,9 +236,9 @@ public class Medico {
 
     public String getPassword() { return this.password;}
 
-    public void setCalendario(Calendario calendario) { this.calendario = calendario;}
+    public void setCalendario(CalendarioMensal calendario) { this.calendario = calendario;}
 
-    public Calendario getCalendario() { return this.calendario;}
+    public CalendarioMensal  getCalendario() { return this.calendario;}
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -295,58 +296,8 @@ public class Medico {
         return true;
     }
 
-    public Slot novoSlot() { return new Slot(); }
 
-    public void registarSlot(Slot s) {
-        inserirMarcacao(s);
-    }
 
-    public Slot encontrarSlot(Slot slot) throws ExceptionSlot {
-        for(Slot s : calendario.getSlots()){
-            if(s.equals(slot)){
-                return s;
-            }
-        }
-        throw new ExceptionSlot("Marcação não existe!");
-    }
 
-    public Slot encontrarSlot(int codigo) throws ExceptionSlot {
-        for(Slot s : calendario.getSlots()){
-            if(s.getId() == codigo){
-                return s;
-            }
-        }
-        throw new ExceptionSlot("Cliente não existe!");
-    }
-
-    private void inserirMarcacao(Slot slot) {
-        for(Slot s : calendario.getSlots()){
-            if(s.equals(slot)){
-                s = slot;
-            }
-        }
-    }
-
-    public String consultarSlots() throws ExceptionSlot {
-        StringBuilder lst = new StringBuilder();
-        if(calendario.getSlots().size() == 0){ throw new ExceptionSlot("Slot não encontrado!!!"); }
-        for(Slot s : calendario.getSlots()) {
-            lst.append(s.toString());
-            lst.append("\n");
-        }
-        return lst.toString();
-    }
-
-    public String consultarSlotsVagos() throws ExceptionSlot {
-        StringBuilder lst = new StringBuilder();
-        if(calendario.getSlots().size() == 0){ throw new ExceptionSlot("Slot não encontrado!!!"); }
-        for(Slot s : calendario.getSlots()) {
-            if(!s.getStatus()){
-                lst.append(s.toString());
-                lst.append("\n");
-            }
-        }
-        return lst.toString();
-    }
 
 }

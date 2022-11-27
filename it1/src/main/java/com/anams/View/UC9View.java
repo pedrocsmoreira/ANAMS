@@ -1,6 +1,7 @@
 package com.anams.View;
 
 import java.io.Console;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import com.anams.Model.Clinica;
@@ -29,26 +30,38 @@ public class UC9View {
     public void run(Medico m){
         this.medico = m;
         System.out.println("---------- Registo de Calendário ----------");
-        controller.novoCalendario(medico);
-        inserirDados();
-    }
 
-    public void inserirDados(){
+        int dias = controller.novoCalendarioMensal();
+
         ArrayList<Especialidade> listaEspecialidades = controller.getEspecialidades();
         ArrayList<TipoServico> listaTiposServico = controller.getTiposServico();
-        for(int i = 0; i < listaEspecialidades.size(); i++){
-            for(int n = 0; n < listaTiposServico.size(); n++){
-                inserirDadosCalendario();
-            }
-        }
-    }
 
-    public void inserirDadosCalendario(){
-        Data data = getData();
-        int horaInicio = getHoraInicio();
-        int horaFim = getHoraFim(horaInicio);
-        int duracao = getDuracao();
-        controller.criarSlots(data, horaInicio, horaFim, duracao);
+        for(int n = 0; n < dias; n++){
+            controller.novoSlotDiario();
+            for(int i = 0; i < listaEspecialidades.size(); i++){
+                System.out.println(listaEspecialidades.get(i));
+                for(int j = 0; j < listaTiposServico.size(); j++){
+                    System.out.println(listaTiposServico.get(j));
+                    Data data = getData();
+                    int horaInicio = getHoraInicio();
+                    int horaFim = getHoraFim(horaInicio);
+                    int duracao = getDuracao();
+                    controller.criarEntrada(listaEspecialidades.get(i), listaTiposServico.get(j), data, horaInicio, horaFim, duracao);
+                }
+            }
+            controller.guardarSlot();
+        }
+
+        System.out.println(controller.verCalendario());
+
+        String opcao = console.readLine("Pretende registar o calendário? (Y/N):");
+
+        if(!opcao.equalsIgnoreCase("y")){
+            return;
+        }
+
+        controller.guardarCalendario();
+
     }
 
     private Data getData() {

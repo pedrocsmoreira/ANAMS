@@ -24,7 +24,7 @@ public class UC10View {
     public void run(Medico m){
         this.medico = m;
         System.out.println("---------- Consultar Calendário de Marcações ----------");
-        
+        System.out.println(controller.procurarMarcacoes(medico));
     }
 
 }

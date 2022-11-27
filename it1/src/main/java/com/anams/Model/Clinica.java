@@ -1,6 +1,7 @@
 package com.anams.Model;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.anams.Exception.ExceptionCliente;
@@ -30,8 +31,7 @@ public class Clinica {
     private ArrayList<Servico> listaServicos;
     private ArrayList<Convencao> listaConvencoes;
     private ArrayList<Cliente> listaClientes;
-
-    private ArrayList<Slot> listaSlots;
+    private ArrayList<Marcacao> listaMarcacoes;
 
     private static final String STR_DEFAULT = "";
     private static final int INT_DEFAULT = 0;
@@ -52,7 +52,6 @@ public class Clinica {
         this.listaServicos = new ArrayList<Servico>();
         this.listaConvencoes =  new ArrayList<Convencao>();
         this.listaClientes = new ArrayList<Cliente>();
-        this.listaSlots = new ArrayList<Slot>();
     }
 
     /**
@@ -76,7 +75,6 @@ public class Clinica {
         this.listaServicos = new ArrayList<Servico>();
         this.listaConvencoes =  new ArrayList<Convencao>();
         this.listaClientes =  new ArrayList<Cliente>();
-        this.listaSlots = new ArrayList<Slot>();
     }
 
     /**
@@ -566,15 +564,31 @@ public class Clinica {
         return false;
     }
 
+    public void guardarMarcacao(Marcacao marcacao) {
+        this.listaMarcacoes.add(marcacao);
+    }
+
+    public String getMarcacoes(Cliente cliente) {
+        StringBuilder sb = new StringBuilder();
+        for(Marcacao m : listaMarcacoes){
+            if(m.getCliente().equals(cliente)){
+                sb.append(m.toString());
+                sb.append("\n");
+            }
+        }
+        return sb.toString();
+    }
 
 
-    
-
-    
-
-
-
-
-
+    public List<Medico> procurarMedicos(Especialidade e) throws ExceptionMedico {
+        List<Medico> med = new ArrayList<Medico>();
+        if(listaMedicos.size() == 0){ throw new ExceptionMedico("Médico não encontrado!!!"); }
+        for(Medico m : listaMedicos){
+            if(m.getEspecialidades().contains(e)){
+                med.add(m);
+            }
+        }
+        return med;
+    }
 
 }
