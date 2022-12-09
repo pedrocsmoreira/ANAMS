@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="451a3a59-0097-4d94-9a16-7aa2b5cda721" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/it1/src/main/java/com/anams/Controller/UC8Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/it1/src/main/java/com/anams/Controller/UC8Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/it1/src/main/java/com/anams/Menu/MenuCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/it1/src/main/java/com/anams/Menu/MenuCL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/it1/src/main/java/com/anams/Model/Clinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/it1/src/main/java/com/anams/Model/Clinica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/it1/src/main/java/com/anams/View/UC8View.java" beforeDir="false" afterPath="$PROJECT_DIR$/it1/src/main/java/com/anams/View/UC8View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,21 +30,6 @@
       <recent name="C:\Users\Beatriz Neves\Documents\GitHub\ANAMS\ANAMS\it1\src\main\java\com\anams\Menu" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -64,6 +45,7 @@
       <workItem from="1668452988270" duration="384000" />
       <workItem from="1669199344077" duration="1766000" />
       <workItem from="1669201156045" duration="35000" />
+      <workItem from="1669577237223" duration="716000" />
     </task>
     <servers />
   </component>
